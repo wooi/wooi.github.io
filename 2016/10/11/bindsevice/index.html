@@ -58,12 +58,19 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
+<meta property="og:type" content="article">
 <meta property="og:title" content="同文館">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/10/11/bindsevice/index.html">
 <meta property="og:site_name" content="同文館">
+<meta property="og:description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
+<meta property="og:updated_time" content="2016-10-11T13:53:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同文館">
+<meta name="twitter:description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
 
 
 
@@ -84,9 +91,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/11/bindsevice/"/>
 
-  <title> 同文館 </title>
+  <title>  | 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -107,9 +114,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -196,9 +201,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -219,9 +224,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/11/bindsevice/" itemprop="url">
-                  未命名
-                </a>
               
             
           </h1>
@@ -261,9 +263,7 @@
       
 
       
-        
-          
-            <h1 id="绑定服务"><a href="#绑定服务" class="headerlink" title="绑定服务"></a>绑定服务</h1><p>绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。</p>
+        <h1 id="绑定服务"><a href="#绑定服务" class="headerlink" title="绑定服务"></a>绑定服务</h1><p>绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。</p>
 <h2 id="Sevice"><a href="#Sevice" class="headerlink" title="Sevice"></a>Sevice</h2><p>以下这个服务可让客户端通过 Binder 实现访问服务中的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class LocalService extends Service &#123;</div><div class="line">    IBinder mBinder = new LocalBinder();</div><div class="line">    private final Random mGenerator = new Random();</div><div class="line"></div><div class="line">    public class LocalBinder extends Binder &#123;</div><div class="line">        LocalService getService() &#123;</div><div class="line">            return LocalService.this;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Nullable</div><div class="line">    @Override</div><div class="line">    public IBinder onBind(Intent intent) &#123;</div><div class="line">        return mBinder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getRandomNumber() &#123;</div><div class="line">        return mGenerator.nextInt(100);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">	public class MainActivity extends Activity &#123;</div><div class="line">	    LocalService mService;</div><div class="line">	    Button button;</div><div class="line">	    Boolean mBound;</div><div class="line">	</div><div class="line">	    @Override</div><div class="line">	    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">	        super.onCreate(savedInstanceState);</div><div class="line">	        setContentView(R.layout.activity_main);</div><div class="line">	        button = (Button) findViewById(R.id.button);</div><div class="line">	        button.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">	            @Override</div><div class="line">	            public void onClick(View view) &#123;</div><div class="line">	                if (mBound) &#123;</div><div class="line">	                    int num = mService.getRandomNumber();</div><div class="line">	                    Toast.makeText(getApplicationContext(), String.valueOf(num), Toast.LENGTH_LONG).show();</div><div class="line">	                &#125;</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">	    &#125;</div><div class="line">	</div><div class="line">	    @Override</div><div class="line">	    protected void onStart() &#123;</div><div class="line">	        super.onStart();</div><div class="line">	        Intent intent = new Intent(this, LocalService.class);</div><div class="line">	        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);</div><div class="line">	    &#125;</div><div class="line">	</div><div class="line">	    @Override</div><div class="line">	    protected void onStop() &#123;</div><div class="line">	        super.onStop();</div><div class="line">	        unbindService(mConnection);</div><div class="line">	    &#125;</div><div class="line">	</div><div class="line">	    private ServiceConnection mConnection = new ServiceConnection() &#123;</div><div class="line">	        @Override</div><div class="line">	        public void onServiceConnected(ComponentName componentName, IBinder iBinder) &#123;</div><div class="line">	            LocalService.LocalBinder binder = (LocalService.LocalBinder) iBinder;</div><div class="line">	            mService = binder.getService();</div><div class="line">	            mBound = true;</div><div class="line">	        &#125;</div><div class="line">	</div><div class="line">	        @Override</div><div class="line">	        public void onServiceDisconnected(ComponentName componentName) &#123;</div><div class="line">	            mBound = false;</div><div class="line">	</div><div class="line">	        &#125;</div><div class="line">	    &#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">## MessagerSevice</div><div class="line">以下是一个使用 Messenger 接口的简单服务示例：</div><div class="line"></div><div class="line">	public class MessengerService extends Service &#123;</div><div class="line">	    static final int MSG_SAY_HELLO = 1;</div><div class="line">	</div><div class="line">	    Messenger mMessenger = new Messenger(new IncomingHandler());</div><div class="line">	</div><div class="line">	    @Nullable</div><div class="line">	    @Override</div><div class="line">	    public IBinder onBind(Intent intent) &#123;</div><div class="line">	        Toast.makeText(getApplicationContext(), &quot;binding&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">	        return mMessenger.getBinder();</div><div class="line">	    &#125;</div><div class="line">	</div><div class="line">	    class IncomingHandler extends Handler &#123;</div><div class="line">	        @Override</div><div class="line">	        public void handleMessage(Message msg) &#123;</div><div class="line">	            switch (msg.what) &#123;</div><div class="line">	                case MSG_SAY_HELLO:</div><div class="line">	                    Toast.makeText(getApplicationContext(), &quot;hello!&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">	                    break;</div><div class="line">	                default:</div><div class="line">	                    super.handleMessage(msg);</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <h2 id="ActivityMessager"><a href="#ActivityMessager" class="headerlink" title="ActivityMessager"></a>ActivityMessager</h2><p>客户端只需根据服务返回的 IBinder 创建一个 Messenger，然后利用 send() 发送一条消息。例如，以下就是一个绑定到服务并向服务传递 MSG_SAY_HELLO 消息的简单 Activity：</p>
@@ -292,16 +292,20 @@
 <li>此外，如果您的服务已启动并接受绑定，则当系统调用您的 onUnbind() 方法时，如果您想在客户端下一次绑定到服务时接收 onRebind() 调用（而不是接收 onBind() 调用），则可选择返回 true。onRebind() 返回空值，但客户端仍在其 onServiceConnected() 回调中接收 IBinder。下文图 1 说明了这种生命周期的逻辑。</li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -309,121 +313,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/03/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/09/03/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T16:34:54+08:00" content="2016-09-03">
-              2016-09-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -431,6 +346,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -450,8 +369,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -516,6 +444,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定服务"><span class="nav-number">1.</span> <span class="nav-text">绑定服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sevice"><span class="nav-number">1.1.</span> <span class="nav-text">Sevice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client"><span class="nav-number">1.2.</span> <span class="nav-text">Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityMessager"><span class="nav-number">1.3.</span> <span class="nav-text">ActivityMessager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定到服务"><span class="nav-number">1.4.</span> <span class="nav-text">绑定到服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加说明"><span class="nav-number">1.5.</span> <span class="nav-text">附加说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理绑定服务的生命周期"><span class="nav-number">1.6.</span> <span class="nav-text">管理绑定服务的生命周期</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -610,6 +549,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
