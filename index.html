@@ -219,6 +219,110 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/generics/" itemprop="url">
+                  泛型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T11:55:54+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。</p>
+<h1 id="泛型的定义及目的"><a href="#泛型的定义及目的" class="headerlink" title="泛型的定义及目的"></a>泛型的定义及目的</h1><p>泛型的定义主要有以下两种：</p>
+<ol>
+<li><p>在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）</p>
+</li>
+<li><p>在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板）<br>不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。</p>
+</li>
+</ol>
+<p>一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。</p>
+<h1 id="伪代码例子"><a href="#伪代码例子" class="headerlink" title="伪代码例子"></a>伪代码例子</h1><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">類例泛類&lt;T&gt; &#123;</div><div class="line">　　值 : T</div><div class="line"></div><div class="line">　　設置值<span class="comment">(新值 : T)</span> &#123;</div><div class="line">　　　　值 := 新值</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　獲取值<span class="comment">()</span> : T &#123;</div><div class="line">　　　　返回　值</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">例方法<span class="number">1</span><span class="comment">()</span> &#123;</div><div class="line">　　例物件 : 例泛類&lt;整數型&gt;</div><div class="line">　　例物件 := 新　例泛類&lt;整數型&gt;<span class="comment">()</span></div><div class="line">　　例物件.設置值<span class="comment">(5)</span></div><div class="line">　　输出整数<span class="comment">(例对象.获取值()</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">例方法<span class="number">2</span><span class="comment">()</span> &#123;</div><div class="line">　　例物件 : 例泛-&#123;&#125;-類&lt;浮點數型&gt;</div><div class="line">　　例物件 := 新　例泛類&lt;浮點數型&gt;<span class="comment">()</span></div><div class="line">　　例物件.設置值<span class="comment">(5.5)</span></div><div class="line">　　输出浮点数<span class="comment">(例对象.获取值()</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>this article from <a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B" target="_blank" rel="external">wikipedia</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/11/badstory1/" itemprop="url">
                   爛的故事
                 </a>
@@ -559,7 +663,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
