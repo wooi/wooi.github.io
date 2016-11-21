@@ -58,16 +58,19 @@
 
 
 
-<meta name="description" content="关于我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注解解释">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/annotation/index.html">
 <meta property="og:site_name" content="同文館">
-<meta property="og:description" content="关于我">
-<meta property="og:updated_time" content="2016-09-03T13:21:47.000Z">
+<meta property="og:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
+<meta property="og:updated_time" content="2016-11-21T04:19:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="关于我">
+<meta name="twitter:title" content="注解解释">
+<meta name="twitter:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
 
 
 
@@ -88,15 +91,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/annotation/"/>
 
-  <title>
-  
-
-  
-    about | 同文館
-  
-</title>
+  <title> 注解解释 | 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -117,7 +114,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,10 +204,119 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p> 关于我</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                注解解释
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T12:19:54+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。<br>Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// @Twizzle标注toggle()方法。</span></div><div class="line"> <span class="variable">@Twizzle</span></div><div class="line"> public void toggle() &#123;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// 声明Twizzle标注</span></div><div class="line"> public <span class="variable">@interface</span> Twizzle &#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>标注可以包含一个关键字和值的对所构成的列表：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//等同于 @Edible(value = true)</span></div><div class="line"> <span class="meta">@Edible</span>(<span class="keyword">true</span>)</div><div class="line"> Item item = <span class="keyword">new</span> Carrot();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Edible &#123;</div><div class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="meta">@Author</span>(first = <span class="string">"Oompah"</span>, last = <span class="string">"Loompah"</span>)</div><div class="line"> Book book = <span class="keyword">new</span> Book();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Author &#123;</div><div class="line">   <span class="function">String <span class="title">first</span><span class="params">()</span></span>;</div><div class="line">   <span class="function">String <span class="title">last</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/21/generics/" rel="next" title="泛型">
+                <i class="fa fa-chevron-left"></i> 泛型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/javaclone/" rel="prev" title="Java 的拷贝">
+                Java 的拷贝 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -242,8 +348,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -315,6 +430,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -409,6 +535,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
