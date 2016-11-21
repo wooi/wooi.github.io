@@ -58,19 +58,31 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="泛型泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的泛型的定义主要有以下两种：
+
+在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+
+在程序编码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/09/03/hello-world/index.html">
+<meta property="og:title" content="泛型">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/generics的副本/index.html">
 <meta property="og:site_name" content="同文館">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-09-03T08:34:54.000Z">
+<meta property="og:description" content="泛型泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的泛型的定义主要有以下两种：
+
+在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+
+在程序编码">
+<meta property="og:updated_time" content="2016-11-21T04:14:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="泛型">
+<meta name="twitter:description" content="泛型泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的泛型的定义主要有以下两种：
+
+在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+
+在程序编码">
 
 
 
@@ -91,9 +103,9 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/03/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/generics的副本/"/>
 
-  <title> Hello World | 同文館 </title>
+  <title> 泛型 | 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -223,7 +235,7 @@ Quick">
             
             
               
-                Hello World
+                泛型
               
             
           </h1>
@@ -235,8 +247,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T16:34:54+08:00" content="2016-09-03">
-              2016-09-03
+            <time itemprop="dateCreated" datetime="2016-11-21T11:55:54+08:00" content="2016-11-21">
+              2016-11-21
             </time>
           </span>
 
@@ -263,15 +275,17 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。</p>
+<h1 id="泛型的定义及目的"><a href="#泛型的定义及目的" class="headerlink" title="泛型的定义及目的"></a>泛型的定义及目的</h1><p>泛型的定义主要有以下两种：</p>
+<ol>
+<li><p>在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）</p>
+</li>
+<li><p>在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板）<br>不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。</p>
+</li>
+</ol>
+<p>一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。</p>
+<h1 id="伪代码例子"><a href="#伪代码例子" class="headerlink" title="伪代码例子"></a>伪代码例子</h1><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">類例泛類&lt;T&gt; &#123;</div><div class="line">　　值 : T</div><div class="line"></div><div class="line">　　設置值<span class="comment">(新值 : T)</span> &#123;</div><div class="line">　　　　值 := 新值</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　獲取值<span class="comment">()</span> : T &#123;</div><div class="line">　　　　返回　值</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">例方法<span class="number">1</span><span class="comment">()</span> &#123;</div><div class="line">　　例物件 : 例泛類&lt;整數型&gt;</div><div class="line">　　例物件 := 新　例泛類&lt;整數型&gt;<span class="comment">()</span></div><div class="line">　　例物件.設置值<span class="comment">(5)</span></div><div class="line">　　输出整数<span class="comment">(例对象.获取值()</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">例方法<span class="number">2</span><span class="comment">()</span> &#123;</div><div class="line">　　例物件 : 例泛-&#123;&#125;-類&lt;浮點數型&gt;</div><div class="line">　　例物件 := 新　例泛類&lt;浮點數型&gt;<span class="comment">()</span></div><div class="line">　　例物件.設置值<span class="comment">(5.5)</span></div><div class="line">　　输出浮点数<span class="comment">(例对象.获取值()</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>this article from <a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B" target="_blank" rel="external">wikipedia</a></p>
 
       
     </div>
@@ -297,12 +311,16 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/11/badstory1/" rel="next" title="爛的故事">
+                <i class="fa fa-chevron-left"></i> 爛的故事
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/11/bindsevice/" rel="prev" title="BindSevice的几种使用方法">
-                BindSevice的几种使用方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/generics/" rel="prev" title="泛型">
+                泛型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -439,7 +457,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型的定义及目的"><span class="nav-number">2.</span> <span class="nav-text">泛型的定义及目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#伪代码例子"><span class="nav-number">3.</span> <span class="nav-text">伪代码例子</span></a></li></ol></div>
             
           </div>
         </section>
