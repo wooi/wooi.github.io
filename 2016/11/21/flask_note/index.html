@@ -1,0 +1,696 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#Flask笔记
+2.1初始化Web 服务器使用一种名为 Web 服务器网关接口（Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到Python 函数的映射关系。处理 URL 和函数之间关系的程序称为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask Web开发">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/flask_note/index.html">
+<meta property="og:site_name" content="同文館">
+<meta property="og:description" content="#Flask笔记
+2.1初始化Web 服务器使用一种名为 Web 服务器网关接口（Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到Python 函数的映射关系。处理 URL 和函数之间关系的程序称为">
+<meta property="og:updated_time" content="2016-11-21T07:55:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask Web开发">
+<meta name="twitter:description" content="#Flask笔记
+2.1初始化Web 服务器使用一种名为 Web 服务器网关接口（Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到Python 函数的映射关系。处理 URL 和函数之间关系的程序称为">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/flask_note/"/>
+
+  <title> Flask Web开发 | 同文館 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">同文館</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Flask Web开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T14:09:00+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#Flask笔记</p>
+<h5 id="2-1初始化"><a href="#2-1初始化" class="headerlink" title="2.1初始化"></a>2.1初始化</h5><p>Web 服务器使用一种名为 Web 服务器网关接口<br>（Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象</p>
+<h5 id="2-2-路由和视图函数"><a href="#2-2-路由和视图函数" class="headerlink" title="2.2 路由和视图函数"></a>2.2 路由和视图函数</h5><p>程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到<br>Python 函数的映射关系。处理 URL 和函数之间关系的程序称为路由。</p>
+<p><em>在 Python 代码中嵌入响应字符串会导致代码难以维护</em></p>
+<h5 id="2-3启动服务器"><a href="#2-3启动服务器" class="headerlink" title="2.3启动服务器"></a>2.3启动服务器</h5><p><strong>name</strong>==’<strong>main</strong>‘ 是 Python 的惯常用法，在这里确保直接执行这个脚本时才启动开发Web 服务器。如果这个脚本由其他脚本引入，程序假定父级脚本会启动不同的服务器，因此不会执行 app.run()。</p>
+<p>服务器启动后，会进入轮询，等待并处理请求。轮询会一直运行，直到程序停止，比如按Ctrl-C 键。</p>
+<h5 id="2-5请求-响应循环"><a href="#2-5请求-响应循环" class="headerlink" title="2.5请求-响应循环"></a>2.5请求-响应循环</h5><p>######2.5.1　程序和请求上下文</p>
+<p>Flask 使用上下文临时把某些对象<br>变为全局可访问。</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th style="text-align:center">上下文</th>
+<th style="text-align:right">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current_app</td>
+<td style="text-align:center">程序上下文</td>
+<td style="text-align:right">当前激活程序的程序实例</td>
+</tr>
+<tr>
+<td>g</td>
+<td style="text-align:center">程序上下文</td>
+<td style="text-align:right">处理请求时用作临时存储的对象。每次请求都会重设这个变量</td>
+</tr>
+<tr>
+<td>request</td>
+<td style="text-align:center">请求上下文</td>
+<td style="text-align:right">请求对象，封装了客户端发出的</td>
+</tr>
+<tr>
+<td>session</td>
+<td style="text-align:center">请求上下文</td>
+<td style="text-align:right">用户会话，用于存储请求之间需要“记住”的值的词典</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-5-2-请求调度"><a href="#2-5-2-请求调度" class="headerlink" title="2.5.2　请求调度"></a>2.5.2　请求调度</h5><p>程序收到客户端发来的请求时，要找到处理该请求的视图函数。为了完成这个任务，Flask<br>会在程序的 URL 映射中查找请求的 URL。URL 映射是 URL 和视图函数之间的对应关系。<br>Flask 使用 app.route 修饰器或者非修饰器形式的 app.add_url_rule() 生成映射。</p>
+<h5 id="2-5-3-请求钩子"><a href="#2-5-3-请求钩子" class="headerlink" title="2.5.3　请求钩子"></a>2.5.3　请求钩子</h5><p>有时在处理请求之前或之后执行代码会很有用</p>
+<ul>
+<li>before_first_request：注册一个函数，在处理第一个请求之前运行。</li>
+<li>before_request：注册一个函数，在每次请求之前运行。</li>
+<li>after_request：注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行。</li>
+<li>teardown_request：注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。</li>
+</ul>
+<h5 id="2-5-4-响应"><a href="#2-5-4-响应" class="headerlink" title="2.5.4　响应"></a>2.5.4　响应</h5><p>Flask 调用视图函数后，会将其返回值作为响应的内容。大多数情况下，响应就是一个简<br>单的字符串，作为 HTML 页面回送客户端。</p>
+<p>但 HTTP 协议需要的不仅是作为请求响应的字符串。HTTP 响应中一个很重要的部分是状<br>态码，Flask 默认设为 200，这个代码表明请求已经被成功处理。</p>
+<h4 id="3-1-Jinja2模板引擎"><a href="#3-1-Jinja2模板引擎" class="headerlink" title="3.1 Jinja2模板引擎"></a>3.1 Jinja2模板引擎</h4><h5 id="3-1-1-渲染模板"><a href="#3-1-1-渲染模板" class="headerlink" title="3.1.1　渲染模板"></a>3.1.1　渲染模板</h5><p>Flask 提供的 render_template 函数把 Jinja2 模板引擎集成到了程序中。render_template 函<br>数的第一个参数是模板的文件名</p>
+<h5 id="3-1-2-变量"><a href="#3-1-2-变量" class="headerlink" title="3.1.2　变量"></a>3.1.2　变量</h5><p>在模板中使用的  结构表示一个变量，它是一种特殊的占位符，告诉模<br>板引擎这个位置的值从渲染模板时使用的数据中获取。</p>
+<p>Jinja2 能识别所有类型的变量，甚至是一些复杂的类型，例如列表、字典和对象。在模板</p>
+<p>可以使用过滤器修改变量，过滤器名添加在变量名之后，中间使用竖线分隔。例如，下述<br>模板以首字母大写形式显示变量 name 的值：<br>    Hello, </p>
+<h5 id="3-1-3-控制结构"><a href="#3-1-3-控制结构" class="headerlink" title="3.1.3　控制结构"></a>3.1.3　控制结构</h5><p>下面这个例子展示了如何在模板中使用条件控制语句：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> user %&#125;</span><span class="xml"></span></div><div class="line"> Hello, <span class="template-variable">&#123;&#123; user &#125;&#125;</span><span class="xml">!</span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">else</span></span> %&#125;</span><span class="xml"></span></div><div class="line"> Hello, Stranger!</div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>另一种常见需求是在模板中渲染一组元素。下例展示了如何使用 for 循环实现这一需求：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> comment <span class="keyword">in</span> comments %&#125;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="template-variable">&#123;&#123; comment &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">endfor</span></span> %&#125;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Jinja2 还支持宏。宏类似于 Python 代码中的函数。</p>
+<p>需要在多处重复使用的模板代码片段可以写入单独的文件，再包含在所有模板中，以避免<br>重复：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">include</span></span> 'common.html' %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h5 id="3-2-使用Flask-Bootstrap集成Twitter-Bootstrap"><a href="#3-2-使用Flask-Bootstrap集成Twitter-Bootstrap" class="headerlink" title="3.2　使用Flask-Bootstrap集成Twitter Bootstrap"></a>3.2　使用Flask-Bootstrap集成Twitter Bootstrap</h5><p>Bootstrap（<a href="http://getbootstrap.com/）是" target="_blank" rel="external">http://getbootstrap.com/）是</a> Twitter 开发的一个开源框架，它提供的用户界面组<br>件可用于创建整洁且具有吸引力的网页，而且这些网页还能兼容所有现代 Web 浏览器。</p>
+<h5 id="3-3-自定义错误页面"><a href="#3-3-自定义错误页面" class="headerlink" title="3.3　自定义错误页面"></a>3.3　自定义错误页面</h5><p>像常规路由一样，Flask 允许程序使用基于模板的自定义错误页面。最常见的错误代码有<br>两个：404，客户端请求未知页面或路由时显示；500，有未处理的异常时显示。为这两个<br>错误代码指定自定义处理程序的方式如示例 3-6 所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.errorhandler(404)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span><span class="params">(e)</span>:</span></div><div class="line"> <span class="keyword">return</span> render_template(<span class="string">'404.html'</span>), <span class="number">404</span></div><div class="line"><span class="meta">@app.errorhandler(500)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">internal_server_error</span><span class="params">(e)</span>:</span></div><div class="line"> <span class="keyword">return</span> render_template(<span class="string">'500.html'</span>), <span class="number">500</span></div></pre></td></tr></table></figure>
+<p>3.4　链接<br>在模板中直接编写简单路由的 URL 链接不难，但对于包含可变部分的动态路由，在模板<br>中构建正确的 URL 就很困难。<strong>而且，直接编写 URL 会对代码中定义的路由产生不必要的<br>依赖关系。如果重新定义路由，模板中的链接可能会失效。</strong></p>
+<p>为了避免这些问题，Flask 提供了 <strong>url_for()</strong> 辅助函数，它可以使用程序 URL 映射中保存的信息生成 URL。</p>
+<h5 id="3-5-静态文件"><a href="#3-5-静态文件" class="headerlink" title="3.5　静态文件"></a>3.5　静态文件</h5><p>默认设置下，Flask 在程序根目录中名为 static 的子目录中寻找静态文件。如果需要，可在static 文件夹中使用子文件夹存放文件。</p>
+<h5 id="3-6-使用Flask-Moment本地化日期和时间"><a href="#3-6-使用Flask-Moment本地化日期和时间" class="headerlink" title="3.6　使用Flask-Moment本地化日期和时间"></a>3.6　使用Flask-Moment本地化日期和时间</h5><p>服务器需要统一时间单位，这和用户所在的地理位置无关，所以一般使用协调世界时<br>（Coordinated Universal Time，UTC）.不过用户看到 UTC 格式的时间会感到困惑，他们更希望看到当地时间，而且采用当地惯用的格式。</p>
+<p>一个优雅的解决方案是，把时间单位发送给 Web 浏览器，转换成当地时间，然后渲染。</p>
+<h5 id="4-1-跨站请求伪造保护"><a href="#4-1-跨站请求伪造保护" class="headerlink" title="4.1　跨站请求伪造保护"></a>4.1　跨站请求伪造保护</h5><p>默认情况下，Flask-WTF 能保护所有表单免受跨站请求伪造（Cross-Site Request Forgery，<br>CSRF）的攻击。恶意网站把请求发送到被攻击者已登录的其他网站时就会引发 CSRF 攻击。</p>
+<p>为了实现 CSRF 保护，Flask-WTF 需要程序设置一个密钥。Flask-WTF 使用这个密钥生成<br>加密令牌，再用令牌验证请求中表单数据的真伪。设置密钥的方法如示例 4-1 所示。</p>
+<h5 id="4-2-表单类"><a href="#4-2-表单类" class="headerlink" title="4.2　表单类"></a>4.2　表单类</h5><p>使用 Flask-WTF 时，每个 Web 表单都由一个继承自 Form 的类表示。这</p>
+<h5 id="4-3-把表单渲染成HTML"><a href="#4-3-把表单渲染成HTML" class="headerlink" title="4.3　把表单渲染成HTML"></a>4.3　把表单渲染成HTML</h5><p>表单字段是可调用的，在模板中调用后会渲染成 HTML。假设视图函数把一个 NameForm 实例通过参数 form 传入模板，在模板中可以生成一个简单的表单，如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">form</span> method=<span class="string">"POST"</span>&gt;</div><div class="line"> &#123;&#123; <span class="selector-tag">form</span>.hidden_tag() &#125;&#125;</div><div class="line"> &#123;&#123; <span class="selector-tag">form</span><span class="selector-class">.name</span><span class="selector-class">.label</span> &#125;&#125; &#123;&#123; <span class="selector-tag">form</span>.name() &#125;&#125;</div><div class="line"> &#123;&#123; <span class="selector-tag">form</span>.submit() &#125;&#125;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<h5 id="4-4-在视图函数中处理表单"><a href="#4-4-在视图函数中处理表单" class="headerlink" title="4.4　在视图函数中处理表单"></a>4.4　在视图函数中处理表单</h5><p>不仅要渲染表单，还要接收表单中的数据</p>
+<h5 id="4-5-重定向和用户会话"><a href="#4-5-重定向和用户会话" class="headerlink" title="4.5　重定向和用户会话"></a>4.5　重定向和用户会话</h5><p>程序可以把数据存储在用户会话中，在请求之间“记住”数据。用户会话是一种私有存储，存在于每个连接到服务器的客户端中</p>
+<h5 id="4-6-Flash消息"><a href="#4-6-Flash消息" class="headerlink" title="4.6 Flash消息"></a>4.6 Flash消息</h5><p>请求完成后，有时需要让用户知道状态发生了变化。这里可以使用确认消息、警告或者错误提醒。</p>
+<p>仅调用 flash() 函数并不能把消息显示出来，程序使用的模板要渲染这些消息。最好在基模板中渲染Flash 消息，因为这样所有页面都能使用这些消息。Flask 把get_flashed_messages() 函数开放给模板，用来获取并渲染消息</p>
+<h5 id="5-1-SQL数据库"><a href="#5-1-SQL数据库" class="headerlink" title="5.1 SQL数据库"></a>5.1 SQL数据库</h5><p>关系型数据库把数据存储在表中，表模拟程序中不同的实体。</p>
+<p>表的列数是固定的，行数是可变的。列定义表所表示的实体的数据属性。</p>
+<p>表中有个特殊的列，称为<em>主键</em>，其值为表中各行的唯一标识符。表中还可以有称为<em>外键</em>的列，引用同一个表或不同表中某行的主键。行之间的这种联系称为关系，这是关系型数据库模型的基础。</p>
+<h5 id="5-2-NoSQL数据库"><a href="#5-2-NoSQL数据库" class="headerlink" title="5.2 NoSQL数据库"></a>5.2 NoSQL数据库</h5><p>所有不遵循上节所述的关系模型的数据库统称为 NoSQL 数据库。</p>
+<p><em>使用 NoSQL 数据库当然也有好处。数据重复可以提升查询速度。列出用户及其角色的操作很简单，因为无需联结</em></p>
+<h5 id="5-3-使用SQL还是NoSQL"><a href="#5-3-使用SQL还是NoSQL" class="headerlink" title="5.3　使用SQL还是NoSQL"></a>5.3　使用SQL还是NoSQL</h5><p>SQL 数据库擅于用高效且紧凑的形式存储结构化数据。这种数据库需要花费大量精力保证数据的一致性。NoSQL 数据库放宽了对这种一致性的要求，从而获得性能上的优势。</p>
+<h5 id="5-4-Python数据库框架"><a href="#5-4-Python数据库框架" class="headerlink" title="5.4 Python数据库框架"></a>5.4 Python数据库框架</h5><p>Flask 并不限制你使<br>用何种类型的数据库包，因此可以根据自己的喜好选择使用 MySQL、Postgres、SQLite、Redis、MongoDB 或者 CouchDB。</p>
+<ol>
+<li>易用性</li>
+<li>性能</li>
+<li>可移植性</li>
+</ol>
+<h5 id="5-5-使用Flask-SQLAlchemy管理数据库"><a href="#5-5-使用Flask-SQLAlchemy管理数据库" class="headerlink" title="5.5　使用Flask-SQLAlchemy管理数据库"></a>5.5　使用Flask-SQLAlchemy管理数据库</h5><p>Flask-SQLAlchemy 是一个 Flask 扩展，简化了在 Flask 程序中使用 SQLAlchemy 的操作。</p>
+<h5 id="5-6-定义模型"><a href="#5-6-定义模型" class="headerlink" title="5.6　定义模型"></a>5.6　定义模型</h5><p><em>模型</em>这个术语表示程序使用的持久化实体。</p>
+<h5 id="5-7-关系"><a href="#5-7-关系" class="headerlink" title="5.7　关系"></a>5.7　关系</h5><p>关系型数据库使用关系把不同表中的行联系起来。</p>
+<h5 id="5-8-数据库操作"><a href="#5-8-数据库操作" class="headerlink" title="5.8　数据库操作"></a>5.8　数据库操作</h5><h6 id="5-8-1-创建表"><a href="#5-8-1-创建表" class="headerlink" title="5.8.1　创建表"></a>5.8.1　创建表</h6><p>方法是使用 db.create_all()</p>
+<h6 id="5-8-2-插入行"><a href="#5-8-2-插入行" class="headerlink" title="5.8.2　插入行"></a>5.8.2　插入行</h6><p>db.session.add(admin_role)</p>
+<h6 id="5-8-3-修改行"><a href="#5-8-3-修改行" class="headerlink" title="5.8.3　修改行"></a>5.8.3　修改行</h6><p>db.session.add(admin_role)<br>db.session.commit()</p>
+<h6 id="5-8-4-删除行"><a href="#5-8-4-删除行" class="headerlink" title="5.8.4　删除行"></a>5.8.4　删除行</h6><p>db.session.delete(mod_role)<br>db.session.commit()</p>
+<h6 id="5-8-5-查询行"><a href="#5-8-5-查询行" class="headerlink" title="5.8.5　查询行"></a>5.8.5　查询行</h6><p>Flask-SQLAlchemy 为每个模型类都提供了 query 对象</p>
+<h5 id="5-9-在视图函数中操作数据库"><a href="#5-9-在视图函数中操作数据库" class="headerlink" title="5.9　在视图函数中操作数据库"></a>5.9　在视图函数中操作数据库</h5><h5 id="5-10-集成Python-shell"><a href="#5-10-集成Python-shell" class="headerlink" title="5.10　集成Python shell"></a>5.10　集成Python shell</h5><p>每次启动 shell 会话都要导入数据库实例和模型，这真是份枯燥的工作。为了避免一直重复导入，我们可以做些配置，让 Flask-Script 的 shell 命令自动导入特定的对象。</p>
+<h5 id="5-11-使用Flask-Migrate实现数据库迁移"><a href="#5-11-使用Flask-Migrate实现数据库迁移" class="headerlink" title="5.11　使用Flask-Migrate实现数据库迁移"></a>5.11　使用Flask-Migrate实现数据库迁移</h5><h5 id="7-1-项目结构"><a href="#7-1-项目结构" class="headerlink" title="7.1　项目结构"></a>7.1　项目结构</h5><p>多文件 Flask 程序的基本结构</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="string">|-flasky</span></div><div class="line"> <span class="string">|-app/</span></div><div class="line"> 	<span class="string">|-templates/</span></div><div class="line"> 	<span class="string">|-static/</span></div><div class="line"> 	<span class="string">|-main/</span></div><div class="line"> 		<span class="string">|-__init__.py</span></div><div class="line"> 		<span class="string">|-errors.py</span></div><div class="line"> 		<span class="string">|-forms.py</span></div><div class="line"> 		<span class="string">|-views.py</span></div><div class="line"> 	<span class="string">|-__init__.py</span></div><div class="line"> 	<span class="string">|-email.py</span></div><div class="line"> 	<span class="string">|-models.py</span></div><div class="line"> <span class="string">|-migrations/</span></div><div class="line"> <span class="string">|-tests/</span></div><div class="line"> 	<span class="string">|-__init__.py</span></div><div class="line">  	<span class="string">|-test*.py</span></div><div class="line"> <span class="string">|-venv/</span></div><div class="line"> <span class="string">|-requirements.txt</span></div><div class="line"> <span class="string">|-config.py</span></div><div class="line"> <span class="string">|-manage.py</span></div></pre></td></tr></table></figure>
+<p>这种结构有 4 个顶级文件夹：</p>
+<ul>
+<li>Flask 程序一般都保存在名为 app 的包中；</li>
+<li>和之前一样，migrations 文件夹包含数据库迁移脚本；</li>
+<li>单元测试编写在 tests 包中；</li>
+<li>和之前一样，venv 文件夹包含 Python 虚拟环境</li>
+</ul>
+<p>同时还创建了一些新文件：</p>
+<ul>
+<li>requirements.txt 列出了所有依赖包，便于在其他电脑中重新生成相同的虚拟环境；</li>
+<li>requirements.txt 列出了所有依赖包，便于在其他电脑中重新生成相同的虚拟环境；</li>
+<li>manage.py 用于启动程序以及其他的程序任务。</li>
+</ul>
+<h5 id="7-2-配置选项"><a href="#7-2-配置选项" class="headerlink" title="7.2　配置选项"></a>7.2　配置选项</h5><p>程序经常需要设定多个配置。这方面最好的例子就是开发、测试和生产环境要使用不同的数据库，这样才不会彼此影响。</p>
+<h5 id="7-3-程序包"><a href="#7-3-程序包" class="headerlink" title="7.3　程序包"></a>7.3　程序包</h5><p>程序包用来保存程序的所有代码、模板和静态文件。我们可以把这个包直接称为app</p>
+<h5 id="7-3-1-使用程序工厂函数"><a href="#7-3-1-使用程序工厂函数" class="headerlink" title="7.3.1　使用程序工厂函数"></a>7.3.1　使用程序工厂函数</h5><p>在单个文件中开发程序很方便，但却有个很大的缺点，因为程序在全局作用域中创建，所以无法动态修改配置。运行脚本时，程序实例已经创建，再修改配置为时已晚。这一点对单元测试尤其重要，因为有时为了提高测试覆盖度，必须在不同的配置环境中运行程序。</p>
+<p>这个问题的解决方法是延迟创建程序实例，把创建过程移到可显式调用的工厂函数中。这种方法不仅可以给脚本留出配置程序的时间，还能够创建多个程序实例，这些实例有时在测试中非常有用。</p>
+<h5 id="7-3-2-在蓝本中实现程序功能"><a href="#7-3-2-在蓝本中实现程序功能" class="headerlink" title="7.3.2　在蓝本中实现程序功能"></a>7.3.2　在蓝本中实现程序功能</h5><p>蓝本和程序类似，也可以定义路由。不同的<br>是，在蓝本中定义的路由处于休眠状态，直到蓝本注册到程序上后，路由才真正成为程序的一部分。使用位于全局作用域中的蓝本时，定义路由的方法几乎和单脚本程序一样。</p>
+<h5 id="7-4-启动脚本"><a href="#7-4-启动脚本" class="headerlink" title="7.4　启动脚本"></a>7.4　启动脚本</h5><p>顶级文件夹中的 manage.py 文件用于启动程序。</p>
+<h5 id="7-5-需求文件"><a href="#7-5-需求文件" class="headerlink" title="7.5　需求文件"></a>7.5　需求文件</h5><p>程序中必须包含一个 requirements.txt 文件，用于记录所有依赖包及其精确的版本号。如果要在另一台电脑上重新生成虚拟环境，这个文件的重要性就体现出来了，例如部署程序时使用的电脑。pip 可以使用如下命令自动生成这个文件：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(venv) <span class="variable">$ </span>pip freeze &gt;requirements.txt</div></pre></td></tr></table></figure>
+<h5 id="7-6-单元测试"><a href="#7-6-单元测试" class="headerlink" title="7.6　单元测试"></a>7.6　单元测试</h5><h5 id="7-7-创建数据库"><a href="#7-7-创建数据库" class="headerlink" title="7.7　创建数据库"></a>7.7　创建数据库</h5><h5 id="8-1-Flask的认证扩展"><a href="#8-1-Flask的认证扩展" class="headerlink" title="8.1 Flask的认证扩展"></a>8.1 Flask的认证扩展</h5><h5 id="8-2-密码安全性"><a href="#8-2-密码安全性" class="headerlink" title="8.2　密码安全性"></a>8.2　密码安全性</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/21/okhttp_analyse/" rel="next" title="Okhttp 源码解析">
+                <i class="fa fa-chevron-left"></i> Okhttp 源码解析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/android_interface_definition_language/" rel="prev" title="AIDL 官方使用介绍">
+                AIDL 官方使用介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wooi" />
+          <p class="site-author-name" itemprop="name">Wooi</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wooi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/PPPatrickStar" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://http://weibo.com/zzzidane/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1初始化"><span class="nav-number">1.</span> <span class="nav-text">2.1初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-路由和视图函数"><span class="nav-number">2.</span> <span class="nav-text">2.2 路由和视图函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3启动服务器"><span class="nav-number">3.</span> <span class="nav-text">2.3启动服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5请求-响应循环"><span class="nav-number">4.</span> <span class="nav-text">2.5请求-响应循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-2-请求调度"><span class="nav-number">5.</span> <span class="nav-text">2.5.2　请求调度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-3-请求钩子"><span class="nav-number">6.</span> <span class="nav-text">2.5.3　请求钩子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-4-响应"><span class="nav-number">7.</span> <span class="nav-text">2.5.4　响应</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Jinja2模板引擎"><span class="nav-number"></span> <span class="nav-text">3.1 Jinja2模板引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1-渲染模板"><span class="nav-number">1.</span> <span class="nav-text">3.1.1　渲染模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2-变量"><span class="nav-number">2.</span> <span class="nav-text">3.1.2　变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-3-控制结构"><span class="nav-number">3.</span> <span class="nav-text">3.1.3　控制结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-使用Flask-Bootstrap集成Twitter-Bootstrap"><span class="nav-number">4.</span> <span class="nav-text">3.2　使用Flask-Bootstrap集成Twitter Bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-自定义错误页面"><span class="nav-number">5.</span> <span class="nav-text">3.3　自定义错误页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-静态文件"><span class="nav-number">6.</span> <span class="nav-text">3.5　静态文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6-使用Flask-Moment本地化日期和时间"><span class="nav-number">7.</span> <span class="nav-text">3.6　使用Flask-Moment本地化日期和时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-跨站请求伪造保护"><span class="nav-number">8.</span> <span class="nav-text">4.1　跨站请求伪造保护</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-表单类"><span class="nav-number">9.</span> <span class="nav-text">4.2　表单类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-把表单渲染成HTML"><span class="nav-number">10.</span> <span class="nav-text">4.3　把表单渲染成HTML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-在视图函数中处理表单"><span class="nav-number">11.</span> <span class="nav-text">4.4　在视图函数中处理表单</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-5-重定向和用户会话"><span class="nav-number">12.</span> <span class="nav-text">4.5　重定向和用户会话</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-6-Flash消息"><span class="nav-number">13.</span> <span class="nav-text">4.6 Flash消息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-SQL数据库"><span class="nav-number">14.</span> <span class="nav-text">5.1 SQL数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-NoSQL数据库"><span class="nav-number">15.</span> <span class="nav-text">5.2 NoSQL数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-使用SQL还是NoSQL"><span class="nav-number">16.</span> <span class="nav-text">5.3　使用SQL还是NoSQL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-4-Python数据库框架"><span class="nav-number">17.</span> <span class="nav-text">5.4 Python数据库框架</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-使用Flask-SQLAlchemy管理数据库"><span class="nav-number">18.</span> <span class="nav-text">5.5　使用Flask-SQLAlchemy管理数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-定义模型"><span class="nav-number">19.</span> <span class="nav-text">5.6　定义模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-7-关系"><span class="nav-number">20.</span> <span class="nav-text">5.7　关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-8-数据库操作"><span class="nav-number">21.</span> <span class="nav-text">5.8　数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-8-1-创建表"><span class="nav-number">21.1.</span> <span class="nav-text">5.8.1　创建表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-8-2-插入行"><span class="nav-number">21.2.</span> <span class="nav-text">5.8.2　插入行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-8-3-修改行"><span class="nav-number">21.3.</span> <span class="nav-text">5.8.3　修改行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-8-4-删除行"><span class="nav-number">21.4.</span> <span class="nav-text">5.8.4　删除行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-8-5-查询行"><span class="nav-number">21.5.</span> <span class="nav-text">5.8.5　查询行</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-9-在视图函数中操作数据库"><span class="nav-number">22.</span> <span class="nav-text">5.9　在视图函数中操作数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-10-集成Python-shell"><span class="nav-number">23.</span> <span class="nav-text">5.10　集成Python shell</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-11-使用Flask-Migrate实现数据库迁移"><span class="nav-number">24.</span> <span class="nav-text">5.11　使用Flask-Migrate实现数据库迁移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-1-项目结构"><span class="nav-number">25.</span> <span class="nav-text">7.1　项目结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-配置选项"><span class="nav-number">26.</span> <span class="nav-text">7.2　配置选项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-3-程序包"><span class="nav-number">27.</span> <span class="nav-text">7.3　程序包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-3-1-使用程序工厂函数"><span class="nav-number">28.</span> <span class="nav-text">7.3.1　使用程序工厂函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-3-2-在蓝本中实现程序功能"><span class="nav-number">29.</span> <span class="nav-text">7.3.2　在蓝本中实现程序功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-4-启动脚本"><span class="nav-number">30.</span> <span class="nav-text">7.4　启动脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-5-需求文件"><span class="nav-number">31.</span> <span class="nav-text">7.5　需求文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-6-单元测试"><span class="nav-number">32.</span> <span class="nav-text">7.6　单元测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-7-创建数据库"><span class="nav-number">33.</span> <span class="nav-text">7.7　创建数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-1-Flask的认证扩展"><span class="nav-number">34.</span> <span class="nav-text">8.1 Flask的认证扩展</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-2-密码安全性"><span class="nav-number">35.</span> <span class="nav-text">8.2　密码安全性</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wooi</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
