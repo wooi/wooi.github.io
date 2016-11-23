@@ -326,7 +326,7 @@
 <p><em>解决方案</em><br>1.在退出 Activity 后及时注销监听器<br>2.使用 ApplicationContext 代替 Context </p>
 </blockquote>
 <h5 id="7-listView-的-adpater-没使用-ConvertView-缓存"><a href="#7-listView-的-adpater-没使用-ConvertView-缓存" class="headerlink" title="7. listView 的 adpater 没使用 ConvertView 缓存"></a>7. listView 的 adpater 没使用 ConvertView 缓存</h5><p>ListView 会缓存一部分 View ，没用使用 getview() 里面的参数 ConvertView</p>
-<h5 id="8-集合对象没有清理"><a href="#8-集合对象没有清理" class="headerlink" title="8. 集合对象没有清理"></a>8. 集合对象没有清理</h5><p>集合里数据多，不需要时没有进行清理的动作</p>
+<h5 id="8-静态集合对象没有清理"><a href="#8-静态集合对象没有清理" class="headerlink" title="8. 静态集合对象没有清理"></a>8. 静态集合对象没有清理</h5><p>静态集合里数据多，生命周期与应用一样长，但是依然占据了一部分内存，不需要时没有进行清理的动作</p>
 <blockquote>
 <p><em>解决方案</em><br>1.退出后 clear 掉集合里面的所有数据，然后赋值 null</p>
 </blockquote>
@@ -334,6 +334,7 @@
 <blockquote>
 <p><em>解决方案</em><br>因为 webView 耗费大量内存，可以为 WebView 分配一个独立的线程，也主线程做通讯。不需要时也要记得销毁掉。</p>
 </blockquote>
+<h5 id="10-监听器"><a href="#10-监听器" class="headerlink" title="10.监听器"></a>10.监听器</h5><p>使用监听者模式，我们会添加一些监听器，但是移除被监听对象时，往往忘记取消设置的监听器</p>
 
           
         

@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -68,7 +68,7 @@
 <meta property="og:description" content="Android 内存泄漏java 存在一个垃圾回收机制，发生泄漏的原因就是应该被回收的垃圾没有被回收，这种情况就叫做内存泄漏
 解决内存泄漏的方法的思路：让不易回收的内存可以在不需要继续使用单情况下被系统回收掉。
 怎么做在能让某些内存可以被及时回收呢？这里就需要了解 java 的一个知识点，这就是引用类型。java 分 四 种引用类型，分别是：强引用，软引用，弱引用，虚引用。这从这四种引用点名称可以">
-<meta property="og:updated_time" content="2016-11-23T05:57:51.000Z">
+<meta property="og:updated_time" content="2016-11-23T09:20:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 内存泄露的几中场景">
 <meta name="twitter:description" content="Android 内存泄漏java 存在一个垃圾回收机制，发生泄漏的原因就是应该被回收的垃圾没有被回收，这种情况就叫做内存泄漏
@@ -329,7 +329,7 @@
 <p><em>解决方案</em><br>1.在退出 Activity 后及时注销监听器<br>2.使用 ApplicationContext 代替 Context </p>
 </blockquote>
 <h5 id="7-listView-的-adpater-没使用-ConvertView-缓存"><a href="#7-listView-的-adpater-没使用-ConvertView-缓存" class="headerlink" title="7. listView 的 adpater 没使用 ConvertView 缓存"></a>7. listView 的 adpater 没使用 ConvertView 缓存</h5><p>ListView 会缓存一部分 View ，没用使用 getview() 里面的参数 ConvertView</p>
-<h5 id="8-集合对象没有清理"><a href="#8-集合对象没有清理" class="headerlink" title="8. 集合对象没有清理"></a>8. 集合对象没有清理</h5><p>集合里数据多，不需要时没有进行清理的动作</p>
+<h5 id="8-静态集合对象没有清理"><a href="#8-静态集合对象没有清理" class="headerlink" title="8. 静态集合对象没有清理"></a>8. 静态集合对象没有清理</h5><p>静态集合里数据多，生命周期与应用一样长，但是依然占据了一部分内存，不需要时没有进行清理的动作</p>
 <blockquote>
 <p><em>解决方案</em><br>1.退出后 clear 掉集合里面的所有数据，然后赋值 null</p>
 </blockquote>
@@ -337,6 +337,7 @@
 <blockquote>
 <p><em>解决方案</em><br>因为 webView 耗费大量内存，可以为 WebView 分配一个独立的线程，也主线程做通讯。不需要时也要记得销毁掉。</p>
 </blockquote>
+<h5 id="10-监听器"><a href="#10-监听器" class="headerlink" title="10.监听器"></a>10.监听器</h5><p>使用监听者模式，我们会添加一些监听器，但是移除被监听对象时，往往忘记取消设置的监听器</p>
 
       
     </div>
@@ -356,6 +357,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
       
 
       
@@ -504,7 +511,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-内存泄漏"><span class="nav-number">1.</span> <span class="nav-text">Android 内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-单例模式"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">1. 单例模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-匿名内部类使用-Threads-TimerTasks"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">2. 匿名内部类使用(Threads , TimerTasks)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-context-的使用"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">3. context 的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-handler-的使用"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">4. handler 的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Cursor-Bitmap-Stream-没及时释放"><span class="nav-number">1.0.0.0.5.</span> <span class="nav-text">5. Cursor Bitmap Stream 没及时释放</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-监听器的没及时注销-Sensor-Manager"><span class="nav-number">1.0.0.0.6.</span> <span class="nav-text">6. 监听器的没及时注销(Sensor Manager)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-listView-的-adpater-没使用-ConvertView-缓存"><span class="nav-number">1.0.0.0.7.</span> <span class="nav-text">7. listView 的 adpater 没使用 ConvertView 缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-集合对象没有清理"><span class="nav-number">1.0.0.0.8.</span> <span class="nav-text">8. 集合对象没有清理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-webview-没有及时释放"><span class="nav-number">1.0.0.0.9.</span> <span class="nav-text">9. webview 没有及时释放</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-内存泄漏"><span class="nav-number">1.</span> <span class="nav-text">Android 内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-单例模式"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">1. 单例模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-匿名内部类使用-Threads-TimerTasks"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">2. 匿名内部类使用(Threads , TimerTasks)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-context-的使用"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">3. context 的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-handler-的使用"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">4. handler 的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Cursor-Bitmap-Stream-没及时释放"><span class="nav-number">1.0.0.0.5.</span> <span class="nav-text">5. Cursor Bitmap Stream 没及时释放</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-监听器的没及时注销-Sensor-Manager"><span class="nav-number">1.0.0.0.6.</span> <span class="nav-text">6. 监听器的没及时注销(Sensor Manager)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-listView-的-adpater-没使用-ConvertView-缓存"><span class="nav-number">1.0.0.0.7.</span> <span class="nav-text">7. listView 的 adpater 没使用 ConvertView 缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-静态集合对象没有清理"><span class="nav-number">1.0.0.0.8.</span> <span class="nav-text">8. 静态集合对象没有清理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-webview-没有及时释放"><span class="nav-number">1.0.0.0.9.</span> <span class="nav-text">9. webview 没有及时释放</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-监听器"><span class="nav-number">1.0.0.0.10.</span> <span class="nav-text">10.监听器</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
