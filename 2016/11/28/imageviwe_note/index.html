@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -58,19 +58,30 @@
 
 
 
-<meta name="description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
-12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
+<meta name="description" content="一、使用ImageView 的src 和background
+src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+
+二、设置Imageview的透明度
+android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="注解解释">
-<meta property="og:url" content="http://yoursite.com/2016/11/21/annotation/index.html">
+<meta property="og:title" content="ImageView的使用笔记">
+<meta property="og:url" content="http://yoursite.com/2016/11/28/imageviwe_note/index.html">
 <meta property="og:site_name" content="同文館">
-<meta property="og:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
-12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
-<meta property="og:updated_time" content="2016-11-21T04:19:36.000Z">
+<meta property="og:description" content="一、使用ImageView 的src 和background
+src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+
+二、设置Imageview的透明度
+android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
+<meta property="og:image" content="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png">
+<meta property="og:updated_time" content="2016-11-28T03:20:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="注解解释">
-<meta name="twitter:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
-12345678// @Twizzle标注toggle()方法。 @Twizzle public void t">
+<meta name="twitter:title" content="ImageView的使用笔记">
+<meta name="twitter:description" content="一、使用ImageView 的src 和background
+src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+
+二、设置Imageview的透明度
+android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
+<meta name="twitter:image" content="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png">
 
 
 
@@ -91,9 +102,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/21/annotation/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/28/imageviwe_note/"/>
 
-  <title> 注解解释 | 同文館 </title>
+  <title> ImageView的使用笔记 | 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -223,7 +234,7 @@
             
             
               
-                注解解释
+                ImageView的使用笔记
               
             
           </h1>
@@ -235,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T12:19:54+08:00" content="2016-11-21">
-              2016-11-21
+            <time itemprop="dateCreated" datetime="2016-11-28T11:20:00+08:00" content="2016-11-28">
+              2016-11-28
             </time>
           </span>
 
@@ -263,9 +274,29 @@
       
 
       
-        <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。<br>Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// @Twizzle标注toggle()方法。</span></div><div class="line"> <span class="variable">@Twizzle</span></div><div class="line"> public void toggle() &#123;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// 声明Twizzle标注</span></div><div class="line"> public <span class="variable">@interface</span> Twizzle &#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>标注可以包含一个关键字和值的对所构成的列表：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//等同于 @Edible(value = true)</span></div><div class="line"> <span class="meta">@Edible</span>(<span class="keyword">true</span>)</div><div class="line"> Item item = <span class="keyword">new</span> Carrot();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Edible &#123;</div><div class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="meta">@Author</span>(first = <span class="string">"Oompah"</span>, last = <span class="string">"Loompah"</span>)</div><div class="line"> Book book = <span class="keyword">new</span> Book();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Author &#123;</div><div class="line">   <span class="function">String <span class="title">first</span><span class="params">()</span></span>;</div><div class="line">   <span class="function">String <span class="title">last</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+        <h3 id="一、使用ImageView-的src-和background"><a href="#一、使用ImageView-的src-和background" class="headerlink" title="一、使用ImageView 的src 和background"></a>一、使用ImageView 的src 和background</h3><blockquote>
+<p>src ：原图大小，不被拉伸;<br>background：为Imageview的背景，根据ImageView给长宽进行拉伸；</p>
+</blockquote>
+<h3 id="二、设置Imageview的透明度"><a href="#二、设置Imageview的透明度" class="headerlink" title="二、设置Imageview的透明度"></a>二、设置Imageview的透明度</h3><blockquote>
+<p>android:src在设置ImageView的setAlpha(int alpha)时，起作用;<br>android:background在设置ImageView的setAlpha(int alpha)时，不起作用;</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mImageView<span class="selector-class">.setBackgroundDrawable</span>(mDrawable.mutate());</div><div class="line">mImageView<span class="selector-class">.getBackground</span>()<span class="selector-class">.setAlpha</span>(<span class="number">100</span>);</div></pre></td></tr></table></figure>
+<h3 id="三、设置ImageView的前景（foreground）"><a href="#三、设置ImageView的前景（foreground）" class="headerlink" title="三、设置ImageView的前景（foreground）"></a>三、设置ImageView的前景（foreground）</h3><p>有时候设计需要在ImageView 上面覆盖一层（如灰色）</p>
+<blockquote>
+<p>View 提供了一个setForeground(Drawable foreground)</p>
+</blockquote>
+<h3 id="四、使用ImageView的“android-adjustViewBounds”"><a href="#四、使用ImageView的“android-adjustViewBounds”" class="headerlink" title="四、使用ImageView的“android:adjustViewBounds”"></a>四、使用ImageView的“android:adjustViewBounds”</h3><p><strong>如果想设置图片固定大小，又想保持图片宽高比，需要如下设置：</strong></p>
+<ol>
+<li>设置setAdjustViewBounds为true；</li>
+<li>设置maxWidth、MaxHeight；</li>
+<li>设置设置layout_width和layout_height为wrap_content</li>
+</ol>
+<h3 id="五、正确使用ImageView的“android-scaleType”"><a href="#五、正确使用ImageView的“android-scaleType”" class="headerlink" title="五、正确使用ImageView的“android:scaleType”"></a>五、正确使用ImageView的“android:scaleType”</h3><p>ImageView的“android:scaleType”属性是对src才有效的</p>
+<p>ScaleDrawable类是afc框架中提供了一个专门处理Drawable scale的类，在ImageView的ScaleType的基础上额外提供了11中裁剪方式：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">（<span class="number">1</span>）CROP_CENTER</div><div class="line">（<span class="number">2</span>）CROP_START</div><div class="line">（<span class="number">3</span>）CROP_END</div><div class="line">（<span class="number">4</span>）FIT_CENTER</div><div class="line">（<span class="number">5</span>）FIT_START</div><div class="line">（<span class="number">6</span>）FIT_END</div><div class="line">（<span class="number">7</span>）MATCH_WIDTH_TOP</div><div class="line">（<span class="number">8</span>）MATCH_WIDTH_BOTTOM</div><div class="line">（<span class="number">9</span>）MATCH_WIDTH_CENTER</div><div class="line">（<span class="number">10</span>）CENTER</div><div class="line">（<span class="number">11</span>）CROP_BY_PIVOT</div></pre></td></tr></table></figure></p>
+<p><img src="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png" alt="image"></p>
+<blockquote>
+<p>要保证ScaleDrawable.CROP_START属性设置成功，在xml中一定要设置“android:scaleType=”fitXY”</p>
+</blockquote>
 
       
     </div>
@@ -286,22 +317,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/generics/" rel="next" title="泛型">
-                <i class="fa fa-chevron-left"></i> 泛型
+              <a href="/2016/11/22/memory_leak/" rel="next" title="Android 内存泄露的几中场景">
+                <i class="fa fa-chevron-left"></i> Android 内存泄露的几中场景
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/21/javaclone/" rel="prev" title="Java 的拷贝">
-                Java 的拷贝 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,7 +470,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、使用ImageView-的src-和background"><span class="nav-number">1.</span> <span class="nav-text">一、使用ImageView 的src 和background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、设置Imageview的透明度"><span class="nav-number">2.</span> <span class="nav-text">二、设置Imageview的透明度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、设置ImageView的前景（foreground）"><span class="nav-number">3.</span> <span class="nav-text">三、设置ImageView的前景（foreground）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、使用ImageView的“android-adjustViewBounds”"><span class="nav-number">4.</span> <span class="nav-text">四、使用ImageView的“android:adjustViewBounds”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、正确使用ImageView的“android-scaleType”"><span class="nav-number">5.</span> <span class="nav-text">五、正确使用ImageView的“android:scaleType”</span></a></li></ol></div>
             
           </div>
         </section>

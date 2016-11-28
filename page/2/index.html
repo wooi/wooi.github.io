@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,技术,Binder," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -58,19 +58,12 @@
 
 
 
-<meta name="description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
-Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
-<meta property="og:type" content="article">
-<meta property="og:title" content="BindSevice的几种使用方法">
-<meta property="og:url" content="http://yoursite.com/2016/10/11/bindsevice/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="同文館">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="同文館">
-<meta property="og:description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
-Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
-<meta property="og:updated_time" content="2016-11-21T05:59:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BindSevice的几种使用方法">
-<meta name="twitter:description" content="绑定服务绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
-Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方法1234567891011121314151617181920public class Loca">
+<meta name="twitter:title" content="同文館">
 
 
 
@@ -91,9 +84,9 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/11/bindsevice/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
-  <title> BindSevice的几种使用方法 | 同文館 </title>
+  <title> 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -114,7 +107,9 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,9 +196,9 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -223,7 +218,10 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
             
             
               
-                BindSevice的几种使用方法
+                
+                <a class="post-title-link" href="/2016/10/11/bindsevice/" itemprop="url">
+                  BindSevice的几种使用方法
+                </a>
               
             
           </h1>
@@ -263,7 +261,9 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
       
 
       
-        <h1 id="绑定服务"><a href="#绑定服务" class="headerlink" title="绑定服务"></a>绑定服务</h1><p>绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。</p>
+        
+          
+            <h1 id="绑定服务"><a href="#绑定服务" class="headerlink" title="绑定服务"></a>绑定服务</h1><p>绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。</p>
 <h2 id="Sevice"><a href="#Sevice" class="headerlink" title="Sevice"></a>Sevice</h2><p>以下这个服务可让客户端通过 Binder 实现访问服务中的方法<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">LocalService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</div><div class="line">    <span class="type">IBinder</span> mBinder = <span class="keyword">new</span> <span class="type">LocalBinder</span>();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Random</span> mGenerator = <span class="keyword">new</span> <span class="type">Random</span>();</div><div class="line"></div><div class="line">    public <span class="class"><span class="keyword">class</span> <span class="title">LocalBinder</span> <span class="keyword">extends</span> <span class="title">Binder</span> </span>&#123;</div><div class="line">        <span class="type">LocalService</span> getService() &#123;</div><div class="line">            <span class="keyword">return</span> <span class="type">LocalService</span>.<span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Nullable</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    public <span class="type">IBinder</span> onBind(<span class="type">Intent</span> intent) &#123;</div><div class="line">        <span class="keyword">return</span> mBinder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getRandomNumber() &#123;</div><div class="line">        <span class="keyword">return</span> mGenerator.nextInt(<span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    LocalService mService;</div><div class="line">    Button button;</div><div class="line">    Boolean mBound;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        button = (Button) findViewById(R.id.button);</div><div class="line">        button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (mBound) &#123;</div><div class="line">                    <span class="keyword">int</span> num = mService.getRandomNumber();</div><div class="line">                    Toast.makeText(getApplicationContext(), String.valueOf(num), Toast.LENGTH_LONG).show();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStart();</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, LocalService.class);</div><div class="line">        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">        unbindService(mConnection);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ServiceConnection mConnection = <span class="keyword">new</span> ServiceConnection() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName componentName, IBinder iBinder)</span> </span>&#123;</div><div class="line">            LocalService.LocalBinder binder = (LocalService.LocalBinder) iBinder;</div><div class="line">            mService = binder.getService();</div><div class="line">            mBound = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName componentName)</span> </span>&#123;</div><div class="line">            mBound = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="MessagerSevice"><a href="#MessagerSevice" class="headerlink" title="MessagerSevice"></a>MessagerSevice</h2><p>以下是一个使用 Messenger 接口的简单服务示例：</p>
@@ -294,63 +294,40 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
 <li>此外，如果您的服务已启动并接受绑定，则当系统调用您的 onUnbind() 方法时，如果您想在客户端下一次绑定到服务时接收 onRebind() 调用（而不是接收 onBind() 调用），则可选择返回 true。onRebind() 返回空值，但客户端仍在其 onServiceConnected() 回调中接收 IBinder。下文图 1 说明了这种生命周期的逻辑。</li>
 </ul>
 
+          
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-            <a href="/tags/技术/" rel="tag">#技术</a>
-          
-            <a href="/tags/Binder/" rel="tag">#Binder</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/11/badstory1/" rel="prev" title="爛的故事">
-                爛的故事 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -358,10 +335,6 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -381,17 +354,8 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -463,17 +427,6 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定服务"><span class="nav-number">1.</span> <span class="nav-text">绑定服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sevice"><span class="nav-number">1.1.</span> <span class="nav-text">Sevice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client"><span class="nav-number">1.2.</span> <span class="nav-text">Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MessagerSevice"><span class="nav-number">1.3.</span> <span class="nav-text">MessagerSevice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityMessager"><span class="nav-number">1.4.</span> <span class="nav-text">ActivityMessager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定到服务"><span class="nav-number">1.5.</span> <span class="nav-text">绑定到服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加说明"><span class="nav-number">1.6.</span> <span class="nav-text">附加说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理绑定服务的生命周期"><span class="nav-number">1.7.</span> <span class="nav-text">管理绑定服务的生命周期</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -568,10 +521,6 @@ Sevice以下这个服务可让客户端通过 Binder 实现访问服务中的方
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
