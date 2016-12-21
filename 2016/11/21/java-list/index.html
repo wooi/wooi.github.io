@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="技术,Android," />
+  <meta name="keywords" content="技术,Java," />
 
 
 
@@ -58,30 +58,64 @@
 
 
 
-<meta name="description" content="一、使用ImageView 的src 和background
-src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+<meta name="description" content="List简介List 四种实现类
+ArrayList
+LinkeList
+Vector
+Stack
 
-二、设置Imageview的透明度
-android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
+四种List的数据结构
+ArrayList动态数组，初始化分配一定长度的数组
+
+LinkeList双向链表
+
+Vector与 ArrayList 一样使用动态数组作为存储结构
+
+StackStack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+
+
+四种List的不同">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ImageView的使用笔记">
-<meta property="og:url" content="http://yoursite.com/2016/11/28/imageviwe_note/index.html">
+<meta property="og:title" content="List简介">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/java-list/index.html">
 <meta property="og:site_name" content="同文館">
-<meta property="og:description" content="一、使用ImageView 的src 和background
-src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+<meta property="og:description" content="List简介List 四种实现类
+ArrayList
+LinkeList
+Vector
+Stack
 
-二、设置Imageview的透明度
-android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
-<meta property="og:image" content="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png">
-<meta property="og:updated_time" content="2016-12-21T09:43:53.000Z">
+四种List的数据结构
+ArrayList动态数组，初始化分配一定长度的数组
+
+LinkeList双向链表
+
+Vector与 ArrayList 一样使用动态数组作为存储结构
+
+StackStack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+
+
+四种List的不同">
+<meta property="og:updated_time" content="2016-12-21T09:58:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ImageView的使用笔记">
-<meta name="twitter:description" content="一、使用ImageView 的src 和background
-src ：原图大小，不被拉伸;background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+<meta name="twitter:title" content="List简介">
+<meta name="twitter:description" content="List简介List 四种实现类
+ArrayList
+LinkeList
+Vector
+Stack
 
-二、设置Imageview的透明度
-android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:background在设置ImageView的setAlpha(i">
-<meta name="twitter:image" content="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png">
+四种List的数据结构
+ArrayList动态数组，初始化分配一定长度的数组
+
+LinkeList双向链表
+
+Vector与 ArrayList 一样使用动态数组作为存储结构
+
+StackStack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+
+
+四种List的不同">
 
 
 
@@ -102,9 +136,9 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/28/imageviwe_note/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/java-list/"/>
 
-  <title> ImageView的使用笔记 | 同文館 </title>
+  <title> List简介 | 同文館 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -234,7 +268,7 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
             
             
               
-                ImageView的使用笔记
+                List简介
               
             
           </h1>
@@ -246,8 +280,8 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-28T11:20:00+08:00" content="2016-11-28">
-              2016-11-28
+            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
+              2016-11-21
             </time>
           </span>
 
@@ -274,29 +308,27 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
       
 
       
-        <h3 id="一、使用ImageView-的src-和background"><a href="#一、使用ImageView-的src-和background" class="headerlink" title="一、使用ImageView 的src 和background"></a>一、使用ImageView 的src 和background</h3><blockquote>
-<p>src ：原图大小，不被拉伸;<br>background：为Imageview的背景，根据ImageView给长宽进行拉伸；</p>
-</blockquote>
-<h3 id="二、设置Imageview的透明度"><a href="#二、设置Imageview的透明度" class="headerlink" title="二、设置Imageview的透明度"></a>二、设置Imageview的透明度</h3><blockquote>
-<p>android:src在设置ImageView的setAlpha(int alpha)时，起作用;<br>android:background在设置ImageView的setAlpha(int alpha)时，不起作用;</p>
-</blockquote>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mImageView<span class="selector-class">.setBackgroundDrawable</span>(mDrawable.mutate());</div><div class="line">mImageView<span class="selector-class">.getBackground</span>()<span class="selector-class">.setAlpha</span>(<span class="number">100</span>);</div></pre></td></tr></table></figure>
-<h3 id="三、设置ImageView的前景（foreground）"><a href="#三、设置ImageView的前景（foreground）" class="headerlink" title="三、设置ImageView的前景（foreground）"></a>三、设置ImageView的前景（foreground）</h3><p>有时候设计需要在ImageView 上面覆盖一层（如灰色）</p>
-<blockquote>
-<p>View 提供了一个setForeground(Drawable foreground)</p>
-</blockquote>
-<h3 id="四、使用ImageView的“android-adjustViewBounds”"><a href="#四、使用ImageView的“android-adjustViewBounds”" class="headerlink" title="四、使用ImageView的“android:adjustViewBounds”"></a>四、使用ImageView的“android:adjustViewBounds”</h3><p><strong>如果想设置图片固定大小，又想保持图片宽高比，需要如下设置：</strong></p>
-<ol>
-<li>设置setAdjustViewBounds为true；</li>
-<li>设置maxWidth、MaxHeight；</li>
-<li>设置设置layout_width和layout_height为wrap_content</li>
+        <h1 id="List简介"><a href="#List简介" class="headerlink" title="List简介"></a>List简介</h1><h3 id="List-四种实现类"><a href="#List-四种实现类" class="headerlink" title="List 四种实现类"></a>List 四种实现类</h3><ol>
+<li>ArrayList</li>
+<li>LinkeList</li>
+<li>Vector</li>
+<li>Stack</li>
 </ol>
-<h3 id="五、正确使用ImageView的“android-scaleType”"><a href="#五、正确使用ImageView的“android-scaleType”" class="headerlink" title="五、正确使用ImageView的“android:scaleType”"></a>五、正确使用ImageView的“android:scaleType”</h3><p>ImageView的“android:scaleType”属性是对src才有效的</p>
-<p>ScaleDrawable类是afc框架中提供了一个专门处理Drawable scale的类，在ImageView的ScaleType的基础上额外提供了11中裁剪方式：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">（<span class="number">1</span>）CROP_CENTER</div><div class="line">（<span class="number">2</span>）CROP_START</div><div class="line">（<span class="number">3</span>）CROP_END</div><div class="line">（<span class="number">4</span>）FIT_CENTER</div><div class="line">（<span class="number">5</span>）FIT_START</div><div class="line">（<span class="number">6</span>）FIT_END</div><div class="line">（<span class="number">7</span>）MATCH_WIDTH_TOP</div><div class="line">（<span class="number">8</span>）MATCH_WIDTH_BOTTOM</div><div class="line">（<span class="number">9</span>）MATCH_WIDTH_CENTER</div><div class="line">（<span class="number">10</span>）CENTER</div><div class="line">（<span class="number">11</span>）CROP_BY_PIVOT</div></pre></td></tr></table></figure></p>
-<p><img src="https://images.thoughtbot.com/blog-vellum-image-uploads/wDbiaqGSQyyErtXGSh6w_scaletype.png" alt="image"></p>
-<blockquote>
-<p>要保证ScaleDrawable.CROP_START属性设置成功，在xml中一定要设置“android:scaleType=”fitXY”</p>
-</blockquote>
+<h3 id="四种List的数据结构"><a href="#四种List的数据结构" class="headerlink" title="四种List的数据结构"></a>四种List的数据结构</h3><ol>
+<li><p>ArrayList<br>动态数组，初始化分配一定长度的数组</p>
+</li>
+<li><p>LinkeList<br>双向链表</p>
+</li>
+<li><p>Vector<br>与 ArrayList 一样使用动态数组作为存储结构</p>
+</li>
+<li><p>Stack<br>Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
+</li>
+</ol>
+<h3 id="四种List的不同使用场景的效率"><a href="#四种List的不同使用场景的效率" class="headerlink" title="四种List的不同使用场景的效率"></a>四种List的不同使用场景的效率</h3><p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
+<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。<br>相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
+<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据<br>而数组的 List 直接根据下标返回所需的元素</p>
+<h3 id="ArrayList-与-Vector-关于现场安全的比较"><a href="#ArrayList-与-Vector-关于现场安全的比较" class="headerlink" title="ArrayList 与 Vector 关于现场安全的比较"></a>ArrayList 与 Vector 关于现场安全的比较</h3><p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于<br>Vector</p>
+<h3 id="ArrayList-的遍历速度比较"><a href="#ArrayList-的遍历速度比较" class="headerlink" title="ArrayList 的遍历速度比较"></a>ArrayList 的遍历速度比较</h3><p>随机范围的效率最高<br>随机访问 &gt; for循环 &gt; 遍历器</p>
 
       
     </div>
@@ -321,7 +353,7 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
           
             <a href="/tags/技术/" rel="tag">#技术</a>
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -330,16 +362,16 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/22/memory_leak/" rel="next" title="Android 内存泄露的几中场景">
-                <i class="fa fa-chevron-left"></i> Android 内存泄露的几中场景
+              <a href="/2016/11/21/alogrithm/" rel="next" title="算法学习笔记 - Alogrithm Fourth Edition">
+                <i class="fa fa-chevron-left"></i> 算法学习笔记 - Alogrithm Fourth Edition
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/21/badstory2/" rel="prev" title="爛的故事（二）">
-                爛的故事（二） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/javaclone/" rel="prev" title="Java 的拷贝">
+                Java 的拷贝 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -476,7 +508,7 @@ android:src在设置ImageView的setAlpha(int alpha)时，起作用;android:backg
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、使用ImageView-的src-和background"><span class="nav-number">1.</span> <span class="nav-text">一、使用ImageView 的src 和background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、设置Imageview的透明度"><span class="nav-number">2.</span> <span class="nav-text">二、设置Imageview的透明度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、设置ImageView的前景（foreground）"><span class="nav-number">3.</span> <span class="nav-text">三、设置ImageView的前景（foreground）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、使用ImageView的“android-adjustViewBounds”"><span class="nav-number">4.</span> <span class="nav-text">四、使用ImageView的“android:adjustViewBounds”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、正确使用ImageView的“android-scaleType”"><span class="nav-number">5.</span> <span class="nav-text">五、正确使用ImageView的“android:scaleType”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List简介"><span class="nav-number">1.</span> <span class="nav-text">List简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-四种实现类"><span class="nav-number">1.0.1.</span> <span class="nav-text">List 四种实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种List的数据结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">四种List的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种List的不同使用场景的效率"><span class="nav-number">1.0.3.</span> <span class="nav-text">四种List的不同使用场景的效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-与-Vector-关于现场安全的比较"><span class="nav-number">1.0.4.</span> <span class="nav-text">ArrayList 与 Vector 关于现场安全的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-的遍历速度比较"><span class="nav-number">1.0.5.</span> <span class="nav-text">ArrayList 的遍历速度比较</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
