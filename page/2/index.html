@@ -219,6 +219,102 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/annotation/" itemprop="url">
+                  Java注解解释
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T12:19:54+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。<br>Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// @Twizzle标注toggle()方法。</span></div><div class="line"> <span class="variable">@Twizzle</span></div><div class="line"> public void toggle() &#123;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// 声明Twizzle标注</span></div><div class="line"> public <span class="variable">@interface</span> Twizzle &#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>标注可以包含一个关键字和值的对所构成的列表：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//等同于 @Edible(value = true)</span></div><div class="line"> <span class="meta">@Edible</span>(<span class="keyword">true</span>)</div><div class="line"> Item item = <span class="keyword">new</span> Carrot();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Edible &#123;</div><div class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="meta">@Author</span>(first = <span class="string">"Oompah"</span>, last = <span class="string">"Loompah"</span>)</div><div class="line"> Book book = <span class="keyword">new</span> Book();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Author &#123;</div><div class="line">   <span class="function">String <span class="title">first</span><span class="params">()</span></span>;</div><div class="line">   <span class="function">String <span class="title">last</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/generics/" itemprop="url">
                   泛型
                 </a>
@@ -565,7 +661,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -575,7 +671,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -650,7 +746,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -219,6 +219,109 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/10/scala_android_sby/" itemprop="url">
+                  Scala 语言开发Andorid ，开发环境的搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2017-01-10T21:43:00+08:00" content="2017-01-10">
+              2017-01-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Scala-语言开发Andorid-，开发环境的搭建"><a href="#Scala-语言开发Andorid-，开发环境的搭建" class="headerlink" title="Scala 语言开发Andorid ，开发环境的搭建"></a>Scala 语言开发Andorid ，开发环境的搭建</h1><p>厌倦 Java 繁琐的语法，为了更优雅的开发 Android 程序，Scala 代替 Java 是一个不错的尝试。 开发前可以学习 Scala 的基本语法，某些部分和 Java 非常类似，但又聚合了其他先进语言的特性。与 Java 不同的是，在你熟悉函数式编程的情况下能写出更加优雅的代码。</p>
+<h2 id="SBT-构建工具"><a href="#SBT-构建工具" class="headerlink" title="SBT 构建工具"></a>SBT 构建工具</h2><p>现在绝大多数的 Android 开发者是官方提供的 Android Studio ，这个 IDE 使用的是基于 Gradle 的自动化建构工具，通过 Gradle 可以配置 Project 各种参数，生产 APK 等操作。<br>SBT 是和 Gradle,Ant,Maven 一样的自动化建构工具，SBT 方便管理我们用 Scala 编写的 Android 工程。</p>
+<p>和使用 Java 开发 Andoird 一样，首先要安装 Scala， <a href="http://scala-lang.org/download/" target="_blank" rel="external">下载</a> 官方文件，在此之前先确定电脑已经安装配置好 Java 环境。如果 macOS 已经安装有 Homebrew 只需要一行代码即可安装配置成功<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span><span class="keyword">scala</span></div></pre></td></tr></table></figure></p>
+<p>接着安装 SBT 同一也一行代码搞定(赶紧换一台 mac 吧~~<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span><span class="keyword">sbt</span></div></pre></td></tr></table></figure></p>
+<p>其他系统的配置大可直接看 <a href="(http://scala-lang.org/">Scala</a> 和 <a href="http://www.scala-sbt.org/index.html" target="_blank" rel="external">SBT</a> 官网，里边有详细的安装配置教程</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>和使用 构建工具一样，Gradle 有一种固定的文件分类方式，不同的文件夹安放不同类型的文件。同样的，SBT 也是有固定的文件结构。其实 SBT 的结构和 Gradle 的结构类似。</p>
+<p>scala-android/<br>|- project/<br>|  |- plugins.sbt<br>|- src/<br>|  |- main/<br>|     |- assets/<br>|     |- java/<br>|     |- res/<br>|        |- layout/<br>|           |- main.xml<br>|        |- values/<br>|           |- strings.xml<br>|     |- scala/<br>|        |- com/<br>|           |- fortysevendeg/<br>|              |- scala/<br>|                 |- android/<br>|                    |- SampleActivity.scala/<br>|     |- AndroidManifest.xml<br>|  |- test/<br>|     |- java/<br>|     |- res/<br>|     |- scala/<br>|- build.sbt</p>
+<h2 id="结构文件"><a href="#结构文件" class="headerlink" title="结构文件"></a>结构文件</h2><p>根目录下，src 文件夹内存放的有源码的文件，布局文件，以及另外一些资源文件。java 文件存放的是 java的源代码文件，scala文件夹里存放的当然是 scala 源代码文件，和 java 编写的结构一样，倒序域名包命名的管理方式。text存放的是测试文件。</p>
+<p>build.sbt 和 app 中Gradle build  文件类似，可以配置一些项目信息，例如管理包名，应用名，编译的目标版本，最低限制版本，开启混淆的。使用的语法与 gradle 的语法略有不同。下面是一些常用的配置信息。<br><strong>build.sbt</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 申明使用 Android 插件，让构造工具知道这是一个Android 工程</span></div><div class="line">android.Plugin.androidBuild</div><div class="line">    </div><div class="line"><span class="comment">// 生命 Android 目标 API </span></div><div class="line">platformTarget <span class="keyword">in</span> <span class="string">Android :</span>= <span class="string">"android-21"</span></div><div class="line"></div><div class="line"><span class="comment">// 应用名</span></div><div class="line"><span class="string">name :</span>= <span class="string">"""scala-android"""</span></div><div class="line"></div><div class="line"><span class="comment">// 应用版本号</span></div><div class="line"><span class="string">version :</span>= <span class="string">"1.0.0"</span></div><div class="line"></div><div class="line"><span class="comment">// Scala 版本</span></div><div class="line"><span class="string">scalaVersion :</span>= <span class="string">"2.11.4"</span></div><div class="line"></div><div class="line"><span class="comment">// 项目中依赖的库</span></div><div class="line">resolvers += Resolver.jcenterRepo</div><div class="line">libraryDependencies ++=</div><div class="line">  <span class="string">"com.android.support"</span> % <span class="string">"cardview-v7"</span> % <span class="string">supportLibsVersion :</span>:</div><div class="line">  <span class="string">"com.android.support"</span> % <span class="string">"customtabs"</span> % <span class="string">supportLibsVersion :</span>:</div><div class="line">  <span class="string">"com.android.support"</span> % <span class="string">"design"</span> % <span class="string">supportLibsVersion :</span>:</div><div class="line">  <span class="string">"com.android.support"</span> % <span class="string">"gridlayout-v7"</span> % <span class="string">supportLibsVersion :</span>:</div><div class="line">  <span class="string">"com.android.support"</span> % <span class="string">"preference-v14"</span> % <span class="string">supportLibsVersion :</span>:</div><div class="line">  <span class="string">"com.futuremind.recyclerfastscroll"</span> % <span class="string">"fastscroll"</span> % <span class="string">"0.2.5"</span> ::</div><div class="line">  <span class="string">"com.evernote"</span> % <span class="string">"android-job"</span> % <span class="string">"1.1.4"</span> ::</div><div class="line">  <span class="string">"com.github.jorgecastilloprz"</span> % <span class="string">"fabprogresscircle"</span> % <span class="string">"1.01"</span> ::</div><div class="line">  <span class="string">"com.google.android.gms"</span> % <span class="string">"play-services-ads"</span> % <span class="string">playServicesVersion :</span>:</div><div class="line">  <span class="string">"com.google.android.gms"</span> % <span class="string">"play-services-analytics"</span> % <span class="string">playServicesVersion :</span>:</div><div class="line">  <span class="string">"com.google.android.gms"</span> % <span class="string">"play-services-gcm"</span> % <span class="string">playServicesVersion :</span>:</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 开启 Scala 混淆</span></div><div class="line">proguardScala <span class="keyword">in</span> <span class="string">Android :</span>= <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment">// 开启 Android 混淆</span></div><div class="line">useProguard <span class="keyword">in</span> <span class="string">Android :</span>= <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment">// 设置混淆规则</span></div><div class="line">proguardOptions <span class="keyword">in</span> Android ++= Seq(</div><div class="line">  <span class="string">"-ignorewarnings"</span>,</div><div class="line">  <span class="string">"-keep class scala.Dynamic"</span>)</div></pre></td></tr></table></figure></p>
+<p>project/plugins.sbt文件是项目中构建工具使用到的插件<br><strong>project/plugins.sbt</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">addSbtPlugin</span><span class="params">(<span class="string">"org.scala-android"</span> % <span class="string">"sbt-android"</span> % <span class="string">"1.7.2"</span>)</span></span></div><div class="line"><span class="function"><span class="title">addSbtPlugin</span><span class="params">(<span class="string">"com.timushev.sbt"</span> % <span class="string">"sbt-updates"</span> % <span class="string">"0.1.10"</span>)</span></span></div><div class="line"><span class="function"><span class="title">addSbtPlugin</span><span class="params">(<span class="string">"net.virtual-void"</span> % <span class="string">"sbt-dependency-graph"</span> % <span class="string">"0.8.2"</span>)</span></span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/21/badstory2/" itemprop="url">
                   爛的故事（二）
                 </a>
@@ -809,133 +912,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/21/okhttp_analyse/" itemprop="url">
-                  Okhttp 源码解析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T14:09:00+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Okhttp解析"><a href="#Okhttp解析" class="headerlink" title="Okhttp解析"></a>Okhttp解析</h1><h3 id="总体思想"><a href="#总体思想" class="headerlink" title="总体思想"></a>总体思想</h3><p>分析源码，首先要熟悉用例，由上到下一层一层剥开源码，初步了解项目的框架，然后再细看代码的实现细节。现在试着分析 OKhttp 的源码，下面代码是来至 <a href="https://square.github.io/okhttp/#examples" target="_blank" rel="external">OKhttp官网</a>。</p>
-<p>GET A URL</p>
-<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="type">OkHttpClient</span> client = <span class="function"><span class="keyword">new</span> <span class="title">OkHttpClient</span>(); <span class="comment">//(1)</span></span></div><div class="line"></div><div class="line"><span class="title">String</span> <span class="title">run</span>(<span class="type">String</span> url) <span class="title">throws</span> <span class="title">IOException</span> &#123;</div><div class="line">  <span class="title">Request</span> <span class="title">request</span> = <span class="title">new</span> <span class="title">Request</span>.<span class="title">Builder</span>()</div><div class="line">      .<span class="title">url</span>(url)</div><div class="line">      .<span class="title">build</span>();                           <span class="comment">//(2)</span></div><div class="line"></div><div class="line">  <span class="title">Response</span> <span class="title">response</span> = <span class="title">client</span>.<span class="title">newCall</span>(request).<span class="title">execute</span>();  <span class="comment">//(3)</span></div><div class="line">  <span class="title">return</span> <span class="title">response</span>.<span class="title">body</span>().<span class="title">string</span>();                        <span class="comment">//(4)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>创建一个 OkHttpClient 对象。</li>
-<li>创建一个 Request 对象，可以设置 URL 等网络配置。</li>
-<li>调用 OkHttpClient 的 newCall() 方法，并把自定义配置的Request对象作为参数传进去。到处为止程序成功的将需要的请求放在了队列中，执行 execute() 方法开始向服务器发起请求，服务器返回的信息转化为 Response 对象。</li>
-<li>返回 response 对象的 body 主体信息。</li>
-</ol>
-<p>一张来至<a href="http://blog.piasy.com/" target="_blank" rel="external">piasy</a>的流程图:<br><img src="http://blog.piasy.com/img/201607/okhttp_full_process.png" alt="image"></p>
-<h3 id="细节分析"><a href="#细节分析" class="headerlink" title="细节分析"></a>细节分析</h3><h4 id="创建-OkHttpClient-对象"><a href="#创建-OkHttpClient-对象" class="headerlink" title="创建 OkHttpClient 对象"></a>创建 OkHttpClient 对象</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OkHttpClient <span class="keyword">client</span> = <span class="keyword">new</span> OkHttpClient();</div></pre></td></tr></table></figure>
-<p>OkHttpClient.class 里面的两个构造函数：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> OkHttpClient() &#123;</div><div class="line">    <span class="keyword">this</span>(new Builder());</div><div class="line">  &#125;</div><div class="line">  </div><div class="line"><span class="keyword">private</span> OkHttpClient(Builder builder) &#123;</div><div class="line">    <span class="keyword">this</span>.dispatcher = builder.dispatcher;</div><div class="line">    <span class="keyword">this</span>.proxy = builder.proxy;</div><div class="line">    <span class="keyword">this</span>.protocols = builder.protocols;</div><div class="line">    .</div><div class="line">    .</div><div class="line">    .</div><div class="line">    <span class="keyword">this</span>.retryOnConnectionFailure = builder.retryOnConnectionFailure;</div><div class="line">    <span class="keyword">this</span>.connectTimeout = builder.connectTimeout;</div><div class="line">    <span class="keyword">this</span>.readTimeout = builder.readTimeout;</div><div class="line">    <span class="keyword">this</span>.writeTimeout = builder.writeTimeout;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<p>上面可以看出，new OkHttpClient() 是调用 OkHttpClient.class 另外一个 private 的构造函数 OkHttpClient(Builder builder) ，其中 Builder 是 OkHttpClient 的一个内部类，Builder 是使用了<a href="https://www.tutorialspoint.com/design_pattern/builder_pattern.htm" target="_blank" rel="external">构造者模式</a>，里面包含了一些配置相关的字段如下：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> Dispatcher dispatcher;  <span class="comment">//分发器</span></div><div class="line"><span class="keyword">final</span> Proxy proxy; <span class="comment">//代理</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Protocol&gt; protocols; <span class="comment">//协议</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;ConnectionSpec&gt; connectionSpecs; <span class="comment">//传输层版本和连接协议</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Interceptor&gt; interceptors; <span class="comment">//拦截器</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Interceptor&gt; networkInterceptors; <span class="comment">//网络拦截器</span></div><div class="line">.</div><div class="line">.</div><div class="line">.</div><div class="line"><span class="keyword">final</span> <span class="built_in">int</span> readTimeout; <span class="comment">//read 超时</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">int</span> writeTimeout; <span class="comment">//write 超时</span></div></pre></td></tr></table></figure>
-<h4 id="创建-Request-对象"><a href="#创建-Request-对象" class="headerlink" title="创建 Request 对象"></a>创建 Request 对象</h4><p>创建完 OkHttpClient 对象后，就需要我们创建一个Request，Request 作用就是承载用户的请求，最简单的也是必须的做法是设置  Request 的 URL。同样和创建 OkHttpClient 对象一样，Request 也是使用 构造者模式，其中包含了 URL, header, body等字段，简单看看源码中的 Request 的构造函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Request(Builder builder) &#123;</div><div class="line">   <span class="keyword">this</span>.url = builder.url;</div><div class="line">   <span class="keyword">this</span>.method = builder.method;</div><div class="line">   <span class="keyword">this</span>.headers = builder.headers.build();</div><div class="line">   <span class="keyword">this</span>.body = builder.body;</div><div class="line">   <span class="keyword">this</span>.tag = builder.tag != <span class="literal">null</span> ? builder.tag : <span class="keyword">this</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h4 id="真正开始工作啦"><a href="#真正开始工作啦" class="headerlink" title="真正开始工作啦"></a>真正开始工作啦</h4><h5 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h5><p>最上面的官方示例代码是一个同步的网络请求，接着我们一步一步拆解代码。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//官方示例代码</span></div><div class="line">Response response = <span class="keyword">client</span>.newCall(request).execute();</div></pre></td></tr></table></figure></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//OkHttpClient.class</span></div><div class="line"><span class="function"><span class="keyword">public</span> Call <span class="title">newCall</span><span class="params">(Request request)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RealCall(<span class="keyword">this</span>, request);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Recall.class</span></div><div class="line">  <span class="keyword">protected</span> RealCall(OkHttpClient <span class="keyword">client</span>, Request originalRequest) &#123;</div><div class="line">    <span class="keyword">this</span>.<span class="keyword">client</span> = <span class="keyword">client</span>;</div><div class="line">    <span class="keyword">this</span>.originalRequest = originalRequest;</div><div class="line">    <span class="keyword">this</span>.retryAndFollowUpInterceptor = <span class="keyword">new</span> RetryAndFollowUpInterceptor(<span class="keyword">client</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">    @Override <span class="keyword">protected</span> <span class="keyword">void</span> execute() &#123;</div><div class="line">      <span class="keyword">boolean</span> signalledCallback = <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        Response response = getResponseWithInterceptorChain();</div><div class="line">        <span class="keyword">if</span> (retryAndFollowUpInterceptor.isCanceled()) &#123;</div><div class="line">          signalledCallback = <span class="keyword">true</span>;</div><div class="line">          responseCallback.onFailure(RealCall.<span class="keyword">this</span>, <span class="keyword">new</span> IOException(<span class="string">"Canceled"</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          signalledCallback = <span class="keyword">true</span>;</div><div class="line">          responseCallback.onResponse(RealCall.<span class="keyword">this</span>, response);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        <span class="keyword">if</span> (signalledCallback) &#123;</div><div class="line">          <span class="comment">// Do not signal the callback twice!</span></div><div class="line">          Platform.get().log(INFO, <span class="string">"Callback failure for "</span> + toLoggableString(), e);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          responseCallback.onFailure(RealCall.<span class="keyword">this</span>, e);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="keyword">client</span>.dispatcher().finished(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>在 OkhttpClient 代码里面看到，newCall() 函数返回一个 Call 对象，其实 Call 是一个接口，而我们的没一次请求都是转载在一个 Call 对象中。其中看到返回的是一个 RealCall 对象，由这里看到 RealCall 是 Call 的一个实现类。</p>
-<p>Ok，接着看看 RealCall 对象的 execute() 方法，可以看到这样一行最重要的代码 Response response = getResponseWithInterceptorChain() ，通过这一个方法可得到从服务器返回的一个 Response 对象。从这个函数的名字可以推测，这是一个接一个的链式调用，接下来也可以从源码发现，这个地方使用了<a href="https://www.tutorialspoint.com/design_pattern/chain_of_responsibility_pattern.htm" target="_blank" rel="external">责任链模式</a></p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//RealCall.call</span></div><div class="line"><span class="keyword">private</span> Response getResponseWithInterceptorChain() <span class="keyword">throws</span> IOException &#123;</div><div class="line">    <span class="comment">// Build a full stack of interceptors.</span></div><div class="line">    List&lt;Interceptor&gt; interceptors = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    interceptors.addAll(client.interceptors());</div><div class="line">    interceptors.<span class="built_in">add</span>(retryAndFollowUpInterceptor);</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> BridgeInterceptor(client.cookieJar()));</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> CacheInterceptor(client.internalCache()));</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> ConnectInterceptor(client));</div><div class="line">    <span class="keyword">if</span> (!retryAndFollowUpInterceptor.isForWebSocket()) &#123;</div><div class="line">      interceptors.addAll(client.networkInterceptors());</div><div class="line">    &#125;</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> CallServerInterceptor(</div><div class="line">        retryAndFollowUpInterceptor.isForWebSocket()));</div><div class="line"></div><div class="line">    Interceptor.Chain chain = <span class="keyword">new</span> RealInterceptorChain(</div><div class="line">        interceptors, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="number">0</span>, originalRequest);</div><div class="line">    <span class="keyword">return</span> chain.proceed(originalRequest);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>上的代码总的功能就是往一个 list 里面一个一个的添加 interceptor ，interceptor 是一个抽象的接口，而代码里添加的各种各样的拦截器都是对 interceptor 接口不同的实现。例如，首先添加用户自己配置的interceptor，然后添加 retryAndFollowUpInterceptor 主要负责重定向和失败重连，接着添加 BridgeInterceptor 主要负责转化用户配置的url，header等配置生成一个服务器能接受的文本格式。列表中 CacheInterceptor 我们大概能猜出它的作用，这是一个缓存拦截器，根据 url 读取缓存中的数据，如果有结果就在这里砍断链式调用，成功返回结果。 ConnectInterceptor 则是开始向服务器发起连接。CallServerInterceptor 是正式与服务器发生关系，也是从这个拦截器中返回最终的 Response 结果。</p>
-<p>当然，要发生上述的所有动作必须有一个起点，chain.proceed(originalRequest) 就是整个链路的入口，就在这里开始一个环节扣着一个环节执行下去。放回最终的结果，这不，一次完整的同步网络请求就完成了。</p>
-<h5 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h5><p>上面是一个同步请求的解析，现在来谈谈异步请求，它跟同步请求有异曲同工之妙，大部分的流程实现还是沿用同一份代码，最大的不同是异步请求加入了 dispatcher ，见面知其意，就是由这个类来负责分发用户的请求。按照上面的思路，首先看看一个异步的示例</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//异步示例</span></div><div class="line">OkHttpClient client=<span class="keyword">new</span> OkHttpClient();</div><div class="line"></div><div class="line">Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                        .url(url)</div><div class="line">                        .build();</div><div class="line"></div><div class="line">client.newCall(request)</div><div class="line">        .enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<p>Request 和 OkHttpClient 创建和同步请求一致，重点在与 RealCall() 接口里面的 enqueue(CallBack callback) 方法。传入的当然是一个 CallBack 接口对象用户需要服务器返回的消息通过这个对象传递回来。复写的 onResponse() 成功获取服务器端返回的结果，onFailure() 返回错误失败的信息，下面接着看 enqueued() 调用栈。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//RealCall.class</span></div><div class="line">  <span class="meta">@Override</span> </div><div class="line">  public void enqueue(<span class="type">Callback</span> responseCallback) &#123;</div><div class="line">    synchronized (<span class="keyword">this</span>) &#123;</div><div class="line">      <span class="keyword">if</span> (executed) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">IllegalStateException</span>(<span class="string">"Already Executed"</span>);</div><div class="line">      executed = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    client.dispatcher().enqueue(<span class="keyword">new</span> <span class="type">AsyncCall</span>(responseCallback));</div><div class="line">  &#125;</div><div class="line">    <span class="comment">//RealCall 内部类继承NamedRunnable（代码向下滑）</span></div><div class="line">  <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncCall</span> <span class="keyword">extends</span> <span class="title">NamedRunnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Callback</span> responseCallback;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="type">AsyncCall</span>(<span class="type">Callback</span> responseCallback) &#123;</div><div class="line">      <span class="keyword">super</span>(<span class="string">"OkHttp %s"</span>, redactedUrl().toString());</div><div class="line">      <span class="keyword">this</span>.responseCallback = responseCallback;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span> <span class="keyword">protected</span> void execute() &#123;</div><div class="line">      boolean signalledCallback = <span class="literal">false</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        <span class="type">Response</span> response = getResponseWithInterceptorChain();</div><div class="line">        <span class="keyword">if</span> (retryAndFollowUpInterceptor.isCanceled()) &#123;</div><div class="line">          signalledCallback = <span class="literal">true</span>;</div><div class="line">          responseCallback.onFailure(<span class="type">RealCall</span>.<span class="keyword">this</span>, <span class="keyword">new</span> <span class="type">IOException</span>(<span class="string">"Canceled"</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          signalledCallback = <span class="literal">true</span>;</div><div class="line">          responseCallback.onResponse(<span class="type">RealCall</span>.<span class="keyword">this</span>, response);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">catch</span> (<span class="type">IOException</span> e) &#123;</div><div class="line">        <span class="keyword">if</span> (signalledCallback) &#123;</div><div class="line">          <span class="comment">// Do not signal the callback twice!</span></div><div class="line">          <span class="type">Platform</span>.get().log(<span class="type">INFO</span>, <span class="string">"Callback failure for "</span> + toLoggableString(), e);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          responseCallback.onFailure(<span class="type">RealCall</span>.<span class="keyword">this</span>, e);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        client.dispatcher().finished(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Dispatcher.class</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; readyAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; runningAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;RealCall&gt; runningSyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  </div><div class="line"> <span class="keyword">synchronized</span> <span class="keyword">void</span> enqueue(AsyncCall <span class="keyword">call</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (runningAsyncCalls.<span class="keyword">size</span>() &lt; maxRequests &amp;&amp; runningCallsForHost(<span class="keyword">call</span>) &lt; maxRequestsPerHost) &#123;</div><div class="line">      runningAsyncCalls.add(<span class="keyword">call</span>);</div><div class="line">      executorService().execute(<span class="keyword">call</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      readyAsyncCalls.add(<span class="keyword">call</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NamedRunnable.class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">NamedRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">  <span class="keyword">protected</span> <span class="keyword">final</span> String name;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">NamedRunnable</span><span class="params">(String format, Object... args)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = Util.format(format, args);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">    String oldName = Thread.currentThread().getName();</div><div class="line">    Thread.currentThread().setName(name);</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      execute();</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">      Thread.currentThread().setName(oldName);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>RealCall 类 enqueue(Callback responseCallback) 中可以看到 dispatcher() 方法 ，dispatcher 也有一个 enqueue(AsyncCall call) 方法， 在这个 enqueue 方法里有一个列表并且执行 AsynCall ，如何执行 AsynCall 呢? AsynCall 是 RealCall 的内部类，集成 NamedRunnable，NamedRunnable 继承 Runanble。最终的与服务器发生交互的动作就在 AsynCall 的 execute() 方法内，这里就看到了熟悉的一行代码 ：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Response response</span> = getResponseWithInterceptorChain();</div></pre></td></tr></table></figure>
-<p>执行的流程就和同步的请求一模一样，不同点是再取得的服务器最终结果 Callback 接口放回给用户。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>更好读懂 OKHttp 的源码关键是要了解常用的设计模式，用构造模式创建出 OkHttpClient 和 Request 对象，使用责任链模式完成一个链式的调用。个人认为这就是 OkHttp 最基本的框架。代码的还有许多设计精良的部分，还未还好细读，目前还不把每一部分做到庖丁解牛的境界，有时间再一另帮 Blog 做另外的分析。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/21/android_interface_definition_language/" itemprop="url">
                   AIDL 官方使用介绍
                 </a>
@@ -1072,8 +1048,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/21/java-list/" itemprop="url">
-                  List简介
+                <a class="post-title-link" href="/2016/11/21/okhttp_analyse/" itemprop="url">
+                  Okhttp 源码解析
                 </a>
               
             
@@ -1086,7 +1062,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
+            <time itemprop="dateCreated" datetime="2016-11-21T14:09:00+08:00" content="2016-11-21">
               2016-11-21
             </time>
           </span>
@@ -1116,27 +1092,40 @@
       
         
           
-            <h1 id="List简介"><a href="#List简介" class="headerlink" title="List简介"></a>List简介</h1><h3 id="List-四种实现类"><a href="#List-四种实现类" class="headerlink" title="List 四种实现类"></a>List 四种实现类</h3><ol>
-<li>ArrayList</li>
-<li>LinkeList</li>
-<li>Vector</li>
-<li>Stack</li>
+            <h1 id="Okhttp解析"><a href="#Okhttp解析" class="headerlink" title="Okhttp解析"></a>Okhttp解析</h1><h3 id="总体思想"><a href="#总体思想" class="headerlink" title="总体思想"></a>总体思想</h3><p>分析源码，首先要熟悉用例，由上到下一层一层剥开源码，初步了解项目的框架，然后再细看代码的实现细节。现在试着分析 OKhttp 的源码，下面代码是来至 <a href="https://square.github.io/okhttp/#examples" target="_blank" rel="external">OKhttp官网</a>。</p>
+<p>GET A URL</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="type">OkHttpClient</span> client = <span class="function"><span class="keyword">new</span> <span class="title">OkHttpClient</span>(); <span class="comment">//(1)</span></span></div><div class="line"></div><div class="line"><span class="title">String</span> <span class="title">run</span>(<span class="type">String</span> url) <span class="title">throws</span> <span class="title">IOException</span> &#123;</div><div class="line">  <span class="title">Request</span> <span class="title">request</span> = <span class="title">new</span> <span class="title">Request</span>.<span class="title">Builder</span>()</div><div class="line">      .<span class="title">url</span>(url)</div><div class="line">      .<span class="title">build</span>();                           <span class="comment">//(2)</span></div><div class="line"></div><div class="line">  <span class="title">Response</span> <span class="title">response</span> = <span class="title">client</span>.<span class="title">newCall</span>(request).<span class="title">execute</span>();  <span class="comment">//(3)</span></div><div class="line">  <span class="title">return</span> <span class="title">response</span>.<span class="title">body</span>().<span class="title">string</span>();                        <span class="comment">//(4)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>创建一个 OkHttpClient 对象。</li>
+<li>创建一个 Request 对象，可以设置 URL 等网络配置。</li>
+<li>调用 OkHttpClient 的 newCall() 方法，并把自定义配置的Request对象作为参数传进去。到处为止程序成功的将需要的请求放在了队列中，执行 execute() 方法开始向服务器发起请求，服务器返回的信息转化为 Response 对象。</li>
+<li>返回 response 对象的 body 主体信息。</li>
 </ol>
-<h3 id="四种List的数据结构"><a href="#四种List的数据结构" class="headerlink" title="四种List的数据结构"></a>四种List的数据结构</h3><ol>
-<li><p>ArrayList<br>动态数组，初始化分配一定长度的数组</p>
-</li>
-<li><p>LinkeList<br>双向链表</p>
-</li>
-<li><p>Vector<br>与 ArrayList 一样使用动态数组作为存储结构</p>
-</li>
-<li><p>Stack<br>Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
-</li>
-</ol>
-<h3 id="四种List的不同使用场景的效率"><a href="#四种List的不同使用场景的效率" class="headerlink" title="四种List的不同使用场景的效率"></a>四种List的不同使用场景的效率</h3><p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
-<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。<br>相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
-<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据<br>而数组的 List 直接根据下标返回所需的元素</p>
-<h3 id="ArrayList-与-Vector-关于现场安全的比较"><a href="#ArrayList-与-Vector-关于现场安全的比较" class="headerlink" title="ArrayList 与 Vector 关于现场安全的比较"></a>ArrayList 与 Vector 关于现场安全的比较</h3><p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于<br>Vector</p>
-<h3 id="ArrayList-的遍历速度比较"><a href="#ArrayList-的遍历速度比较" class="headerlink" title="ArrayList 的遍历速度比较"></a>ArrayList 的遍历速度比较</h3><p>随机范围的效率最高<br>随机访问 &gt; for循环 &gt; 遍历器</p>
+<p>一张来至<a href="http://blog.piasy.com/" target="_blank" rel="external">piasy</a>的流程图:<br><img src="http://blog.piasy.com/img/201607/okhttp_full_process.png" alt="image"></p>
+<h3 id="细节分析"><a href="#细节分析" class="headerlink" title="细节分析"></a>细节分析</h3><h4 id="创建-OkHttpClient-对象"><a href="#创建-OkHttpClient-对象" class="headerlink" title="创建 OkHttpClient 对象"></a>创建 OkHttpClient 对象</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OkHttpClient <span class="keyword">client</span> = <span class="keyword">new</span> OkHttpClient();</div></pre></td></tr></table></figure>
+<p>OkHttpClient.class 里面的两个构造函数：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> OkHttpClient() &#123;</div><div class="line">    <span class="keyword">this</span>(new Builder());</div><div class="line">  &#125;</div><div class="line">  </div><div class="line"><span class="keyword">private</span> OkHttpClient(Builder builder) &#123;</div><div class="line">    <span class="keyword">this</span>.dispatcher = builder.dispatcher;</div><div class="line">    <span class="keyword">this</span>.proxy = builder.proxy;</div><div class="line">    <span class="keyword">this</span>.protocols = builder.protocols;</div><div class="line">    .</div><div class="line">    .</div><div class="line">    .</div><div class="line">    <span class="keyword">this</span>.retryOnConnectionFailure = builder.retryOnConnectionFailure;</div><div class="line">    <span class="keyword">this</span>.connectTimeout = builder.connectTimeout;</div><div class="line">    <span class="keyword">this</span>.readTimeout = builder.readTimeout;</div><div class="line">    <span class="keyword">this</span>.writeTimeout = builder.writeTimeout;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>上面可以看出，new OkHttpClient() 是调用 OkHttpClient.class 另外一个 private 的构造函数 OkHttpClient(Builder builder) ，其中 Builder 是 OkHttpClient 的一个内部类，Builder 是使用了<a href="https://www.tutorialspoint.com/design_pattern/builder_pattern.htm" target="_blank" rel="external">构造者模式</a>，里面包含了一些配置相关的字段如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> Dispatcher dispatcher;  <span class="comment">//分发器</span></div><div class="line"><span class="keyword">final</span> Proxy proxy; <span class="comment">//代理</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Protocol&gt; protocols; <span class="comment">//协议</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;ConnectionSpec&gt; connectionSpecs; <span class="comment">//传输层版本和连接协议</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Interceptor&gt; interceptors; <span class="comment">//拦截器</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">List</span>&lt;Interceptor&gt; networkInterceptors; <span class="comment">//网络拦截器</span></div><div class="line">.</div><div class="line">.</div><div class="line">.</div><div class="line"><span class="keyword">final</span> <span class="built_in">int</span> readTimeout; <span class="comment">//read 超时</span></div><div class="line"><span class="keyword">final</span> <span class="built_in">int</span> writeTimeout; <span class="comment">//write 超时</span></div></pre></td></tr></table></figure>
+<h4 id="创建-Request-对象"><a href="#创建-Request-对象" class="headerlink" title="创建 Request 对象"></a>创建 Request 对象</h4><p>创建完 OkHttpClient 对象后，就需要我们创建一个Request，Request 作用就是承载用户的请求，最简单的也是必须的做法是设置  Request 的 URL。同样和创建 OkHttpClient 对象一样，Request 也是使用 构造者模式，其中包含了 URL, header, body等字段，简单看看源码中的 Request 的构造函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Request(Builder builder) &#123;</div><div class="line">   <span class="keyword">this</span>.url = builder.url;</div><div class="line">   <span class="keyword">this</span>.method = builder.method;</div><div class="line">   <span class="keyword">this</span>.headers = builder.headers.build();</div><div class="line">   <span class="keyword">this</span>.body = builder.body;</div><div class="line">   <span class="keyword">this</span>.tag = builder.tag != <span class="literal">null</span> ? builder.tag : <span class="keyword">this</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="真正开始工作啦"><a href="#真正开始工作啦" class="headerlink" title="真正开始工作啦"></a>真正开始工作啦</h4><h5 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h5><p>最上面的官方示例代码是一个同步的网络请求，接着我们一步一步拆解代码。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//官方示例代码</span></div><div class="line">Response response = <span class="keyword">client</span>.newCall(request).execute();</div></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//OkHttpClient.class</span></div><div class="line"><span class="function"><span class="keyword">public</span> Call <span class="title">newCall</span><span class="params">(Request request)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RealCall(<span class="keyword">this</span>, request);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Recall.class</span></div><div class="line">  <span class="keyword">protected</span> RealCall(OkHttpClient <span class="keyword">client</span>, Request originalRequest) &#123;</div><div class="line">    <span class="keyword">this</span>.<span class="keyword">client</span> = <span class="keyword">client</span>;</div><div class="line">    <span class="keyword">this</span>.originalRequest = originalRequest;</div><div class="line">    <span class="keyword">this</span>.retryAndFollowUpInterceptor = <span class="keyword">new</span> RetryAndFollowUpInterceptor(<span class="keyword">client</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">    @Override <span class="keyword">protected</span> <span class="keyword">void</span> execute() &#123;</div><div class="line">      <span class="keyword">boolean</span> signalledCallback = <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        Response response = getResponseWithInterceptorChain();</div><div class="line">        <span class="keyword">if</span> (retryAndFollowUpInterceptor.isCanceled()) &#123;</div><div class="line">          signalledCallback = <span class="keyword">true</span>;</div><div class="line">          responseCallback.onFailure(RealCall.<span class="keyword">this</span>, <span class="keyword">new</span> IOException(<span class="string">"Canceled"</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          signalledCallback = <span class="keyword">true</span>;</div><div class="line">          responseCallback.onResponse(RealCall.<span class="keyword">this</span>, response);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        <span class="keyword">if</span> (signalledCallback) &#123;</div><div class="line">          <span class="comment">// Do not signal the callback twice!</span></div><div class="line">          Platform.get().log(INFO, <span class="string">"Callback failure for "</span> + toLoggableString(), e);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          responseCallback.onFailure(RealCall.<span class="keyword">this</span>, e);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="keyword">client</span>.dispatcher().finished(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在 OkhttpClient 代码里面看到，newCall() 函数返回一个 Call 对象，其实 Call 是一个接口，而我们的没一次请求都是转载在一个 Call 对象中。其中看到返回的是一个 RealCall 对象，由这里看到 RealCall 是 Call 的一个实现类。</p>
+<p>Ok，接着看看 RealCall 对象的 execute() 方法，可以看到这样一行最重要的代码 Response response = getResponseWithInterceptorChain() ，通过这一个方法可得到从服务器返回的一个 Response 对象。从这个函数的名字可以推测，这是一个接一个的链式调用，接下来也可以从源码发现，这个地方使用了<a href="https://www.tutorialspoint.com/design_pattern/chain_of_responsibility_pattern.htm" target="_blank" rel="external">责任链模式</a></p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//RealCall.call</span></div><div class="line"><span class="keyword">private</span> Response getResponseWithInterceptorChain() <span class="keyword">throws</span> IOException &#123;</div><div class="line">    <span class="comment">// Build a full stack of interceptors.</span></div><div class="line">    List&lt;Interceptor&gt; interceptors = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    interceptors.addAll(client.interceptors());</div><div class="line">    interceptors.<span class="built_in">add</span>(retryAndFollowUpInterceptor);</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> BridgeInterceptor(client.cookieJar()));</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> CacheInterceptor(client.internalCache()));</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> ConnectInterceptor(client));</div><div class="line">    <span class="keyword">if</span> (!retryAndFollowUpInterceptor.isForWebSocket()) &#123;</div><div class="line">      interceptors.addAll(client.networkInterceptors());</div><div class="line">    &#125;</div><div class="line">    interceptors.<span class="built_in">add</span>(<span class="keyword">new</span> CallServerInterceptor(</div><div class="line">        retryAndFollowUpInterceptor.isForWebSocket()));</div><div class="line"></div><div class="line">    Interceptor.Chain chain = <span class="keyword">new</span> RealInterceptorChain(</div><div class="line">        interceptors, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="number">0</span>, originalRequest);</div><div class="line">    <span class="keyword">return</span> chain.proceed(originalRequest);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>上的代码总的功能就是往一个 list 里面一个一个的添加 interceptor ，interceptor 是一个抽象的接口，而代码里添加的各种各样的拦截器都是对 interceptor 接口不同的实现。例如，首先添加用户自己配置的interceptor，然后添加 retryAndFollowUpInterceptor 主要负责重定向和失败重连，接着添加 BridgeInterceptor 主要负责转化用户配置的url，header等配置生成一个服务器能接受的文本格式。列表中 CacheInterceptor 我们大概能猜出它的作用，这是一个缓存拦截器，根据 url 读取缓存中的数据，如果有结果就在这里砍断链式调用，成功返回结果。 ConnectInterceptor 则是开始向服务器发起连接。CallServerInterceptor 是正式与服务器发生关系，也是从这个拦截器中返回最终的 Response 结果。</p>
+<p>当然，要发生上述的所有动作必须有一个起点，chain.proceed(originalRequest) 就是整个链路的入口，就在这里开始一个环节扣着一个环节执行下去。放回最终的结果，这不，一次完整的同步网络请求就完成了。</p>
+<h5 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h5><p>上面是一个同步请求的解析，现在来谈谈异步请求，它跟同步请求有异曲同工之妙，大部分的流程实现还是沿用同一份代码，最大的不同是异步请求加入了 dispatcher ，见面知其意，就是由这个类来负责分发用户的请求。按照上面的思路，首先看看一个异步的示例</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//异步示例</span></div><div class="line">OkHttpClient client=<span class="keyword">new</span> OkHttpClient();</div><div class="line"></div><div class="line">Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                        .url(url)</div><div class="line">                        .build();</div><div class="line"></div><div class="line">client.newCall(request)</div><div class="line">        .enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<p>Request 和 OkHttpClient 创建和同步请求一致，重点在与 RealCall() 接口里面的 enqueue(CallBack callback) 方法。传入的当然是一个 CallBack 接口对象用户需要服务器返回的消息通过这个对象传递回来。复写的 onResponse() 成功获取服务器端返回的结果，onFailure() 返回错误失败的信息，下面接着看 enqueued() 调用栈。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//RealCall.class</span></div><div class="line">  <span class="meta">@Override</span> </div><div class="line">  public void enqueue(<span class="type">Callback</span> responseCallback) &#123;</div><div class="line">    synchronized (<span class="keyword">this</span>) &#123;</div><div class="line">      <span class="keyword">if</span> (executed) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">IllegalStateException</span>(<span class="string">"Already Executed"</span>);</div><div class="line">      executed = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    client.dispatcher().enqueue(<span class="keyword">new</span> <span class="type">AsyncCall</span>(responseCallback));</div><div class="line">  &#125;</div><div class="line">    <span class="comment">//RealCall 内部类继承NamedRunnable（代码向下滑）</span></div><div class="line">  <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncCall</span> <span class="keyword">extends</span> <span class="title">NamedRunnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Callback</span> responseCallback;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="type">AsyncCall</span>(<span class="type">Callback</span> responseCallback) &#123;</div><div class="line">      <span class="keyword">super</span>(<span class="string">"OkHttp %s"</span>, redactedUrl().toString());</div><div class="line">      <span class="keyword">this</span>.responseCallback = responseCallback;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span> <span class="keyword">protected</span> void execute() &#123;</div><div class="line">      boolean signalledCallback = <span class="literal">false</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        <span class="type">Response</span> response = getResponseWithInterceptorChain();</div><div class="line">        <span class="keyword">if</span> (retryAndFollowUpInterceptor.isCanceled()) &#123;</div><div class="line">          signalledCallback = <span class="literal">true</span>;</div><div class="line">          responseCallback.onFailure(<span class="type">RealCall</span>.<span class="keyword">this</span>, <span class="keyword">new</span> <span class="type">IOException</span>(<span class="string">"Canceled"</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          signalledCallback = <span class="literal">true</span>;</div><div class="line">          responseCallback.onResponse(<span class="type">RealCall</span>.<span class="keyword">this</span>, response);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">catch</span> (<span class="type">IOException</span> e) &#123;</div><div class="line">        <span class="keyword">if</span> (signalledCallback) &#123;</div><div class="line">          <span class="comment">// Do not signal the callback twice!</span></div><div class="line">          <span class="type">Platform</span>.get().log(<span class="type">INFO</span>, <span class="string">"Callback failure for "</span> + toLoggableString(), e);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          responseCallback.onFailure(<span class="type">RealCall</span>.<span class="keyword">this</span>, e);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        client.dispatcher().finished(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Dispatcher.class</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; readyAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; runningAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;RealCall&gt; runningSyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</div><div class="line">  </div><div class="line"> <span class="keyword">synchronized</span> <span class="keyword">void</span> enqueue(AsyncCall <span class="keyword">call</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (runningAsyncCalls.<span class="keyword">size</span>() &lt; maxRequests &amp;&amp; runningCallsForHost(<span class="keyword">call</span>) &lt; maxRequestsPerHost) &#123;</div><div class="line">      runningAsyncCalls.add(<span class="keyword">call</span>);</div><div class="line">      executorService().execute(<span class="keyword">call</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      readyAsyncCalls.add(<span class="keyword">call</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//NamedRunnable.class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">NamedRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">  <span class="keyword">protected</span> <span class="keyword">final</span> String name;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">NamedRunnable</span><span class="params">(String format, Object... args)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = Util.format(format, args);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">    String oldName = Thread.currentThread().getName();</div><div class="line">    Thread.currentThread().setName(name);</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      execute();</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">      Thread.currentThread().setName(oldName);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>RealCall 类 enqueue(Callback responseCallback) 中可以看到 dispatcher() 方法 ，dispatcher 也有一个 enqueue(AsyncCall call) 方法， 在这个 enqueue 方法里有一个列表并且执行 AsynCall ，如何执行 AsynCall 呢? AsynCall 是 RealCall 的内部类，集成 NamedRunnable，NamedRunnable 继承 Runanble。最终的与服务器发生交互的动作就在 AsynCall 的 execute() 方法内，这里就看到了熟悉的一行代码 ：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Response response</span> = getResponseWithInterceptorChain();</div></pre></td></tr></table></figure>
+<p>执行的流程就和同步的请求一模一样，不同点是再取得的服务器最终结果 Callback 接口放回给用户。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>更好读懂 OKHttp 的源码关键是要了解常用的设计模式，用构造模式创建出 OkHttpClient 和 Request 对象，使用责任链模式完成一个链式的调用。个人认为这就是 OkHttp 最基本的框架。代码的还有许多设计精良的部分，还未还好细读，目前还不把每一部分做到庖丁解牛的境界，有时间再一另帮 Blog 做另外的分析。</p>
 
           
         
@@ -1310,6 +1299,120 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/java-list/" itemprop="url">
+                  List简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="List简介"><a href="#List简介" class="headerlink" title="List简介"></a>List简介</h1><h3 id="List-四种实现类"><a href="#List-四种实现类" class="headerlink" title="List 四种实现类"></a>List 四种实现类</h3><ol>
+<li>ArrayList</li>
+<li>LinkeList</li>
+<li>Vector</li>
+<li>Stack</li>
+</ol>
+<h3 id="四种List的数据结构"><a href="#四种List的数据结构" class="headerlink" title="四种List的数据结构"></a>四种List的数据结构</h3><ol>
+<li><p>ArrayList<br>动态数组，初始化分配一定长度的数组</p>
+</li>
+<li><p>LinkeList<br>双向链表</p>
+</li>
+<li><p>Vector<br>与 ArrayList 一样使用动态数组作为存储结构</p>
+</li>
+<li><p>Stack<br>Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
+</li>
+</ol>
+<h3 id="四种List的不同使用场景的效率"><a href="#四种List的不同使用场景的效率" class="headerlink" title="四种List的不同使用场景的效率"></a>四种List的不同使用场景的效率</h3><p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
+<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。<br>相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
+<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据<br>而数组的 List 直接根据下标返回所需的元素</p>
+<h3 id="ArrayList-与-Vector-关于现场安全的比较"><a href="#ArrayList-与-Vector-关于现场安全的比较" class="headerlink" title="ArrayList 与 Vector 关于现场安全的比较"></a>ArrayList 与 Vector 关于现场安全的比较</h3><p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于<br>Vector</p>
+<h3 id="ArrayList-的遍历速度比较"><a href="#ArrayList-的遍历速度比较" class="headerlink" title="ArrayList 的遍历速度比较"></a>ArrayList 的遍历速度比较</h3><p>随机范围的效率最高<br>随机访问 &gt; for循环 &gt; 遍历器</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/alogrithm/" itemprop="url">
                   算法学习笔记 - Alogrithm Fourth Edition
                 </a>
@@ -1411,102 +1514,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/annotation/" itemprop="url">
-                  Java注解解释
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T12:19:54+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。<br>Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// @Twizzle标注toggle()方法。</span></div><div class="line"> <span class="variable">@Twizzle</span></div><div class="line"> public void toggle() &#123;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// 声明Twizzle标注</span></div><div class="line"> public <span class="variable">@interface</span> Twizzle &#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>标注可以包含一个关键字和值的对所构成的列表：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//等同于 @Edible(value = true)</span></div><div class="line"> <span class="meta">@Edible</span>(<span class="keyword">true</span>)</div><div class="line"> Item item = <span class="keyword">new</span> Carrot();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Edible &#123;</div><div class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="meta">@Author</span>(first = <span class="string">"Oompah"</span>, last = <span class="string">"Loompah"</span>)</div><div class="line"> Book book = <span class="keyword">new</span> Book();</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="meta">@interface</span> Author &#123;</div><div class="line">   <span class="function">String <span class="title">first</span><span class="params">()</span></span>;</div><div class="line">   <span class="function">String <span class="title">last</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1552,7 +1559,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1562,7 +1569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -1637,7 +1644,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
