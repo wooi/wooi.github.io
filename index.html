@@ -1175,6 +1175,120 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/java-list/" itemprop="url">
+                  List简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="List简介"><a href="#List简介" class="headerlink" title="List简介"></a>List简介</h1><h3 id="List-四种实现类"><a href="#List-四种实现类" class="headerlink" title="List 四种实现类"></a>List 四种实现类</h3><ol>
+<li>ArrayList</li>
+<li>LinkeList</li>
+<li>Vector</li>
+<li>Stack</li>
+</ol>
+<h3 id="四种List的数据结构"><a href="#四种List的数据结构" class="headerlink" title="四种List的数据结构"></a>四种List的数据结构</h3><ol>
+<li><p>ArrayList<br>动态数组，初始化分配一定长度的数组</p>
+</li>
+<li><p>LinkeList<br>双向链表</p>
+</li>
+<li><p>Vector<br>与 ArrayList 一样使用动态数组作为存储结构</p>
+</li>
+<li><p>Stack<br>Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
+</li>
+</ol>
+<h3 id="四种List的不同使用场景的效率"><a href="#四种List的不同使用场景的效率" class="headerlink" title="四种List的不同使用场景的效率"></a>四种List的不同使用场景的效率</h3><p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
+<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。<br>相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
+<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据<br>而数组的 List 直接根据下标返回所需的元素</p>
+<h3 id="ArrayList-与-Vector-关于现场安全的比较"><a href="#ArrayList-与-Vector-关于现场安全的比较" class="headerlink" title="ArrayList 与 Vector 关于现场安全的比较"></a>ArrayList 与 Vector 关于现场安全的比较</h3><p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于<br>Vector</p>
+<h3 id="ArrayList-的遍历速度比较"><a href="#ArrayList-的遍历速度比较" class="headerlink" title="ArrayList 的遍历速度比较"></a>ArrayList 的遍历速度比较</h3><p>随机范围的效率最高<br>随机访问 &gt; for循环 &gt; 遍历器</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/javaclone/" itemprop="url">
                   Java 的拷贝
                 </a>
@@ -1250,120 +1364,6 @@
 <p>FastByteArrayOutputStream.class<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.OutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ByteArrayOutputStream implementation that doesn't synchronize methods</div><div class="line"> * and doesn't copy the data on toByteArray().</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> FastByteArrayOutputStream <span class="keyword">extends</span> OutputStream &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Buffer and size</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span>[] buf = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> <span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs a stream with buffer capacity size 5K </div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> FastByteArrayOutputStream() &#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">5</span> * <span class="number">1024</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs a stream with the given initial size</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> FastByteArrayOutputStream(<span class="keyword">int</span> initSize) &#123;</div><div class="line">        <span class="keyword">this</span>.<span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.buf = <span class="keyword">new</span> <span class="keyword">byte</span>[initSize];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Ensures that we have a large enough buffer for the given size.</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">void</span> verifyBufferSize(<span class="keyword">int</span> sz) &#123;</div><div class="line">        <span class="keyword">if</span> (sz &gt; buf.length) &#123;</div><div class="line">            <span class="keyword">byte</span>[] old = buf;</div><div class="line">            buf = <span class="keyword">new</span> <span class="keyword">byte</span>[Math.max(sz, <span class="number">2</span> * buf.length )];</div><div class="line">            System.arraycopy(old, <span class="number">0</span>, buf, <span class="number">0</span>, old.length);</div><div class="line">            old = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> getSize() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">size</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns the byte array containing the written data. Note that this</div><div class="line">     * array will almost always be larger than the amount of data actually</div><div class="line">     * written.</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] getByteArray() &#123;</div><div class="line">        <span class="keyword">return</span> buf;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">byte</span> b[]) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + b.length);</div><div class="line">        System.arraycopy(b, <span class="number">0</span>, buf, <span class="keyword">size</span>, b.length);</div><div class="line">        <span class="keyword">size</span> += b.length;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + len);</div><div class="line">        System.arraycopy(b, off, buf, <span class="keyword">size</span>, len);</div><div class="line">        <span class="keyword">size</span> += len;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">int</span> b) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + <span class="number">1</span>);</div><div class="line">        buf[<span class="keyword">size</span>++] = (<span class="keyword">byte</span>) b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> reset() &#123;</div><div class="line">        <span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns a ByteArrayInputStream for reading back the written data</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> InputStream getInputStream() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FastByteArrayInputStream(buf, <span class="keyword">size</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>ByteArrayInputStream.class<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ByteArrayInputStream implementation that does not synchronize methods.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> FastByteArrayInputStream <span class="keyword">extends</span> InputStream &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Our byte buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span>[] buf = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Number of bytes that we can read from the buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Number of bytes that have been read from the buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> pos = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> FastByteArrayInputStream(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> <span class="keyword">count</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.buf = buf;</div><div class="line">        <span class="keyword">this</span>.<span class="keyword">count</span> = <span class="keyword">count</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> available() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">count</span> - pos;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="keyword">read</span>() &#123;</div><div class="line">        <span class="keyword">return</span> (pos &lt; <span class="keyword">count</span>) ? (buf[pos++] &amp; <span class="number">0</span>xff) : -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="keyword">read</span>(<span class="keyword">byte</span>[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len) &#123;</div><div class="line">        <span class="keyword">if</span> (pos &gt;= <span class="keyword">count</span>)</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ((pos + len) &gt; <span class="keyword">count</span>)</div><div class="line">            len = (<span class="keyword">count</span> - pos);</div><div class="line"></div><div class="line">        System.arraycopy(buf, pos, b, off, len);</div><div class="line">        pos += len;</div><div class="line">        <span class="keyword">return</span> len;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">long</span> skip(<span class="keyword">long</span> n) &#123;</div><div class="line">        <span class="keyword">if</span> ((pos + n) &gt; <span class="keyword">count</span>)</div><div class="line">            n = <span class="keyword">count</span> - pos;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        pos += n;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>ByteArrayInputStream 和 ByteArrayOutputStream 的使用<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.IOException;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayInputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectInputStream;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Utility for making deep copies (vs. clone()'s shallow copies) of </div><div class="line"> * objects. Objects are first serialized and then deserialized. Error</div><div class="line"> * checking is fairly minimal in this implementation. If an object is</div><div class="line"> * encountered that cannot be serialized (or that references an object</div><div class="line"> * that cannot be serialized) an error is printed to System.err and</div><div class="line"> * null is returned. Depending on your specific application, it might</div><div class="line"> * make more sense to have copy(...) re-throw the exception.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeepCopy</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns a copy of the object, or null if the object cannot</div><div class="line">     * be serialized.</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object copy(Object orig) &#123;</div><div class="line">        Object obj = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// Write the object out to a byte array</span></div><div class="line">            FastByteArrayOutputStream fbos = </div><div class="line">                    <span class="keyword">new</span> FastByteArrayOutputStream();</div><div class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream(fbos);</div><div class="line">            out.writeObject(orig);</div><div class="line">            out.flush();</div><div class="line">            out.close();</div><div class="line"></div><div class="line">            <span class="comment">// Retrieve an input stream from the byte array and read</span></div><div class="line">            <span class="comment">// a copy of the object back in. </span></div><div class="line">            ObjectInputStream <span class="keyword">in</span> = </div><div class="line">                <span class="keyword">new</span> ObjectInputStream(fbos.getInputStream());</div><div class="line">            obj = <span class="keyword">in</span>.readObject();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(ClassNotFoundException cnfe) &#123;</div><div class="line">            cnfe.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/java-list/" itemprop="url">
-                  List简介
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="List简介"><a href="#List简介" class="headerlink" title="List简介"></a>List简介</h1><h3 id="List-四种实现类"><a href="#List-四种实现类" class="headerlink" title="List 四种实现类"></a>List 四种实现类</h3><ol>
-<li>ArrayList</li>
-<li>LinkeList</li>
-<li>Vector</li>
-<li>Stack</li>
-</ol>
-<h3 id="四种List的数据结构"><a href="#四种List的数据结构" class="headerlink" title="四种List的数据结构"></a>四种List的数据结构</h3><ol>
-<li><p>ArrayList<br>动态数组，初始化分配一定长度的数组</p>
-</li>
-<li><p>LinkeList<br>双向链表</p>
-</li>
-<li><p>Vector<br>与 ArrayList 一样使用动态数组作为存储结构</p>
-</li>
-<li><p>Stack<br>Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
-</li>
-</ol>
-<h3 id="四种List的不同使用场景的效率"><a href="#四种List的不同使用场景的效率" class="headerlink" title="四种List的不同使用场景的效率"></a>四种List的不同使用场景的效率</h3><p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
-<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。<br>相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
-<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据<br>而数组的 List 直接根据下标返回所需的元素</p>
-<h3 id="ArrayList-与-Vector-关于现场安全的比较"><a href="#ArrayList-与-Vector-关于现场安全的比较" class="headerlink" title="ArrayList 与 Vector 关于现场安全的比较"></a>ArrayList 与 Vector 关于现场安全的比较</h3><p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于<br>Vector</p>
-<h3 id="ArrayList-的遍历速度比较"><a href="#ArrayList-的遍历速度比较" class="headerlink" title="ArrayList 的遍历速度比较"></a>ArrayList 的遍历速度比较</h3><p>随机范围的效率最高<br>随机访问 &gt; for循环 &gt; 遍历器</p>
 
           
         
