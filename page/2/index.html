@@ -238,6 +238,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/alogrithm/" itemprop="url">
+                  算法学习笔记 - Alogrithm Fourth Edition
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T14:04:00+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="算法学习笔记-Alogrithm-Fourth-Edition"><a href="#算法学习笔记-Alogrithm-Fourth-Edition" class="headerlink" title="算法学习笔记 - Alogrithm Fourth Edition"></a>算法学习笔记 - Alogrithm Fourth Edition</h1><h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h4 id="选择排序-Selection"><a href="#选择排序-Selection" class="headerlink" title="选择排序(Selection)"></a>选择排序(Selection)</h4><p>如果有N个数组，从第一个元素开始往后选择，与后面的每一个元素做对比，挑出最小的元素，如果后面元素中有一个最小的值，则把这个值放到第一位。然后从第二位数开始，继续往后面的元素做对比，挑出最小元素，如果后面元素中有一个最小的值，则把这个值放到第二位。以此重复操作到第N位，排序就完成了。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Selection</span> &#123;</div><div class="line">	Selection() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</div><div class="line">		<span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">93</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">88</span> &#125;;</div><div class="line">		show(a);</div><div class="line">		Selection.sort(a);</div><div class="line">		show(a);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span>(<span class="params"><span class="keyword">int</span>[] a</span>) </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</div><div class="line">			<span class="keyword">int</span> mini = i;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; a.length; j++) &#123;</div><div class="line">				<span class="keyword">if</span> (less(a[j], a[mini])) &#123;</div><div class="line">					mini = j;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			exch(a, i, mini);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> boolean <span class="title">less</span>(<span class="params"><span class="keyword">int</span> v, <span class="keyword">int</span> w</span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> v &lt; w;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exch</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j</span>) </span>&#123;</div><div class="line">		Object swap = a[i];</div><div class="line">		a[i] = a[j];</div><div class="line">		a[j] = (<span class="keyword">int</span>) swap;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span>(<span class="params"><span class="keyword">int</span>[] a</span>) </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</div><div class="line">			System.<span class="keyword">out</span>.print(a[i] + <span class="string">" "</span>);</div><div class="line">		&#125;</div><div class="line">		System.<span class="keyword">out</span>.println();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>假设有N个元素的数组，从第二元素开始，与左边的第一元素比较，如果第二个比第一个元素小则插入第一个前面。接着从第三个开始与左边元素与第二个比较，如果第三个小于第二个，则插入到第二个前面，接着比较第一个。以此类推。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">package com.srs.test;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Insert</span> &#123;</div><div class="line">	Insert() &#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</div><div class="line">		<span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">93</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">88</span> &#125;;</div><div class="line">		show(a);</div><div class="line">		Selection.sort(a);</div><div class="line">		show(a);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sort</span>(<span class="params"><span class="keyword">int</span>[] a</span>) </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; a.length; i++) &#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i;j&gt;<span class="number">0</span>&amp;&amp;less(a,j,j<span class="number">-1</span>);j--)&#123;</div><div class="line">				exch(a,j,j<span class="number">-1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> boolean <span class="title">less</span>(<span class="params"><span class="keyword">int</span>[] a,<span class="keyword">int</span> i,<span class="keyword">int</span> j</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> a[i]&lt;a[j];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exch</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j</span>) </span>&#123;</div><div class="line">		Object swap = a[i];</div><div class="line">		a[i] = a[j];</div><div class="line">		a[j] = (<span class="keyword">int</span>) swap;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span>(<span class="params"><span class="keyword">int</span>[] a</span>) </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</div><div class="line">			System.<span class="keyword">out</span>.print(a[i] + <span class="string">" "</span>);</div><div class="line">		&#125;</div><div class="line">		System.<span class="keyword">out</span>.println();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><p>插入排序在极端情况下有可能最右端的数值要经过其他全部数值的比较才到达第一位。所以当数组长度很大时，排序的效率就非常低了，后来便有了希尔排序，希尔排序是插入排序的优化，它的基础原理思想就是，将数组分成几个小队列，让数组元素跨数组排列。当分组排列完成后，缩小组别的长度，重复上面的排序，直至最后做普通的插入排序即完成了希尔排序；</p>
+<ul>
+<li>例如，假设有这样一组数[ 13 14 94 33 82 25 59 94 65 23 45 27 73 25 39 10 ]，如果我们以步长为5开始进行排序，我们可以通过将这列表放在有5列的表中来更好地描述算法，这样他们就应该看起来是这样：<blockquote>
+<p>13 14 94 33 82<br>25 59 94 65 23<br>45 27 73 25 39<br>10</p>
+</blockquote>
+</li>
+</ul>
+<p>然后我们对每列进行排序：</p>
+<blockquote>
+<p>10 14 73 25 23<br>13 27 94 33 39<br>25 59 94 65 82<br>45</p>
+</blockquote>
+<p>将上述四行数字，依序接在一起时我们得到：[ 10 14 73 25 23 13 27 94 33 39 25 59 94 65 82 45 ].这时10已经移至正确位置了，然后再以3为步长进行排序：</p>
+<blockquote>
+<p>10 14 73<br>25 23 13<br>27 94 33<br>39 25 59<br>94 65 82<br>45</p>
+</blockquote>
+<p>排序之后变为：</p>
+<blockquote>
+<p>10 14 13<br>25 23 33<br>27 25 59<br>39 65 73<br>45 94 82<br>94</p>
+</blockquote>
+<p>最后以1步长进行排序（此时就是简单的插入排序了）。</p>
+<p>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shell</span> <span class="keyword">extends</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		startTest(<span class="keyword">new</span> Shell());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> n = a.length;</div><div class="line">		<span class="keyword">int</span> h = <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span> (h &lt; n / <span class="number">3</span>)</div><div class="line">			h = <span class="number">3</span> * h + <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span> (h &gt;= <span class="number">1</span>) &#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = h; i &lt; n; i++) &#123;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = i - h; j &gt;= <span class="number">0</span> &amp;&amp; less(a, j + h, j); j -= h) &#123;</div><div class="line">					exch(a, j + h, j);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			h /= <span class="number">3</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>分治是归并排序的基本思想，将一数组通过不断的分化，直至最小，元素数量为2的小数组，小数组排序后再和其他小数组合并合并的时候也做排序，合并完成后再与另外一组同样有小数组再继续合并，指导最终排序完成<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Merge</span> <span class="keyword">extends</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		startTest(<span class="keyword">new</span> Merge());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</div><div class="line">		sort(a,<span class="number">0</span>,a.length-<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (hi &lt;= lo)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">int</span> mid = lo+(hi - lo) / <span class="number">2</span>;</div><div class="line">		sort(a, lo, mid);</div><div class="line">		sort(a, mid + <span class="number">1</span>, hi);</div><div class="line">		merge(a, lo, mid, hi);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> i = lo, j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[a.length];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) &#123;</div><div class="line">			arr[k] = a[k];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) &#123;</div><div class="line">			<span class="keyword">if</span> (i &gt; mid) &#123;</div><div class="line">				a[k] = arr[j++];</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi) &#123;</div><div class="line">				a[k] = arr[i++];</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (less(arr[j], arr[i])) &#123;</div><div class="line">				a[k] = arr[j++];</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				a[k] = arr[i++];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。选取一个基准值，程序同时从左端和右端向中间靠拢，首先左端和右端同基准值做比较，左端小于基准值时光标继续移动，直至左端大于基准值，右端的大于基准值时光标继续移动，直至右端小于基准值，这时候交换左端右端位置。接着继续移动左右端光标重复以上操作。当两端相遇时完成左右端大小归类。然后继续分裂左右端归类后的数组，数组不能再继续分裂排序就完成了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Quick</span> <span class="keyword">extends</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		startTest(<span class="keyword">new</span> Quick());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</div><div class="line">		sort(a,<span class="number">0</span>,a.length-<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (lo &gt;= hi) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">int</span> j = partition(a, lo, hi);</div><div class="line">		sort(a, lo, j-<span class="number">1</span>);</div><div class="line">		sort(a, j + <span class="number">1</span>, hi);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> v = a[lo];</div><div class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line"></div><div class="line">			<span class="keyword">while</span> (less(a[++i], v)) &#123;</div><div class="line">				<span class="keyword">if</span> (i == hi) &#123;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">while</span> (less(v, a[--j])) &#123;</div><div class="line">				<span class="keyword">if</span> (j == lo) &#123;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">if</span> (i &gt;= j) &#123;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			exch(a, i, j);</div><div class="line">		&#125;</div><div class="line">		exch(a, lo, j);</div><div class="line">		<span class="keyword">return</span> j;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><h3 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h3><blockquote>
+<p>当一棵二叉树的每一个结点都大于等于它的两个子节点是，它被称为有序堆</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/annotation/" itemprop="url">
                   Java注解解释
                 </a>
@@ -680,7 +802,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
