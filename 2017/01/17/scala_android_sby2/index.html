@@ -1,0 +1,664 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术,Android,Scala," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Scala 语言开发Andorid ，开发环境的搭建(二)什么是 sbt ？上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。那 sbt 有什么优势呢？
+
+相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖
+triggered execution 特性方便做测试驱动的开发
+依据类和依赖使用 Scala 的解析器
+sbt 是基于 Scala ，所以可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala 语言开发Andorid ，开发环境的搭建(二)">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/scala_android_sby2/index.html">
+<meta property="og:site_name" content="同文館">
+<meta property="og:description" content="Scala 语言开发Andorid ，开发环境的搭建(二)什么是 sbt ？上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。那 sbt 有什么优势呢？
+
+相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖
+triggered execution 特性方便做测试驱动的开发
+依据类和依赖使用 Scala 的解析器
+sbt 是基于 Scala ，所以可以">
+<meta property="og:updated_time" content="2017-01-17T05:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scala 语言开发Andorid ，开发环境的搭建(二)">
+<meta name="twitter:description" content="Scala 语言开发Andorid ，开发环境的搭建(二)什么是 sbt ？上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。那 sbt 有什么优势呢？
+
+相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖
+triggered execution 特性方便做测试驱动的开发
+依据类和依赖使用 Scala 的解析器
+sbt 是基于 Scala ，所以可以">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/17/scala_android_sby2/"/>
+
+  <title> Scala 语言开发Andorid ，开发环境的搭建(二) | 同文館 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-90094724-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?74871b5422f5ef687b8d125ec7cc3a14";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">同文館</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Scala 语言开发Andorid ，开发环境的搭建(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2017-01-17T13:12:00+08:00" content="2017-01-17">
+              2017-01-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Scala-语言开发Andorid-，开发环境的搭建-二"><a href="#Scala-语言开发Andorid-，开发环境的搭建-二" class="headerlink" title="Scala 语言开发Andorid ，开发环境的搭建(二)"></a>Scala 语言开发Andorid ，开发环境的搭建(二)</h1><h2 id="什么是-sbt-？"><a href="#什么是-sbt-？" class="headerlink" title="什么是 sbt ？"></a>什么是 sbt ？</h2><p>上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。<br>那 sbt 有什么优势呢？</p>
+<ol>
+<li>相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖</li>
+<li>triggered execution 特性方便做测试驱动的开发</li>
+<li>依据类和依赖使用 Scala 的解析器</li>
+<li>sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程</li>
+<li>支持 java 和 Scala 的混合编程</li>
+</ol>
+<h2 id="基本目录"><a href="#基本目录" class="headerlink" title="基本目录"></a>基本目录</h2><p>工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>根下的 src 目录就是存放源码文件的地方呢<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">src/</div><div class="line">  main/</div><div class="line">    resources/</div><div class="line">       &lt;files to <span class="keyword">include</span> <span class="keyword">in</span> main jar here&gt;</div><div class="line">    <span class="keyword">scala</span>/</div><div class="line">       &lt;main <span class="keyword">Scala</span> sources&gt;</div><div class="line">    java/</div><div class="line">       &lt;main Java sources&gt;</div><div class="line">  <span class="keyword">test</span>/</div><div class="line">    resources</div><div class="line">       &lt;files to <span class="keyword">include</span> <span class="keyword">in</span> <span class="keyword">test</span> jar here&gt;</div><div class="line">    <span class="keyword">scala</span>/</div><div class="line">       &lt;<span class="keyword">test</span> <span class="keyword">Scala</span> sources&gt;</div><div class="line">    java/</div><div class="line">       &lt;<span class="keyword">test</span> Java sources&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="sbt-配置文件"><a href="#sbt-配置文件" class="headerlink" title="sbt 配置文件"></a>sbt 配置文件</h3><p>在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件</p>
+<p>一般情况下我们习惯使用 build.sbt 作为文件的名称，当然你也可以使用任何的名字。</p>
+<p>根目录下的 sbt 文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">build<span class="selector-class">.sbt</span></div><div class="line">project/</div><div class="line">  plugin<span class="selector-class">.sbt</span></div><div class="line">  Build<span class="selector-class">.scala</span></div><div class="line">  &lt;Other Scala files&gt;</div></pre></td></tr></table></figure></p>
+<p>看到这里你可能会还好奇，sbt 和 Scala  的配置文件有什么区别</p>
+<p>一般推荐，sbt 文件作为项目的主要设定文件，而 scala 用于设置第三方依赖或者版本信息等</p>
+<h2 id="编写build-sbt"><a href="#编写build-sbt" class="headerlink" title="编写build.sbt"></a>编写build.sbt</h2><p>下面一步一步写出项目到build.sbt 文件</p>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>在我们的定义文件了，我们只需要关注设置的表达式 </p>
+<p>下面的实例显示了项目版本号命名等基本信息，还有 项目中使用的 Scala 版本的配置信息<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">name := <span class="string">"scala-on-android"</span></div><div class="line"></div><div class="line">organization := <span class="string">"com.fortysevendeg"</span></div><div class="line"></div><div class="line">organizationName := <span class="string">"47 Degrees"</span></div><div class="line"></div><div class="line">organizationHomepage := Some(<span class="built_in">new</span> URL(<span class="string">"http://47deg.com"</span>))</div><div class="line"></div><div class="line">version := <span class="number">0.1</span><span class="number">.0</span></div><div class="line"></div><div class="line">scalaVersion := <span class="number">2.11</span><span class="number">.6</span></div></pre></td></tr></table></figure></p>
+<p>不难发现上面的例子 使用 := 作为连接符</p>
+<p>另外还可以使用其他的连接符<br>+= 添加多一个元素<br>++= 添加多个元素<br>例如</p>
+<blockquote>
+<p>scalacOptions ++= Seq(“-feature”, “-deprecation”)</p>
+</blockquote>
+<h3 id="添加第三方库依赖"><a href="#添加第三方库依赖" class="headerlink" title="添加第三方库依赖"></a>添加第三方库依赖</h3><p>和 gradle 一样，其实库的添加分两种<br>一是添加本地 jar 包<br>二是添加远程仓库库</p>
+<h4 id="添加-jar-包"><a href="#添加-jar-包" class="headerlink" title="添加 jar 包"></a>添加 jar 包</h4><p>使用 jar 包最简单到方式是直接把 jar 放到下面目录，这样项目就会自动导入 jar 包</p>
+<blockquote>
+<p>/src/main/libs</p>
+</blockquote>
+<p>除此之外还能使用自定义到路径</p>
+<blockquote>
+<p>unmanagedBase := baseDirectory.value / “custom_lib”</p>
+</blockquote>
+<h4 id="远程依赖"><a href="#远程依赖" class="headerlink" title="远程依赖"></a>远程依赖</h4><p>远程依赖使用是 ivy 到远程管理仓库，同样你可以使用 += 或者 ++= 到导入一个或多个依赖<br>先看看导入一个到基本表达式</p>
+<blockquote>
+<p>libraryDependencies += groupID % artifactID % revision [% configuration]</p>
+</blockquote>
+<p>导入多个<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">libraryDependencies ++= Seq(</div><div class="line">  <span class="name">aar</span>(<span class="string">"com.android.support"</span> %  <span class="string">"cardview-v7"</span> % <span class="string">"22.0.0"</span>),</div><div class="line">  aar(<span class="string">"com.android.support"</span> % <span class="string">"appcompat-v7"</span> % <span class="string">"22.0.0"</span>),</div><div class="line">  aar(<span class="string">"com.android.support"</span> % <span class="string">"recyclerview-v7"</span> % <span class="string">"22.0.0"</span>),</div><div class="line">  aar(<span class="string">"com.google.android.gms"</span> % <span class="string">"play-services-base"</span> % <span class="string">"6.5.87"</span>),</div><div class="line">  <span class="string">"com.typesafe.play"</span> %% <span class="string">"play-json"</span> % <span class="string">"2.3.6"</span>,</div><div class="line">  <span class="string">"org.specs2"</span> %% <span class="string">"specs2-core"</span> % <span class="string">"2.4.15"</span> % <span class="string">"test"</span>,</div><div class="line">  <span class="string">"org.specs2"</span> % <span class="string">"specs2-mock_2.11"</span> %  <span class="string">"3.0-M2"</span> % <span class="string">"test"</span>)</div></pre></td></tr></table></figure></p>
+<p>上面可见，可以使用 % 作为分割符，那 %% 又代表上面意思呢。其实为何配合不同版本的 scala ，需要不同依赖， %% 就是解决这个问题的，例如上面的 “org.specs2” %% “specs2-core”  sbt 构建工具就根据不同情况选择合适的 org.specs2 或者 specs2-core 库。</p>
+<h3 id="添加-sbt-插件"><a href="#添加-sbt-插件" class="headerlink" title="添加 sbt 插件"></a>添加 sbt 插件</h3><p> 在目录 project 下有一个 plugin.sbt 文件，只需要 配置相关的信息就能方便安装对应的插件。为了更加方便使用 sbt 管理我们的 Android 工程，可以使用一些插件让开发过程中更加方便，这里说一个常用的插件<br>  <a href="https://github.com/scala-android/sbt-android" target="_blank" rel="external">sbt-android</a>,详细使用和配置的可以看开发文档。这里只演示如何最快的安装。只需要在 plugin.sbt 添加一行便可以完成安装</p>
+<blockquote>
+<p>addSbtPlugin(“org.scala-android” % “sbt-android” % “1.7.1”)</p>
+</blockquote>
+<p> 接着在 根目录下的 build.sbt 中使用我们的插件</p>
+<blockquote>
+<p>android.Plugin.androidBuild<br> platformTarget in Android := “android-21”</p>
+</blockquote>
+<p> 这样遍可以使用这个插件提供的一些功能，例如 compile（编译），android:run（运行），android:package-release（打包）等操作。</p>
+<p>此外插件还提供了打包的配置方案如下面设置签名文件的路径等信息<br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">packageRelease &lt;&lt;= (packageRelease <span class="keyword">in</span> Android).dependsOn(setDebugTask(<span class="literal">false</span>))</div><div class="line"></div><div class="line">apkSigningConfig <span class="keyword">in</span> Android := <span class="keyword">Option</span>(</div><div class="line">  PromptPasswordsSigningConfig(</div><div class="line">    keystore = <span class="keyword">new</span> File(Path.userHome.absolutePath + <span class="string">"/.android/signed.keystore"</span>),</div><div class="line">    <span class="keyword">alias</span> = <span class="string">"my-password"</span>))</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag">#技术</a>
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Scala/" rel="tag">#Scala</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/10/scala_android_sby/" rel="next" title="Scala 语言开发Andorid ，开发环境的搭建(一)">
+                <i class="fa fa-chevron-left"></i> Scala 语言开发Andorid ，开发环境的搭建(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/26/reborn/" rel="prev" title="找回旧时玩代码的感觉">
+                找回旧时玩代码的感觉 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wooi" />
+          <p class="site-author-name" itemprop="name">Wooi</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wooi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/wooiiiwooiii" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/zzzidane/" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/wooiiiwooiii/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scala-语言开发Andorid-，开发环境的搭建-二"><span class="nav-number">1.</span> <span class="nav-text">Scala 语言开发Andorid ，开发环境的搭建(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-sbt-？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 sbt ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本目录"><span class="nav-number">1.2.</span> <span class="nav-text">基本目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-number">1.2.1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sbt-配置文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">sbt 配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写build-sbt"><span class="nav-number">1.3.</span> <span class="nav-text">编写build.sbt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式"><span class="nav-number">1.3.1.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加第三方库依赖"><span class="nav-number">1.3.2.</span> <span class="nav-text">添加第三方库依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-jar-包"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">添加 jar 包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程依赖"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">远程依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-sbt-插件"><span class="nav-number">1.3.3.</span> <span class="nav-text">添加 sbt 插件</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wooi</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
