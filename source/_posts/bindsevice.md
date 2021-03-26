@@ -1,3 +1,4 @@
+---
 title: BindSevice的几种使用方法
 date: 2016-10-11 22:00:07 
 categories:

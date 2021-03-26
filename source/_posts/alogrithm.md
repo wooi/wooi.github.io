@@ -2,6 +2,8 @@
 title: 算法学习笔记 - Alogrithm Fourth Edition
 date: 2016-11-21 14:04
 tags:
+- 技术
+- 算法
 ---
 
 # 算法学习笔记 - Alogrithm Fourth Edition

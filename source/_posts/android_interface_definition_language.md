@@ -2,6 +2,8 @@
 title: AIDL 官方使用介绍
 date: 2016-11-21 14:09
 tags:
+- 技术
+- 算法
 ---
 
 # Android Interface Definition Language (AIDL)
@@ -26,9 +28,9 @@ AIDL是允许你完成自定义接口，用于不同进程中服务器和客户�
 2. 实现接口
 
     文件自动创建接口文件，内部Stub类必须继承Binder，实现Stubd方法内的行为
-    
+
 3. 对客户端暴露接口
-    
+
     实现的Service重写 onBind()方法 返回你实现的stub类
 
 > aidl文件的做了任何的改变，切记修改使用你服务的客户端

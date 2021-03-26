@@ -69,7 +69,10 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/wooi/wooi.github.io
+  repository: https://git.coding.net/Wooi/wooi.coding.me.git      
   branch: master
+
+# https://git.coding.net/Wooi/wooi.coding.me.git
+# https://git.coding.net/Wooi/wooi.coding.me.git
 
 
