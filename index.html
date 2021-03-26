@@ -238,6 +238,103 @@
             
               
                 
+                <a class="post-title-link" href="/2021/03/26/reborn/" itemprop="url">
+                  找回旧时玩代码的感觉
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2021-03-26T20:45:00+08:00" content="2021-03-26">
+              2021-03-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="找回旧时玩代码的感觉"><a href="#找回旧时玩代码的感觉" class="headerlink" title="找回旧时玩代码的感觉"></a>找回旧时玩代码的感觉</h1><p>上一次提交的博客还在2017年，虽然这几年间偶尔会做一些自己感兴趣的side project，但是基本上没有话费太多时间精力在这些项目上。其中一个应用在 Google play 上架一段时间，半年时间盈利200美金，还有一个用户通过我的反馈邮箱找到了我的PayPle账号，很意外的收到了5美元的PayPle捐款，后面服务器厂商跑路了，碍于某些不可抗因素，再三考虑还是放弃了这个这个项目，我自己把APP在商店下了架。于此同时谷歌商店政策在不断变化，更早之前的一些应用也放弃了维护，现在我的Google Play账号下都是空的。</p>
+<p>这数年间见证了公司项目从零到千万月活的每一个脚步，工作开发任务多，这些任务基本上占据了我大部分的精力。农历一直思考，回顾过去，我发现我缺少某些东西，之前为止心里向往的被其他东西给代替了。其中最让我感到失落的是我好像失去了寻找创作力的热情。看了不同的书，看了不同的电影，听了不同的音乐，看了不同的代码，发现好东西当然会相当愉悦，会去羡慕那些作者的创作力，我也想那样，也仅仅只是想而已。</p>
+<p>今天周五啊，下班回来先把自己的给敲碎，在这一篇Blog开始，开始追寻我的创作激情和创作力。</p>
+<p>先立个Flag，把过去看的书做一些回顾了整理，重新输出一些Blog，还有开始我下一个Side Project。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/17/scala_android_sby2/" itemprop="url">
                   Scala 语言开发Andorid ，开发环境的搭建(二)
                 </a>
@@ -1428,130 +1525,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/javaclone/" itemprop="url">
-                  Java 的拷贝
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T14:05:00+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h1><h2 id="深度拷贝一个对象"><a href="#深度拷贝一个对象" class="headerlink" title="深度拷贝一个对象"></a>深度拷贝一个对象</h2><p>java.lang.Object 根类已经定义了 clone() 方法。子类只需要事项 java.lang.Cloneable 接口，就可以返回一个拷贝的对象。实现接口的同时要实现 clone() 方法里面的实现。这是拷贝方式就是浅拷贝(shallow copy of object)，这代表着原有对象的值复制一份存储在一个新的对象里面。</p>
-<p>浅拷贝并不是完全复制原对象的所有内容，除了基本类型(int,float…)，引用类型只是复制一份引用对象的引用，那么原有的对象和拷贝的对象就指共同指向同一个引用对象。这样使用浅拷贝就会导致一些不可预测的错误。看看项目 Exampl1的例子。</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> class Example1 &#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</div><div class="line">        <span class="comment">// Make a Vector</span></div><div class="line">        Vector original = <span class="keyword">new</span> Vector();</div><div class="line"></div><div class="line">        <span class="comment">// Make a StringBuffer and add it to the Vector</span></div><div class="line">        StringBuffer <span class="built_in">text</span> = <span class="keyword">new</span> StringBuffer(<span class="string">"The quick brown fox"</span>);</div><div class="line">        original.addElement(<span class="built_in">text</span>);</div><div class="line"></div><div class="line">        <span class="comment">// Clone the vector and print out the contents</span></div><div class="line">        Vector clone = (Vector) original.clone();</div><div class="line">        System.out.<span class="built_in">println</span>(<span class="string">"A. After cloning"</span>);</div><div class="line">        printVectorContents(original, <span class="string">"original"</span>);</div><div class="line">        printVectorContents(clone, <span class="string">"clone"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>(</div><div class="line">            <span class="string">"--------------------------------------------------------"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>();</div><div class="line"></div><div class="line">        <span class="comment">// Add another object (an Integer) to the clone and </span></div><div class="line">        <span class="comment">// print out the contents</span></div><div class="line">        clone.addElement(<span class="keyword">new</span> Integer(<span class="number">5</span>));</div><div class="line">        System.out.<span class="built_in">println</span>(<span class="string">"B. After adding an Integer to the clone"</span>);</div><div class="line">        printVectorContents(original, <span class="string">"original"</span>);</div><div class="line">        printVectorContents(clone, <span class="string">"clone"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>(</div><div class="line">            <span class="string">"--------------------------------------------------------"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>();</div><div class="line"></div><div class="line">        <span class="comment">// Change the StringBuffer contents</span></div><div class="line">        <span class="built_in">text</span>.<span class="built_in">append</span>(<span class="string">" jumps over the lazy dog."</span>);</div><div class="line">        System.out.<span class="built_in">println</span>(<span class="string">"C. After modifying one of original's elements"</span>);</div><div class="line">        printVectorContents(original, <span class="string">"original"</span>);</div><div class="line">        printVectorContents(clone, <span class="string">"clone"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>(</div><div class="line">            <span class="string">"--------------------------------------------------------"</span>);</div><div class="line">        System.out.<span class="built_in">println</span>();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> printVectorContents(Vector v, <span class="keyword">String</span> name) &#123;</div><div class="line">        System.out.<span class="built_in">println</span>(<span class="string">"  Contents of \""</span> + name + <span class="string">"\":"</span>);</div><div class="line"></div><div class="line">        <span class="comment">// For each element in the vector, print out the index, the</span></div><div class="line">        <span class="comment">// class of the element, and the element itself</span></div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; v.<span class="built_in">size</span>(); i++) &#123;</div><div class="line">            <span class="keyword">Object</span> element = v.elementAt(i);</div><div class="line">            System.out.<span class="built_in">println</span>(<span class="string">"   "</span> + i + <span class="string">" ("</span> + </div><div class="line">                element.getClass().getName() + <span class="string">"): "</span> + </div><div class="line">                element);</div><div class="line">        &#125;</div><div class="line">        System.out.<span class="built_in">println</span>();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Exampl1 运行输出的结果：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">A. After <span class="keyword">cloning</span></div><div class="line">  Contents of <span class="string">"original"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox</div><div class="line"></div><div class="line">  Contents of <span class="string">"clone"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox</div><div class="line"></div><div class="line">--------------------------------------------------------</div><div class="line"></div><div class="line"><span class="keyword">B. </span>After <span class="keyword">adding </span>an Integer to the <span class="keyword">clone</span></div><div class="line">  Contents of <span class="string">"original"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox</div><div class="line"></div><div class="line">  Contents of <span class="string">"clone"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox</div><div class="line">   <span class="number">1</span> (<span class="keyword">java.lang.Integer): </span><span class="number">5</span></div><div class="line"></div><div class="line">--------------------------------------------------------</div><div class="line"></div><div class="line">C. After modifying one of <span class="keyword">original's </span>elements</div><div class="line">  Contents of <span class="string">"original"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox <span class="keyword">jumps </span>over the lazy dog.</div><div class="line"></div><div class="line">  Contents of <span class="string">"clone"</span>:</div><div class="line">   <span class="number">0</span> (<span class="keyword">java.lang.StringBuffer): </span>The quick <span class="keyword">brown </span>fox <span class="keyword">jumps </span>over the lazy dog.</div><div class="line">   <span class="number">1</span> (<span class="keyword">java.lang.Integer): </span><span class="number">5</span></div><div class="line"></div><div class="line">--------------------------------------------------------</div></pre></td></tr></table></figure></p>
-<p>运行结果打印出3个区域块，在第一个区域块中成功的创建了一个对象和复制拷贝了一个一模一样的对象。从第二个区域块可以看出两个对象是相互对立的，当往复制拷贝的对象添加一个 Integer 数值，打印的结果显示原有的对象不受影响，复制拷贝的对象打印添加的数值。第三个区域块修改了 StringBuffer 的值，打印显示出两个对象里面的内容同时被修改了，这恰恰验证了上面的说法，应用类型的值时用 clone 时无法被完全复制过去的。</p>
-<p>所以使用 clone 这种方法复制内容可能会造成不可预测的错误。</p>
-<p>为了解决浅拷贝带来的问题，另外的解决方案是使用<em>深度拷贝(deep copy of object)</em> 。深度拷贝使得原有对象和新对象完全独立，对象里面的所有属性都完成被复制过去。Java Api 提供的 clone 方法无法一步到位的深度拷贝，只能为对象里面的所有的熟悉均实现 Cloneable 接口，为所有的属性变量 clone 一遍。就如同上的例子，需要重写 clone 方法拷贝一个新的字符串，再把新的字符串对象复制给 Vector克隆出来的对象。<br>不过这种做法有几点缺点：</p>
-<ol>
-<li>要拷贝一个对象，必须修改这个类里面所有元素的 clone 方法。假如你使用第三库的代码，而且没有源码这就无法使用这个方法，还有如果使用 final 修饰变量这也是没使用这个拷贝方法</li>
-<li>要有权限访问父类属性变量，如果某个变量是私有属性就没有权限修改它</li>
-<li>必须要确定属性变量的类型，尤其不能运行中才能确定的类型</li>
-<li>操作繁琐容易出错</li>
-</ol>
-<p>另外一种通用的办法就是使用 Java Object Serialization (JOS) ，使用序列化，使用把 ObjectOutputStream       对象写入出入到一个数组中，再使用 ObjectInputStream 复制到另一个对象，从而得到两个完全独立的对象。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.IOException;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayInputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectInputStream;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Utility for making deep copies (vs. clone()'s shallow copies) of </div><div class="line"> * objects. Objects are first serialized and then deserialized. Error</div><div class="line"> * checking is fairly minimal in this implementation. If an object is</div><div class="line"> * encountered that cannot be serialized (or that references an object</div><div class="line"> * that cannot be serialized) an error is printed to System.err and</div><div class="line"> * null is returned. Depending on your specific application, it might</div><div class="line"> * make more sense to have copy(...) re-throw the exception.</div><div class="line"> *</div><div class="line"> * A later version of this class includes some minor optimizations.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnoptimizedDeepCopy</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns a copy of the object, or null if the object cannot</div><div class="line">     * be serialized.</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object copy(Object orig) &#123;</div><div class="line">        Object obj = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// Write the object out to a byte array</span></div><div class="line">            ByteArrayOutputStream bos = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream(bos);</div><div class="line">            out.writeObject(orig);</div><div class="line">            out.flush();</div><div class="line">            out.close();</div><div class="line"></div><div class="line">            <span class="comment">// Make an input stream from the byte array and read</span></div><div class="line">            <span class="comment">// a copy of the object back in.</span></div><div class="line">            ObjectInputStream <span class="keyword">in</span> = <span class="keyword">new</span> ObjectInputStream(</div><div class="line">                <span class="keyword">new</span> ByteArrayInputStream(bos.toByteArray()));</div><div class="line">            obj = <span class="keyword">in</span>.readObject();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;-快速深度拷贝一个对象</div><div class="line">        <span class="keyword">catch</span>(ClassNotFoundException cnfe) &#123;</div><div class="line">            cnfe.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种方法也是有缺点的：</p>
-<ol>
-<li>必须序列化，都要实现 java.io.Serializable 接口</li>
-<li>序列化影响程序运输速度。</li>
-<li>可以适应不同的对象大小，创建适合大小的数组，可以在多线程任务中安全使用。符合上面种种特点，可想而知速度是有多慢。</li>
-</ol>
-<p>出于以上的种种缺点，可以对 ByteArrayOutputStream 和 ByteArrayInputStream 做出3点优化：</p>
-<ol>
-<li>ByteArrayOutputStream 默认初始化 32 byte的数组，遇到大的对象就增大为目前两倍大的数组，这意味着要摒弃到初始化的小数组，优化这个问题的方法也简单，初始化一个大的数组。</li>
-<li>ByteArrayOutputStream 修改的内容都是 synchronized 修饰的，这是个安全的做法，但是在确定的单一线程里许可以抛弃 synchronized 这样做也是安全的。</li>
-<li>toByteArray() 方法会创建和复制一个字节流数组。检索数据数组然后继续写入流中，原有的数据就不会被改变。尽管如此，这循环复制一个数组会造成多余的垃圾回收工作。</li>
-</ol>
-<p>#深度拷贝速度优化</p>
-<p>FastByteArrayOutputStream.class<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.OutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ByteArrayOutputStream implementation that doesn't synchronize methods</div><div class="line"> * and doesn't copy the data on toByteArray().</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> FastByteArrayOutputStream <span class="keyword">extends</span> OutputStream &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Buffer and size</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span>[] buf = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> <span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs a stream with buffer capacity size 5K </div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> FastByteArrayOutputStream() &#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">5</span> * <span class="number">1024</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs a stream with the given initial size</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> FastByteArrayOutputStream(<span class="keyword">int</span> initSize) &#123;</div><div class="line">        <span class="keyword">this</span>.<span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.buf = <span class="keyword">new</span> <span class="keyword">byte</span>[initSize];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Ensures that we have a large enough buffer for the given size.</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">void</span> verifyBufferSize(<span class="keyword">int</span> sz) &#123;</div><div class="line">        <span class="keyword">if</span> (sz &gt; buf.length) &#123;</div><div class="line">            <span class="keyword">byte</span>[] old = buf;</div><div class="line">            buf = <span class="keyword">new</span> <span class="keyword">byte</span>[Math.max(sz, <span class="number">2</span> * buf.length )];</div><div class="line">            System.arraycopy(old, <span class="number">0</span>, buf, <span class="number">0</span>, old.length);</div><div class="line">            old = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> getSize() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">size</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns the byte array containing the written data. Note that this</div><div class="line">     * array will almost always be larger than the amount of data actually</div><div class="line">     * written.</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] getByteArray() &#123;</div><div class="line">        <span class="keyword">return</span> buf;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">byte</span> b[]) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + b.length);</div><div class="line">        System.arraycopy(b, <span class="number">0</span>, buf, <span class="keyword">size</span>, b.length);</div><div class="line">        <span class="keyword">size</span> += b.length;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + len);</div><div class="line">        System.arraycopy(b, off, buf, <span class="keyword">size</span>, len);</div><div class="line">        <span class="keyword">size</span> += len;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="keyword">write</span>(<span class="keyword">int</span> b) &#123;</div><div class="line">        verifyBufferSize(<span class="keyword">size</span> + <span class="number">1</span>);</div><div class="line">        buf[<span class="keyword">size</span>++] = (<span class="keyword">byte</span>) b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> reset() &#123;</div><div class="line">        <span class="keyword">size</span> = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns a ByteArrayInputStream for reading back the written data</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> InputStream getInputStream() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FastByteArrayInputStream(buf, <span class="keyword">size</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>ByteArrayInputStream.class<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ByteArrayInputStream implementation that does not synchronize methods.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> FastByteArrayInputStream <span class="keyword">extends</span> InputStream &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Our byte buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span>[] buf = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Number of bytes that we can read from the buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Number of bytes that have been read from the buffer</div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> pos = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> FastByteArrayInputStream(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> <span class="keyword">count</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.buf = buf;</div><div class="line">        <span class="keyword">this</span>.<span class="keyword">count</span> = <span class="keyword">count</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> available() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">count</span> - pos;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="keyword">read</span>() &#123;</div><div class="line">        <span class="keyword">return</span> (pos &lt; <span class="keyword">count</span>) ? (buf[pos++] &amp; <span class="number">0</span>xff) : -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="keyword">read</span>(<span class="keyword">byte</span>[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len) &#123;</div><div class="line">        <span class="keyword">if</span> (pos &gt;= <span class="keyword">count</span>)</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ((pos + len) &gt; <span class="keyword">count</span>)</div><div class="line">            len = (<span class="keyword">count</span> - pos);</div><div class="line"></div><div class="line">        System.arraycopy(buf, pos, b, off, len);</div><div class="line">        pos += len;</div><div class="line">        <span class="keyword">return</span> len;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">long</span> skip(<span class="keyword">long</span> n) &#123;</div><div class="line">        <span class="keyword">if</span> ((pos + n) &gt; <span class="keyword">count</span>)</div><div class="line">            n = <span class="keyword">count</span> - pos;</div><div class="line">        <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        pos += n;</div><div class="line">        <span class="keyword">return</span> n;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>ByteArrayInputStream 和 ByteArrayOutputStream 的使用<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.IOException;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayInputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ByteArrayOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectOutputStream;</span></div><div class="line"><span class="meta"><span class="meta-keyword">import</span> java.io.ObjectInputStream;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Utility for making deep copies (vs. clone()'s shallow copies) of </div><div class="line"> * objects. Objects are first serialized and then deserialized. Error</div><div class="line"> * checking is fairly minimal in this implementation. If an object is</div><div class="line"> * encountered that cannot be serialized (or that references an object</div><div class="line"> * that cannot be serialized) an error is printed to System.err and</div><div class="line"> * null is returned. Depending on your specific application, it might</div><div class="line"> * make more sense to have copy(...) re-throw the exception.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeepCopy</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns a copy of the object, or null if the object cannot</div><div class="line">     * be serialized.</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object copy(Object orig) &#123;</div><div class="line">        Object obj = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// Write the object out to a byte array</span></div><div class="line">            FastByteArrayOutputStream fbos = </div><div class="line">                    <span class="keyword">new</span> FastByteArrayOutputStream();</div><div class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream(fbos);</div><div class="line">            out.writeObject(orig);</div><div class="line">            out.flush();</div><div class="line">            out.close();</div><div class="line"></div><div class="line">            <span class="comment">// Retrieve an input stream from the byte array and read</span></div><div class="line">            <span class="comment">// a copy of the object back in. </span></div><div class="line">            ObjectInputStream <span class="keyword">in</span> = </div><div class="line">                <span class="keyword">new</span> ObjectInputStream(fbos.getInputStream());</div><div class="line">            obj = <span class="keyword">in</span>.readObject();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(ClassNotFoundException cnfe) &#123;</div><div class="line">            cnfe.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1597,7 +1570,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1682,7 +1655,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
