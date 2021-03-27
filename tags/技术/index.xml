@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on My New Hugo Site</title>
+    <link>http://example.org/tags/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2017 13:12:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala 语言开发Andorid ，开发环境的搭建(二)</title>
+      <link>http://example.org/posts/scala_android_sby2/</link>
+      <pubDate>Tue, 17 Jan 2017 13:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/scala_android_sby2/</guid>
+      <description>什么是 sbt ？ 上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。 那 sbt 有什么优势呢？
+ 相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖 triggered execution 特性方便做测试驱动的开发 依据类和依赖使用 Scala 的解析器 sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程 支持 java 和 Scala 的混合编程  基本目录 工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。
+源码 根下的 src 目录就是存放源码文件的地方呢
+src/ main/ resources/ &amp;lt;files to include in main jar here&amp;gt; scala/ &amp;lt;main Scala sources&amp;gt; java/ &amp;lt;main Java sources&amp;gt; test/ resources &amp;lt;files to include in test jar here&amp;gt; scala/ &amp;lt;test Scala sources&amp;gt; java/ &amp;lt;test Java sources&amp;gt; sbt 配置文件 在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件</description>
+    </item>
+    
+    <item>
+      <title>Scala 语言开发Andorid ，开发环境的搭建(一)</title>
+      <link>http://example.org/posts/scala_android_sby/</link>
+      <pubDate>Tue, 10 Jan 2017 21:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/scala_android_sby/</guid>
+      <description>厌倦 Java 繁琐的语法，为了更优雅的开发 Android 程序，Scala 代替 Java 是一个不错的尝试。 开发前可以学习 Scala 的基本语法，某些部分和 Java 非常类似，但又聚合了其他先进语言的特性。与 Java 不同的是，在你熟悉函数式编程的情况下能写出更加优雅的代码。
+SBT 构建工具 现在绝大多数的 Android 开发者是官方提供的 Android Studio ，这个 IDE 使用的是基于 Gradle 的自动化建构工具，通过 Gradle 可以配置 Project 各种参数，生产 APK 等操作。 SBT 是和 Gradle,Ant,Maven 一样的自动化建构工具，SBT 方便管理我们用 Scala 编写的 Android 工程。
+和使用 Java 开发 Andoird 一样，首先要安装 Scala， 下载 官方文件，在此之前先确定电脑已经安装配置好 Java 环境。如果 macOS 已经安装有 Homebrew 只需要一行代码即可安装配置成功
+brew install scala 接着安装 SBT 同一也一行代码搞定(赶紧换一台 mac 吧~~
+brew install sbt 其他系统的配置大可直接看 [Scala]((http://scala-lang.org/) 和 SBT 官网，里边有详细的安装配置教程</description>
+    </item>
+    
+    <item>
+      <title>ImageView的使用笔记</title>
+      <link>http://example.org/posts/imageviwe_note/</link>
+      <pubDate>Mon, 28 Nov 2016 11:20:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/imageviwe_note/</guid>
+      <description>一、使用ImageView 的src 和background  src ：原图大小，不被拉伸;
+background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+ 二、设置Imageview的透明度  android:src在设置ImageView的setAlpha(int alpha)时，起作用;
+android:background在设置ImageView的setAlpha(int alpha)时，不起作用;
+ mImageView.setBackgroundDrawable(mDrawable.mutate()); mImageView.getBackground().setAlpha(100); 三、设置ImageView的前景（foreground） 有时候设计需要在ImageView 上面覆盖一层（如灰色）
+ View 提供了一个setForeground(Drawable foreground)
+ 四、使用ImageView的“android:adjustViewBounds” 如果想设置图片固定大小，又想保持图片宽高比，需要如下设置：
+ 设置setAdjustViewBounds为true； 设置maxWidth、MaxHeight； 设置设置layout_width和layout_height为wrap_content  五、正确使用ImageView的“android:scaleType” ImageView的“android:scaleType”属性是对src才有效的
+ScaleDrawable类是afc框架中提供了一个专门处理Drawable scale的类，在ImageView的ScaleType的基础上额外提供了11中裁剪方式：
+（1）CROP_CENTER （2）CROP_START （3）CROP_END （4）FIT_CENTER （5）FIT_START （6）FIT_END （7）MATCH_WIDTH_TOP （8）MATCH_WIDTH_BOTTOM （9）MATCH_WIDTH_CENTER （10）CENTER （11）CROP_BY_PIVOT  要保证ScaleDrawable.CROP_START属性设置成功，在xml中一定要设置“android:scaleType=”fitXY”
+ </description>
+    </item>
+    
+    <item>
+      <title>Android 内存泄露的几中场景</title>
+      <link>http://example.org/posts/memory_leak/</link>
+      <pubDate>Tue, 22 Nov 2016 13:57:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/memory_leak/</guid>
+      <description>java 存在一个垃圾回收机制，发生泄漏的原因就是应该被回收的垃圾没有被回收，这种情况就叫做内存泄漏
+解决内存泄漏的方法的思路：让不易回收的内存可以在不需要继续使用单情况下被系统回收掉。
+怎么做在能让某些内存可以被及时回收呢？这里就需要了解 java 的一个知识点，这就是引用类型。java 分 四 种引用类型，分别是：强引用，软引用，弱引用，虚引用。这从这四种引用点名称可以推测，系统对于不用类型引用有不同的回收机制。为方便对比列出下方的表格
+   引用类型 回收条件 发生泄漏可能性     强引用 不回收 可能   软引用 内存不足时回收 不可能   弱引用 一定回收 不可能   虚引用 不回收 可能    合理点使用不同的引用类型，可以避免出现内存泄露的情况
+在Android开发中，出现内存泄露我认为可以分为两大部分，一部分是 java 相关的，另一部分是 Android Api使用容易出现内存泄露
+常见有以下场景
+1. 单例模式 单例模式生成的静态对象因为生命周期和应用的进程一致，一般只有当应用退出或者运行的进程被结束，对象才能结束对象的生命周。例如当一个单例对象引用一个 activity 变量，即便 activity 可能已经退出了，但是因为单例对象还持有 activity ，所以系统不能回收这个 activity 造成了内存泄露
+ 解决方案
+使用弱应用，例如
+private WeakReferencewr = null;
+wr = new WeakReference(myActivity);
+ 2.</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发笔记</title>
+      <link>http://example.org/posts/flask_note/</link>
+      <pubDate>Mon, 21 Nov 2016 16:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/flask_note/</guid>
+      <description>2.1初始化 Web 服务器使用一种名为 Web 服务器网关接口 （Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数 程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到 Python 函数的映射关系。处理 URL 和函数之间关系的程序称为路由。
+在 Python 代码中嵌入响应字符串会导致代码难以维护
+2.3启动服务器 name==&#39;main&#39; 是 Python 的惯常用法，在这里确保直接执行这个脚本时才启动开发Web 服务器。如果这个脚本由其他脚本引入，程序假定父级脚本会启动不同的服务器，因此不会执行 app.run()。
+服务器启动后，会进入轮询，等待并处理请求。轮询会一直运行，直到程序停止，比如按Ctrl-C 键。
+2.5请求-响应循环 ######2.5.1　程序和请求上下文
+Flask 使用上下文临时把某些对象 变为全局可访问。
+   变量名 上下文 说明     current_app 程序上下文 当前激活程序的程序实例   g 程序上下文 处理请求时用作临时存储的对象。每次请求都会重设这个变量   request 请求上下文 请求对象，封装了客户端发出的   session 请求上下文 用户会话，用于存储请求之间需要“记住”的值的词典    2.5.2　请求调度 程序收到客户端发来的请求时，要找到处理该请求的视图函数。为了完成这个任务，Flask 会在程序的 URL 映射中查找请求的 URL。URL 映射是 URL 和视图函数之间的对应关系。 Flask 使用 app.</description>
+    </item>
+    
+    <item>
+      <title>AIDL 官方使用介绍</title>
+      <link>http://example.org/posts/android_interface_definition_language/</link>
+      <pubDate>Mon, 21 Nov 2016 14:09:13 +0800</pubDate>
+      
+      <guid>http://example.org/posts/android_interface_definition_language/</guid>
+      <description>AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。
+ 当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；
+ 设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口
+ 如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可 提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全 The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous.</description>
+    </item>
+    
+    <item>
+      <title>Okhttp 源码解析</title>
+      <link>http://example.org/posts/okhttp_analyse/</link>
+      <pubDate>Mon, 21 Nov 2016 14:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/okhttp_analyse/</guid>
+      <description>总体思想 分析源码，首先要熟悉用例，由上到下一层一层剥开源码，初步了解项目的框架，然后再细看代码的实现细节。现在试着分析 OKhttp 的源码，下面代码是来至 OKhttp官网。
+GET A URL
+OkHttpClient client = new OkHttpClient(); //(1) String run(String url) throws IOException { Request request = new Request.Builder() .url(url) .build(); //(2) Response response = client.newCall(request).execute(); //(3) return response.body().string(); //(4) }  创建一个 OkHttpClient 对象。 创建一个 Request 对象，可以设置 URL 等网络配置。 调用 OkHttpClient 的 newCall() 方法，并把自定义配置的Request对象作为参数传进去。到处为止程序成功的将需要的请求放在了队列中，执行 execute() 方法开始向服务器发起请求，服务器返回的信息转化为 Response 对象。 返回 response 对象的 body 主体信息。  一张来至piasy的流程图: 细节分析 创建 OkHttpClient 对象 OkHttpClient client = new OkHttpClient(); OkHttpClient.</description>
+    </item>
+    
+    <item>
+      <title>Java 的拷贝</title>
+      <link>http://example.org/posts/javaclone/</link>
+      <pubDate>Mon, 21 Nov 2016 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/javaclone/</guid>
+      <description>深度拷贝一个对象 java.lang.Object 根类已经定义了 clone() 方法。子类只需要事项 java.lang.Cloneable 接口，就可以返回一个拷贝的对象。实现接口的同时要实现 clone() 方法里面的实现。这是拷贝方式就是浅拷贝(shallow copy of object)，这代表着原有对象的值复制一份存储在一个新的对象里面。
+浅拷贝并不是完全复制原对象的所有内容，除了基本类型(int,float&amp;hellip;)，引用类型只是复制一份引用对象的引用，那么原有的对象和拷贝的对象就指共同指向同一个引用对象。这样使用浅拷贝就会导致一些不可预测的错误。看看项目 Exampl1的例子。
+public class Example1 { public static void main(String[] args) { // Make a Vector Vector original = new Vector(); // Make a StringBuffer and add it to the Vector StringBuffer text = new StringBuffer(&amp;quot;The quick brown fox&amp;quot;); original.addElement(text); // Clone the vector and print out the contents Vector clone = (Vector) original.clone(); System.out.println(&amp;quot;A. After cloning&amp;quot;); printVectorContents(original, &amp;quot;original&amp;quot;); printVectorContents(clone, &amp;quot;clone&amp;quot;); System.</description>
+    </item>
+    
+    <item>
+      <title>List简介</title>
+      <link>http://example.org/posts/java-list/</link>
+      <pubDate>Mon, 21 Nov 2016 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/java-list/</guid>
+      <description>List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &amp;gt; for循环 &amp;gt; 遍历器</description>
+    </item>
+    
+    <item>
+      <title>Java注解解释</title>
+      <link>http://example.org/posts/annotation/</link>
+      <pubDate>Mon, 21 Nov 2016 12:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/annotation/</guid>
+      <description>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。 Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+ // @Twizzle标注toggle()方法。 @Twizzle public void toggle() { } // 声明Twizzle标注 public @interface Twizzle { } 标注可以包含一个关键字和值的对所构成的列表：
+ //等同于 @Edible(value = true) @Edible(true) Item item = new Carrot(); public @interface Edible { boolean value() default false; } @Author(first = &amp;quot;Oompah&amp;quot;, last = &amp;quot;Loompah&amp;quot;) Book book = new Book(); public @interface Author { String first(); String last(); } </description>
+    </item>
+    
+    <item>
+      <title>算法学习笔记 - Alogrithm Fourth Edition</title>
+      <link>http://example.org/posts/alogrithm/</link>
+      <pubDate>Mon, 21 Nov 2016 12:18:13 +0800</pubDate>
+      
+      <guid>http://example.org/posts/alogrithm/</guid>
+      <description>排序算法 选择排序(Selection) 如果有N个数组，从第一个元素开始往后选择，与后面的每一个元素做对比，挑出最小的元素，如果后面元素中有一个最小的值，则把这个值放到第一位。然后从第二位数开始，继续往后面的元素做对比，挑出最小元素，如果后面元素中有一个最小的值，则把这个值放到第二位。以此重复操作到第N位，排序就完成了。
+public class Selection { Selection() { } public static void main(String[] args) { int[] a = new int[] { 1, 2, 5, 7, 9, 12, 93, 5, 4, 6, 88 }; show(a); Selection.sort(a); show(a); } public static void sort(int[] a) { for (int i = 0; i &amp;lt; a.length; i++) { int mini = i; for (int j = i + 1; j &amp;lt; a.length; j++) { if (less(a[j], a[mini])) { mini = j; } } exch(a, i, mini); } } private static boolean less(int v, int w) { return v &amp;lt; w; } private static void exch(int[] a, int i, int j) { Object swap = a[i]; a[i] = a[j]; a[j] = (int) swap; } private static void show(int[] a) { for (int i = 0; i &amp;lt; a.</description>
+    </item>
+    
+    <item>
+      <title>泛型</title>
+      <link>http://example.org/posts/generics/</link>
+      <pubDate>Mon, 21 Nov 2016 11:55:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/generics/</guid>
+      <description>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&amp;lt;T&amp;gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&amp;lt;整數型&amp;gt; 例物件 := 新　例泛類&amp;lt;整數型&amp;gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&amp;lt;浮點數型&amp;gt; 例物件 := 新　例泛類&amp;lt;浮點數型&amp;gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia</description>
+    </item>
+    
+    <item>
+      <title>BindSevice的几种使用方法</title>
+      <link>http://example.org/posts/bindsevice/</link>
+      <pubDate>Tue, 11 Oct 2016 22:00:07 +0800</pubDate>
+      
+      <guid>http://example.org/posts/bindsevice/</guid>
+      <description>绑定服务 绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice 以下这个服务可让客户端通过 Binder 实现访问服务中的方法
+	public class LocalService extends Service { IBinder mBinder = new LocalBinder(); private final Random mGenerator = new Random(); public class LocalBinder extends Binder { LocalService getService() { return LocalService.this; } } @Nullable @Override public IBinder onBind(Intent intent) { return mBinder; } public int getRandomNumber() { return mGenerator.nextInt(100); } } Client 	public class MainActivity extends Activity { LocalService mService; Button button; Boolean mBound; @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
+    </item>
+    
+  </channel>
+</rss>

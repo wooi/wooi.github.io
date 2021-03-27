@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scala on My New Hugo Site</title>
+    <link>http://example.org/tags/scala/</link>
+    <description>Recent content in Scala on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2017 13:12:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala 语言开发Andorid ，开发环境的搭建(二)</title>
+      <link>http://example.org/posts/scala_android_sby2/</link>
+      <pubDate>Tue, 17 Jan 2017 13:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/scala_android_sby2/</guid>
+      <description>什么是 sbt ？ 上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。 那 sbt 有什么优势呢？
+ 相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖 triggered execution 特性方便做测试驱动的开发 依据类和依赖使用 Scala 的解析器 sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程 支持 java 和 Scala 的混合编程  基本目录 工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。
+源码 根下的 src 目录就是存放源码文件的地方呢
+src/ main/ resources/ &amp;lt;files to include in main jar here&amp;gt; scala/ &amp;lt;main Scala sources&amp;gt; java/ &amp;lt;main Java sources&amp;gt; test/ resources &amp;lt;files to include in test jar here&amp;gt; scala/ &amp;lt;test Scala sources&amp;gt; java/ &amp;lt;test Java sources&amp;gt; sbt 配置文件 在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件</description>
+    </item>
+    
+    <item>
+      <title>Scala 语言开发Andorid ，开发环境的搭建(一)</title>
+      <link>http://example.org/posts/scala_android_sby/</link>
+      <pubDate>Tue, 10 Jan 2017 21:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/scala_android_sby/</guid>
+      <description>厌倦 Java 繁琐的语法，为了更优雅的开发 Android 程序，Scala 代替 Java 是一个不错的尝试。 开发前可以学习 Scala 的基本语法，某些部分和 Java 非常类似，但又聚合了其他先进语言的特性。与 Java 不同的是，在你熟悉函数式编程的情况下能写出更加优雅的代码。
+SBT 构建工具 现在绝大多数的 Android 开发者是官方提供的 Android Studio ，这个 IDE 使用的是基于 Gradle 的自动化建构工具，通过 Gradle 可以配置 Project 各种参数，生产 APK 等操作。 SBT 是和 Gradle,Ant,Maven 一样的自动化建构工具，SBT 方便管理我们用 Scala 编写的 Android 工程。
+和使用 Java 开发 Andoird 一样，首先要安装 Scala， 下载 官方文件，在此之前先确定电脑已经安装配置好 Java 环境。如果 macOS 已经安装有 Homebrew 只需要一行代码即可安装配置成功
+brew install scala 接着安装 SBT 同一也一行代码搞定(赶紧换一台 mac 吧~~
+brew install sbt 其他系统的配置大可直接看 [Scala]((http://scala-lang.org/) 和 SBT 官网，里边有详细的安装配置教程</description>
+    </item>
+    
+  </channel>
+</rss>

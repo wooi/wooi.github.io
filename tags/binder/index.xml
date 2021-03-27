@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Binder on My New Hugo Site</title>
+    <link>http://example.org/tags/binder/</link>
+    <description>Recent content in Binder on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Oct 2016 22:00:07 +0800</lastBuildDate><atom:link href="http://example.org/tags/binder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BindSevice的几种使用方法</title>
+      <link>http://example.org/posts/bindsevice/</link>
+      <pubDate>Tue, 11 Oct 2016 22:00:07 +0800</pubDate>
+      
+      <guid>http://example.org/posts/bindsevice/</guid>
+      <description>绑定服务 绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice 以下这个服务可让客户端通过 Binder 实现访问服务中的方法
+	public class LocalService extends Service { IBinder mBinder = new LocalBinder(); private final Random mGenerator = new Random(); public class LocalBinder extends Binder { LocalService getService() { return LocalService.this; } } @Nullable @Override public IBinder onBind(Intent intent) { return mBinder; } public int getRandomNumber() { return mGenerator.nextInt(100); } } Client 	public class MainActivity extends Activity { LocalService mService; Button button; Boolean mBound; @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
+    </item>
+    
+  </channel>
+</rss>

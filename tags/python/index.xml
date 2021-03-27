@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on My New Hugo Site</title>
+    <link>http://example.org/tags/python/</link>
+    <description>Recent content in Python on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Nov 2016 16:09:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flask Web开发笔记</title>
+      <link>http://example.org/posts/flask_note/</link>
+      <pubDate>Mon, 21 Nov 2016 16:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/flask_note/</guid>
+      <description>2.1初始化 Web 服务器使用一种名为 Web 服务器网关接口 （Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数 程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到 Python 函数的映射关系。处理 URL 和函数之间关系的程序称为路由。
+在 Python 代码中嵌入响应字符串会导致代码难以维护
+2.3启动服务器 name==&#39;main&#39; 是 Python 的惯常用法，在这里确保直接执行这个脚本时才启动开发Web 服务器。如果这个脚本由其他脚本引入，程序假定父级脚本会启动不同的服务器，因此不会执行 app.run()。
+服务器启动后，会进入轮询，等待并处理请求。轮询会一直运行，直到程序停止，比如按Ctrl-C 键。
+2.5请求-响应循环 ######2.5.1　程序和请求上下文
+Flask 使用上下文临时把某些对象 变为全局可访问。
+   变量名 上下文 说明     current_app 程序上下文 当前激活程序的程序实例   g 程序上下文 处理请求时用作临时存储的对象。每次请求都会重设这个变量   request 请求上下文 请求对象，封装了客户端发出的   session 请求上下文 用户会话，用于存储请求之间需要“记住”的值的词典    2.5.2　请求调度 程序收到客户端发来的请求时，要找到处理该请求的视图函数。为了完成这个任务，Flask 会在程序的 URL 映射中查找请求的 URL。URL 映射是 URL 和视图函数之间的对应关系。 Flask 使用 app.</description>
+    </item>
+    
+  </channel>
+</rss>

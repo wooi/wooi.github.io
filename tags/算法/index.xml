@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on My New Hugo Site</title>
+    <link>http://example.org/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Nov 2016 14:09:13 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AIDL 官方使用介绍</title>
+      <link>http://example.org/posts/android_interface_definition_language/</link>
+      <pubDate>Mon, 21 Nov 2016 14:09:13 +0800</pubDate>
+      
+      <guid>http://example.org/posts/android_interface_definition_language/</guid>
+      <description>AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。
+ 当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；
+ 设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口
+ 如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可 提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全 The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous.</description>
+    </item>
+    
+    <item>
+      <title>算法学习笔记 - Alogrithm Fourth Edition</title>
+      <link>http://example.org/posts/alogrithm/</link>
+      <pubDate>Mon, 21 Nov 2016 12:18:13 +0800</pubDate>
+      
+      <guid>http://example.org/posts/alogrithm/</guid>
+      <description>排序算法 选择排序(Selection) 如果有N个数组，从第一个元素开始往后选择，与后面的每一个元素做对比，挑出最小的元素，如果后面元素中有一个最小的值，则把这个值放到第一位。然后从第二位数开始，继续往后面的元素做对比，挑出最小元素，如果后面元素中有一个最小的值，则把这个值放到第二位。以此重复操作到第N位，排序就完成了。
+public class Selection { Selection() { } public static void main(String[] args) { int[] a = new int[] { 1, 2, 5, 7, 9, 12, 93, 5, 4, 6, 88 }; show(a); Selection.sort(a); show(a); } public static void sort(int[] a) { for (int i = 0; i &amp;lt; a.length; i++) { int mini = i; for (int j = i + 1; j &amp;lt; a.length; j++) { if (less(a[j], a[mini])) { mini = j; } } exch(a, i, mini); } } private static boolean less(int v, int w) { return v &amp;lt; w; } private static void exch(int[] a, int i, int j) { Object swap = a[i]; a[i] = a[j]; a[j] = (int) swap; } private static void show(int[] a) { for (int i = 0; i &amp;lt; a.</description>
+    </item>
+    
+  </channel>
+</rss>

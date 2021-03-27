@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on My New Hugo Site</title>
+    <link>http://example.org/tags/java/</link>
+    <description>Recent content in Java on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Nov 2016 14:05:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 的拷贝</title>
+      <link>http://example.org/posts/javaclone/</link>
+      <pubDate>Mon, 21 Nov 2016 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/javaclone/</guid>
+      <description>深度拷贝一个对象 java.lang.Object 根类已经定义了 clone() 方法。子类只需要事项 java.lang.Cloneable 接口，就可以返回一个拷贝的对象。实现接口的同时要实现 clone() 方法里面的实现。这是拷贝方式就是浅拷贝(shallow copy of object)，这代表着原有对象的值复制一份存储在一个新的对象里面。
+浅拷贝并不是完全复制原对象的所有内容，除了基本类型(int,float&amp;hellip;)，引用类型只是复制一份引用对象的引用，那么原有的对象和拷贝的对象就指共同指向同一个引用对象。这样使用浅拷贝就会导致一些不可预测的错误。看看项目 Exampl1的例子。
+public class Example1 { public static void main(String[] args) { // Make a Vector Vector original = new Vector(); // Make a StringBuffer and add it to the Vector StringBuffer text = new StringBuffer(&amp;quot;The quick brown fox&amp;quot;); original.addElement(text); // Clone the vector and print out the contents Vector clone = (Vector) original.clone(); System.out.println(&amp;quot;A. After cloning&amp;quot;); printVectorContents(original, &amp;quot;original&amp;quot;); printVectorContents(clone, &amp;quot;clone&amp;quot;); System.</description>
+    </item>
+    
+    <item>
+      <title>List简介</title>
+      <link>http://example.org/posts/java-list/</link>
+      <pubDate>Mon, 21 Nov 2016 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/java-list/</guid>
+      <description>List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &amp;gt; for循环 &amp;gt; 遍历器</description>
+    </item>
+    
+    <item>
+      <title>Java注解解释</title>
+      <link>http://example.org/posts/annotation/</link>
+      <pubDate>Mon, 21 Nov 2016 12:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/annotation/</guid>
+      <description>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。 Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+ // @Twizzle标注toggle()方法。 @Twizzle public void toggle() { } // 声明Twizzle标注 public @interface Twizzle { } 标注可以包含一个关键字和值的对所构成的列表：
+ //等同于 @Edible(value = true) @Edible(true) Item item = new Carrot(); public @interface Edible { boolean value() default false; } @Author(first = &amp;quot;Oompah&amp;quot;, last = &amp;quot;Loompah&amp;quot;) Book book = new Book(); public @interface Author { String first(); String last(); } </description>
+    </item>
+    
+    <item>
+      <title>泛型</title>
+      <link>http://example.org/posts/generics/</link>
+      <pubDate>Mon, 21 Nov 2016 11:55:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/generics/</guid>
+      <description>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&amp;lt;T&amp;gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&amp;lt;整數型&amp;gt; 例物件 := 新　例泛類&amp;lt;整數型&amp;gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&amp;lt;浮點數型&amp;gt; 例物件 := 新　例泛類&amp;lt;浮點數型&amp;gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia</description>
+    </item>
+    
+  </channel>
+</rss>

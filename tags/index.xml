@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on My New Hugo Site</title>
+    <link>http://example.org/tags/</link>
+    <description>Recent content in Tags on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2017 13:12:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>http://example.org/tags/android/</link>
+      <pubDate>Tue, 17 Jan 2017 13:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scala</title>
+      <link>http://example.org/tags/scala/</link>
+      <pubDate>Tue, 17 Jan 2017 13:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术</title>
+      <link>http://example.org/tags/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Tue, 17 Jan 2017 13:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>http://example.org/tags/flask/</link>
+      <pubDate>Mon, 21 Nov 2016 16:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://example.org/tags/python/</link>
+      <pubDate>Mon, 21 Nov 2016 16:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>http://example.org/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 21 Nov 2016 14:09:13 +0800</pubDate>
+      
+      <guid>http://example.org/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://example.org/tags/java/</link>
+      <pubDate>Mon, 21 Nov 2016 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binder</title>
+      <link>http://example.org/tags/binder/</link>
+      <pubDate>Tue, 11 Oct 2016 22:00:07 +0800</pubDate>
+      
+      <guid>http://example.org/tags/binder/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
