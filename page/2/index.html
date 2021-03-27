@@ -1,0 +1,327 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>同文馆</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><link rel="alternate" type="application/rss+xml" href="http://example.org/index.xml" title="同文馆" /><meta property="og:title" content="同文馆" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="同文馆"/>
+<meta name="twitter:description" content=""/>
+
+<meta name="generator" content="Hugo 0.82.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://example.org/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文馆</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<section id="home">
+  <ul>
+    
+    
+    
+
+    <li class="first" >
+      <h1><a href="http://example.org/posts/java-list/" title="List简介">List简介</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:05:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &gt; for循环 &gt; 遍历器</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/annotation/" title="Java注解解释">Java注解解释</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T12:19:54&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。 Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+ // @Twizzle标注toggle()方法。 @Twizzle public void toggle() { } // 声明Twizzle标注 public @interface Twizzle { } 标注可以包含一个关键字和值的对所构成的列表：
+ //等同于 @Edible(value = true) @Edible(true) Item item = new Carrot(); public @interface Edible { boolean value() default false; } @Author(first = &quot;Oompah&quot;, last = &quot;Loompah&quot;) Book book = new Book(); public @interface Author { String first(); String last(); } </p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/alogrithm/" title="算法学习笔记 - Alogrithm Fourth Edition">算法学习笔记 - Alogrithm Fourth Edition</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T12:18:13&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/%E7%AE%97%E6%B3%95">#算法</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>排序算法 选择排序(Selection) 如果有N个数组，从第一个元素开始往后选择，与后面的每一个元素做对比，挑出最小的元素，如果后面元素中有一个最小的值，则把这个值放到第一位。然后从第二位数开始，继续往后面的元素做对比，挑出最小元素，如果后面元素中有一个最小的值，则把这个值放到第二位。以此重复操作到第N位，排序就完成了。
+public class Selection { Selection() { } public static void main(String[] args) { int[] a = new int[] { 1, 2, 5, 7, 9, 12, 93, 5, 4, 6, 88 }; show(a); Selection.sort(a); show(a); } public static void sort(int[] a) { for (int i = 0; i &lt; a.length; i++) { int mini = i; for (int j = i + 1; j &lt; a.length; j++) { if (less(a[j], a[mini])) { mini = j; } } exch(a, i, mini); } } private static boolean less(int v, int w) { return v &lt; w; } private static void exch(int[] a, int i, int j) { Object swap = a[i]; a[i] = a[j]; a[j] = (int) swap; } private static void show(int[] a) { for (int i = 0; i &lt; a.</p>
+      
+      <a href="/posts/alogrithm/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/generics/" title="泛型">泛型</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T11:55:54&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&lt;T&gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&lt;整數型&gt; 例物件 := 新　例泛類&lt;整數型&gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&lt;浮點數型&gt; 例物件 := 新　例泛類&lt;浮點數型&gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/badstory1/" title="爛的故事">爛的故事</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-10-11T22:31:57&#43;08:00">Oct 11, 2016</time>
+        </li>
+        
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>一夜之間整個世界的女性全部消失了。有一個人，他擁有完美女性的樣貌和身材，但實際上他是一個徹頭徹尾的男人。面對外面其他男性的追求他很是煩惱，所以他決定就不出門了。
+劇終</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/bindsevice/" title="BindSevice的几种使用方法">BindSevice的几种使用方法</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-10-11T22:00:07&#43;08:00">Oct 11, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/android">#Android</a>
+                
+                    , 
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/binder">#Binder</a>
+                
+            </em>
+        </li>
+        
+
+        <li>3 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>绑定服务 绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice 以下这个服务可让客户端通过 Binder 实现访问服务中的方法
+	public class LocalService extends Service { IBinder mBinder = new LocalBinder(); private final Random mGenerator = new Random(); public class LocalBinder extends Binder { LocalService getService() { return LocalService.this; } } @Nullable @Override public IBinder onBind(Intent intent) { return mBinder; } public int getRandomNumber() { return mGenerator.nextInt(100); } } Client 	public class MainActivity extends Activity { LocalService mService; Button button; Boolean mBound; @Override protected void onCreate(Bundle savedInstanceState) { super.</p>
+      
+      <a href="/posts/bindsevice/">Read more…</a>
+      
+    </li>
+    
+  </ul>
+</section>
+
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

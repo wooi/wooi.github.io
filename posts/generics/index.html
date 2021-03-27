@@ -1,0 +1,185 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>泛型 - 同文馆</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="泛型" />
+<meta property="og:description" content="泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&lt;T&gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&lt;整數型&gt; 例物件 := 新　例泛類&lt;整數型&gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&lt;浮點數型&gt; 例物件 := 新　例泛類&lt;浮點數型&gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/generics/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-11-21T11:55:54&#43;08:00" />
+<meta property="article:modified_time" content="2016-11-21T11:55:54&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="泛型"/>
+<meta name="twitter:description" content="泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&lt;T&gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&lt;整數型&gt; 例物件 := 新　例泛類&lt;整數型&gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&lt;浮點數型&gt; 例物件 := 新　例泛類&lt;浮點數型&gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia"/>
+
+<meta name="generator" content="Hugo 0.82.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://example.org/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文馆</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>泛型</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T11:55:54&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。</p>
+<h1 id="泛型的定义及目的">泛型的定义及目的</h1>
+<p>泛型的定义主要有以下两种：</p>
+<ol>
+<li>
+<p>在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）</p>
+</li>
+<li>
+<p>在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板）
+不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。</p>
+</li>
+</ol>
+<p>一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。</p>
+<h1 id="伪代码例子">伪代码例子</h1>
+<pre><code>類例泛類&lt;T&gt; {
+　　值 : T
+
+　　設置值(新值 : T) {
+　　　　值 := 新值
+　　}
+
+　　獲取值() : T {
+　　　　返回　值
+　　}
+}
+
+例方法1() {
+　　例物件 : 例泛類&lt;整數型&gt;
+　　例物件 := 新　例泛類&lt;整數型&gt;()
+　　例物件.設置值(5)
+　　输出整数(例对象.获取值())
+}
+
+例方法2() {
+　　例物件 : 例泛-{}-類&lt;浮點數型&gt;
+　　例物件 := 新　例泛類&lt;浮點數型&gt;()
+　　例物件.設置值(5.5)
+　　输出浮点数(例对象.获取值())
+}
+</code></pre><p>this article from <a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B">wikipedia</a></p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/posts/badstory1/"><i class="fa fa-chevron-circle-left"></i> 爛的故事</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/posts/alogrithm/">算法学习笔记 - Alogrithm Fourth Edition <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,257 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Scala 语言开发Andorid ，开发环境的搭建(二) - 同文馆</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Scala 语言开发Andorid ，开发环境的搭建(二)" />
+<meta property="og:description" content="什么是 sbt ？ 上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。 那 sbt 有什么优势呢？
+ 相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖 triggered execution 特性方便做测试驱动的开发 依据类和依赖使用 Scala 的解析器 sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程 支持 java 和 Scala 的混合编程  基本目录 工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。
+源码 根下的 src 目录就是存放源码文件的地方呢
+src/ main/ resources/ &lt;files to include in main jar here&gt; scala/ &lt;main Scala sources&gt; java/ &lt;main Java sources&gt; test/ resources &lt;files to include in test jar here&gt; scala/ &lt;test Scala sources&gt; java/ &lt;test Java sources&gt; sbt 配置文件 在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/scala_android_sby2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-01-17T13:12:00&#43;08:00" />
+<meta property="article:modified_time" content="2017-01-17T13:12:00&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scala 语言开发Andorid ，开发环境的搭建(二)"/>
+<meta name="twitter:description" content="什么是 sbt ？ 上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。 那 sbt 有什么优势呢？
+ 相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖 triggered execution 特性方便做测试驱动的开发 依据类和依赖使用 Scala 的解析器 sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程 支持 java 和 Scala 的混合编程  基本目录 工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。
+源码 根下的 src 目录就是存放源码文件的地方呢
+src/ main/ resources/ &lt;files to include in main jar here&gt; scala/ &lt;main Scala sources&gt; java/ &lt;main Java sources&gt; test/ resources &lt;files to include in test jar here&gt; scala/ &lt;test Scala sources&gt; java/ &lt;test Java sources&gt; sbt 配置文件 在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件"/>
+
+<meta name="generator" content="Hugo 0.82.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://example.org/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文馆</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Scala 语言开发Andorid ，开发环境的搭建(二)</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2017-01-17T13:12:00&#43;08:00">Jan 17, 2017</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/scala">#Scala</a>
+                
+                    , 
+                    <a href="/tags/android">#Android</a>
+                
+            </em>
+        </li>
+        
+
+        <li>2 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h2 id="什么是-sbt-">什么是 sbt ？</h2>
+<p>上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。
+那 sbt 有什么优势呢？</p>
+<ol>
+<li>相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖</li>
+<li>triggered execution 特性方便做测试驱动的开发</li>
+<li>依据类和依赖使用 Scala 的解析器</li>
+<li>sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程</li>
+<li>支持 java 和 Scala 的混合编程</li>
+</ol>
+<h2 id="基本目录">基本目录</h2>
+<p>工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。</p>
+<h3 id="源码">源码</h3>
+<p>根下的 src 目录就是存放源码文件的地方呢</p>
+<pre><code>src/
+  main/
+    resources/
+       &lt;files to include in main jar here&gt;
+    scala/
+       &lt;main Scala sources&gt;
+    java/
+       &lt;main Java sources&gt;
+  test/
+    resources
+       &lt;files to include in test jar here&gt;
+    scala/
+       &lt;test Scala sources&gt;
+    java/
+       &lt;test Java sources&gt;
+
+</code></pre><h3 id="sbt-配置文件">sbt 配置文件</h3>
+<p>在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件</p>
+<p>一般情况下我们习惯使用 build.sbt 作为文件的名称，当然你也可以使用任何的名字。</p>
+<p>根目录下的 sbt 文件</p>
+<pre><code>build.sbt
+project/
+  plugin.sbt
+  Build.scala
+  &lt;Other Scala files&gt;
+</code></pre><p>看到这里你可能会还好奇，sbt 和 Scala  的配置文件有什么区别</p>
+<p>一般推荐，sbt 文件作为项目的主要设定文件，而 scala 用于设置第三方依赖或者版本信息等</p>
+<h2 id="编写buildsbt">编写build.sbt</h2>
+<p>下面一步一步写出项目到build.sbt 文件</p>
+<h3 id="表达式">表达式</h3>
+<p>在我们的定义文件了，我们只需要关注设置的表达式</p>
+<p>下面的实例显示了项目版本号命名等基本信息，还有 项目中使用的 Scala 版本的配置信息</p>
+<pre><code>name := &quot;scala-on-android&quot;
+
+organization := &quot;com.fortysevendeg&quot;
+
+organizationName := &quot;47 Degrees&quot;
+
+organizationHomepage := Some(new URL(&quot;http://47deg.com&quot;))
+
+version := 0.1.0
+
+scalaVersion := 2.11.6
+</code></pre><p>不难发现上面的例子 使用 := 作为连接符</p>
+<p>另外还可以使用其他的连接符
++= 添加多一个元素
+++= 添加多个元素
+例如</p>
+<blockquote>
+<p>scalacOptions ++= Seq(&quot;-feature&quot;, &ldquo;-deprecation&rdquo;)</p>
+</blockquote>
+<h3 id="添加第三方库依赖">添加第三方库依赖</h3>
+<p>和 gradle 一样，其实库的添加分两种
+一是添加本地 jar 包
+二是添加远程仓库库</p>
+<h4 id="添加-jar-包">添加 jar 包</h4>
+<p>使用 jar 包最简单到方式是直接把 jar 放到下面目录，这样项目就会自动导入 jar 包</p>
+<blockquote>
+<p>/src/main/libs</p>
+</blockquote>
+<p>除此之外还能使用自定义到路径</p>
+<blockquote>
+<p>unmanagedBase := baseDirectory.value / &ldquo;custom_lib&rdquo;</p>
+</blockquote>
+<h4 id="远程依赖">远程依赖</h4>
+<p>远程依赖使用是 ivy 到远程管理仓库，同样你可以使用 += 或者 ++= 到导入一个或多个依赖
+先看看导入一个到基本表达式</p>
+<blockquote>
+<p>libraryDependencies += groupID % artifactID % revision [% configuration]</p>
+</blockquote>
+<p>导入多个</p>
+<pre><code>libraryDependencies ++= Seq(
+  aar(&quot;com.android.support&quot; %  &quot;cardview-v7&quot; % &quot;22.0.0&quot;),
+  aar(&quot;com.android.support&quot; % &quot;appcompat-v7&quot; % &quot;22.0.0&quot;),
+  aar(&quot;com.android.support&quot; % &quot;recyclerview-v7&quot; % &quot;22.0.0&quot;),
+  aar(&quot;com.google.android.gms&quot; % &quot;play-services-base&quot; % &quot;6.5.87&quot;),
+  &quot;com.typesafe.play&quot; %% &quot;play-json&quot; % &quot;2.3.6&quot;,
+  &quot;org.specs2&quot; %% &quot;specs2-core&quot; % &quot;2.4.15&quot; % &quot;test&quot;,
+  &quot;org.specs2&quot; % &quot;specs2-mock_2.11&quot; %  &quot;3.0-M2&quot; % &quot;test&quot;)
+</code></pre><p>上面可见，可以使用 % 作为分割符，那 %% 又代表上面意思呢。其实为何配合不同版本的 scala ，需要不同依赖， %% 就是解决这个问题的，例如上面的 &ldquo;org.specs2&rdquo; %% &ldquo;specs2-core&rdquo;  sbt 构建工具就根据不同情况选择合适的 org.specs2 或者 specs2-core 库。</p>
+<h3 id="添加-sbt-插件">添加 sbt 插件</h3>
+<p>在目录 project 下有一个 plugin.sbt 文件，只需要 配置相关的信息就能方便安装对应的插件。为了更加方便使用 sbt 管理我们的 Android 工程，可以使用一些插件让开发过程中更加方便，这里说一个常用的插件
+<a href="https://github.com/scala-android/sbt-android">sbt-android</a>,详细使用和配置的可以看开发文档。这里只演示如何最快的安装。只需要在 plugin.sbt 添加一行便可以完成安装</p>
+<blockquote>
+<p>addSbtPlugin(&ldquo;org.scala-android&rdquo; % &ldquo;sbt-android&rdquo; % &ldquo;1.7.1&rdquo;)</p>
+</blockquote>
+<p>接着在 根目录下的 build.sbt 中使用我们的插件</p>
+<blockquote>
+<p>android.Plugin.androidBuild<br>
+platformTarget in Android := &ldquo;android-21&rdquo;</p>
+</blockquote>
+<p>这样遍可以使用这个插件提供的一些功能，例如 compile（编译），android:run（运行），android:package-release（打包）等操作。</p>
+<p>此外插件还提供了打包的配置方案如下面设置签名文件的路径等信息</p>
+<pre><code>packageRelease &lt;&lt;= (packageRelease in Android).dependsOn(setDebugTask(false))
+
+apkSigningConfig in Android := Option(
+  PromptPasswordsSigningConfig(
+    keystore = new File(Path.userHome.absolutePath + &quot;/.android/signed.keystore&quot;),
+    alias = &quot;my-password&quot;))
+</code></pre>
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/posts/scala_android_sby/"><i class="fa fa-chevron-circle-left"></i> Scala 语言开发Andorid ，开发环境的搭建(一)</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/posts/reborn/">找回旧时玩代码的感觉 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

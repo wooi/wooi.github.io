@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>List简介 - 同文馆</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="List简介" />
+<meta property="og:description" content="List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &gt; for循环 &gt; 遍历器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/java-list/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-11-21T14:05:00&#43;08:00" />
+<meta property="article:modified_time" content="2016-11-21T14:05:00&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="List简介"/>
+<meta name="twitter:description" content="List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &gt; for循环 &gt; 遍历器"/>
+
+<meta name="generator" content="Hugo 0.82.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://example.org/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文馆</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>List简介</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:05:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h3 id="list-四种实现类">List 四种实现类</h3>
+<ol>
+<li>ArrayList</li>
+<li>LinkeList</li>
+<li>Vector</li>
+<li>Stack</li>
+</ol>
+<h3 id="四种list的数据结构">四种List的数据结构</h3>
+<ol>
+<li>
+<p>ArrayList
+动态数组，初始化分配一定长度的数组</p>
+</li>
+<li>
+<p>LinkeList
+双向链表</p>
+</li>
+<li>
+<p>Vector
+与 ArrayList 一样使用动态数组作为存储结构</p>
+</li>
+<li>
+<p>Stack
+Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出</p>
+</li>
+</ol>
+<h3 id="四种list的不同使用场景的效率">四种List的不同使用场景的效率</h3>
+<p>四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。</p>
+<p>根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。
+相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。</p>
+<p>源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据
+而数组的 List 直接根据下标返回所需的元素</p>
+<h3 id="arraylist-与-vector-关于现场安全的比较">ArrayList 与 Vector 关于现场安全的比较</h3>
+<p>ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于
+Vector</p>
+<h3 id="arraylist-的遍历速度比较">ArrayList 的遍历速度比较</h3>
+<p>随机范围的效率最高
+随机访问 &gt; for循环 &gt; 遍历器</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/posts/annotation/"><i class="fa fa-chevron-circle-left"></i> Java注解解释</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/posts/javaclone/">Java 的拷贝 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

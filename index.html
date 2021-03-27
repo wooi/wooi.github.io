@@ -1,0 +1,495 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>同文馆</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><link rel="alternate" type="application/rss+xml" href="http://example.org/index.xml" title="同文馆" /><meta property="og:title" content="同文馆" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="同文馆"/>
+<meta name="twitter:description" content=""/>
+
+<meta name="generator" content="Hugo 0.82.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://example.org/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文馆</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<section id="home">
+  <ul>
+    
+    
+    
+
+    <li class="first" >
+      <h1><a href="http://example.org/posts/reborn/" title="找回旧时玩代码的感觉">找回旧时玩代码的感觉</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2021-03-27T12:18:13&#43;08:00">Mar 27, 2021</time>
+        </li>
+        
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>上一次提交的博客还在2017年，虽然这几年间偶尔会做一些自己感兴趣的side project，但是基本上没有话费太多时间精力在这些项目上。其中一个应用在 Google play 上架一段时间，半年时间盈利200美金，还有一个用户通过我的反馈邮箱找到了我的PayPle账号，很意外的收到了5美元的PayPle捐款，后面服务器厂商跑路了，碍于某些不可抗因素，再三考虑还是放弃了这个这个项目，我自己把APP在商店下了架。于此同时谷歌商店政策在不断变化，更早之前的一些应用也放弃了维护，现在我的Google Play账号下都是空的。
+这数年间见证了公司项目从零到千万月活的每一个脚步，工作开发任务多，这些任务基本上占据了我大部分的精力。农历一直思考，回顾过去，我发现我缺少某些东西，之前为止心里向往的被其他东西给代替了。其中最让我感到失落的是我好像失去了寻找创作力的热情。看了不同的书，看了不同的电影，听了不同的音乐，看了不同的代码，发现好东西当然会相当愉悦，会去羡慕那些作者的创作力，我也想那样，也仅仅只是想而已。
+今天周五啊，下班回来先把自己的给敲碎，在这一篇Blog开始，开始追寻我的创作激情和创作力。
+先立个Flag，把过去看的书做一些回顾了整理，重新输出一些Blog，还有开始我下一个Side Project。</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/scala_android_sby2/" title="Scala 语言开发Andorid ，开发环境的搭建(二)">Scala 语言开发Andorid ，开发环境的搭建(二)</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2017-01-17T13:12:00&#43;08:00">Jan 17, 2017</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/scala">#Scala</a>
+                
+                    , 
+                    <a href="/tags/android">#Android</a>
+                
+            </em>
+        </li>
+        
+
+        <li>2 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>什么是 sbt ？ 上一篇文章介绍过，sbt 就是和 maven ，ant 类似的自动构建工具。 那 sbt 有什么优势呢？
+ 相对其他构建工具更快的编译速度，只编译修改过的文件以及引用的第三方库依赖 triggered execution 特性方便做测试驱动的开发 依据类和依赖使用 Scala 的解析器 sbt 是基于 Scala ，所以可以灵活的使用 Scala 构建工程 支持 java 和 Scala 的混合编程  基本目录 工程的根目录下的文件和文件夹，下面看看文件夹里面到底是什么东西。
+源码 根下的 src 目录就是存放源码文件的地方呢
+src/ main/ resources/ &lt;files to include in main jar here&gt; scala/ &lt;main Scala sources&gt; java/ &lt;main Java sources&gt; test/ resources &lt;files to include in test jar here&gt; scala/ &lt;test Scala sources&gt; java/ &lt;test Java sources&gt; sbt 配置文件 在一个小项目中一两个 sbt 文件已经足够了，当时随着项目的扩展有可能要同时管理多个 sbt 文件</p>
+      
+      <a href="/posts/scala_android_sby2/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/scala_android_sby/" title="Scala 语言开发Andorid ，开发环境的搭建(一)">Scala 语言开发Andorid ，开发环境的搭建(一)</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2017-01-10T21:43:00&#43;08:00">Jan 10, 2017</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/scala">#Scala</a>
+                
+                    , 
+                    <a href="/tags/android">#Android</a>
+                
+            </em>
+        </li>
+        
+
+        <li>2 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>厌倦 Java 繁琐的语法，为了更优雅的开发 Android 程序，Scala 代替 Java 是一个不错的尝试。 开发前可以学习 Scala 的基本语法，某些部分和 Java 非常类似，但又聚合了其他先进语言的特性。与 Java 不同的是，在你熟悉函数式编程的情况下能写出更加优雅的代码。
+SBT 构建工具 现在绝大多数的 Android 开发者是官方提供的 Android Studio ，这个 IDE 使用的是基于 Gradle 的自动化建构工具，通过 Gradle 可以配置 Project 各种参数，生产 APK 等操作。 SBT 是和 Gradle,Ant,Maven 一样的自动化建构工具，SBT 方便管理我们用 Scala 编写的 Android 工程。
+和使用 Java 开发 Andoird 一样，首先要安装 Scala， 下载 官方文件，在此之前先确定电脑已经安装配置好 Java 环境。如果 macOS 已经安装有 Homebrew 只需要一行代码即可安装配置成功
+brew install scala 接着安装 SBT 同一也一行代码搞定(赶紧换一台 mac 吧~~
+brew install sbt 其他系统的配置大可直接看 [Scala]((http://scala-lang.org/) 和 SBT 官网，里边有详细的安装配置教程</p>
+      
+      <a href="/posts/scala_android_sby/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/badstory2/" title="爛的故事（二）">爛的故事（二）</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-12-21T17:35:57&#43;08:00">Dec 21, 2016</time>
+        </li>
+        
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>寒冷的平安夜下著雪，路上的行人匆匆而過。街角的小女孩還沒賣出一盒火柴。一次次冷漠的拒絕意味著她今晚不會有任何收入。心灰意冷的小女孩划動了一根火柴，燃燒的火柴讓她感到十分溫暖。接著又用凍僵的小手點燃了另一根火柴，這樣一根接著一根。她拿著最後一根火柴，火焰慢慢地慢慢地變得微弱直至熄滅。心滿意足的小女孩才上了她僕人開來的車，開開心心的回家吃聖誕大餐。
+劇終</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/imageviwe_note/" title="ImageView的使用笔记">ImageView的使用笔记</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-28T11:20:00&#43;08:00">Nov 28, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/android">#Android</a>
+                
+                    , 
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>一、使用ImageView 的src 和background  src ：原图大小，不被拉伸;
+background：为Imageview的背景，根据ImageView给长宽进行拉伸；
+ 二、设置Imageview的透明度  android:src在设置ImageView的setAlpha(int alpha)时，起作用;
+android:background在设置ImageView的setAlpha(int alpha)时，不起作用;
+ mImageView.setBackgroundDrawable(mDrawable.mutate()); mImageView.getBackground().setAlpha(100); 三、设置ImageView的前景（foreground） 有时候设计需要在ImageView 上面覆盖一层（如灰色）
+ View 提供了一个setForeground(Drawable foreground)
+ 四、使用ImageView的“android:adjustViewBounds” 如果想设置图片固定大小，又想保持图片宽高比，需要如下设置：
+ 设置setAdjustViewBounds为true； 设置maxWidth、MaxHeight； 设置设置layout_width和layout_height为wrap_content  五、正确使用ImageView的“android:scaleType” ImageView的“android:scaleType”属性是对src才有效的
+ScaleDrawable类是afc框架中提供了一个专门处理Drawable scale的类，在ImageView的ScaleType的基础上额外提供了11中裁剪方式：
+（1）CROP_CENTER （2）CROP_START （3）CROP_END （4）FIT_CENTER （5）FIT_START （6）FIT_END （7）MATCH_WIDTH_TOP （8）MATCH_WIDTH_BOTTOM （9）MATCH_WIDTH_CENTER （10）CENTER （11）CROP_BY_PIVOT  要保证ScaleDrawable.CROP_START属性设置成功，在xml中一定要设置“android:scaleType=”fitXY”
+ </p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/memory_leak/" title="Android 内存泄露的几中场景">Android 内存泄露的几中场景</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-22T13:57:00&#43;08:00">Nov 22, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/android">#Android</a>
+                
+                    , 
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>java 存在一个垃圾回收机制，发生泄漏的原因就是应该被回收的垃圾没有被回收，这种情况就叫做内存泄漏
+解决内存泄漏的方法的思路：让不易回收的内存可以在不需要继续使用单情况下被系统回收掉。
+怎么做在能让某些内存可以被及时回收呢？这里就需要了解 java 的一个知识点，这就是引用类型。java 分 四 种引用类型，分别是：强引用，软引用，弱引用，虚引用。这从这四种引用点名称可以推测，系统对于不用类型引用有不同的回收机制。为方便对比列出下方的表格
+   引用类型 回收条件 发生泄漏可能性     强引用 不回收 可能   软引用 内存不足时回收 不可能   弱引用 一定回收 不可能   虚引用 不回收 可能    合理点使用不同的引用类型，可以避免出现内存泄露的情况
+在Android开发中，出现内存泄露我认为可以分为两大部分，一部分是 java 相关的，另一部分是 Android Api使用容易出现内存泄露
+常见有以下场景
+1. 单例模式 单例模式生成的静态对象因为生命周期和应用的进程一致，一般只有当应用退出或者运行的进程被结束，对象才能结束对象的生命周。例如当一个单例对象引用一个 activity 变量，即便 activity 可能已经退出了，但是因为单例对象还持有 activity ，所以系统不能回收这个 activity 造成了内存泄露
+ 解决方案
+使用弱应用，例如
+private WeakReferencewr = null;
+wr = new WeakReference(myActivity);
+ 2.</p>
+      
+      <a href="/posts/memory_leak/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/flask_note/" title="Flask Web开发笔记">Flask Web开发笔记</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T16:09:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/python">#Python</a>
+                
+                    , 
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/flask">#Flask</a>
+                
+            </em>
+        </li>
+        
+
+        <li>3 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>2.1初始化 Web 服务器使用一种名为 Web 服务器网关接口 （Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这个对象处理。程序实例是 Flask 类的对象
+2.2 路由和视图函数 程序实例需要知道对每个 URL 请求运行哪些代码，所以保存了一个URL到 Python 函数的映射关系。处理 URL 和函数之间关系的程序称为路由。
+在 Python 代码中嵌入响应字符串会导致代码难以维护
+2.3启动服务器 name=='main' 是 Python 的惯常用法，在这里确保直接执行这个脚本时才启动开发Web 服务器。如果这个脚本由其他脚本引入，程序假定父级脚本会启动不同的服务器，因此不会执行 app.run()。
+服务器启动后，会进入轮询，等待并处理请求。轮询会一直运行，直到程序停止，比如按Ctrl-C 键。
+2.5请求-响应循环 ######2.5.1　程序和请求上下文
+Flask 使用上下文临时把某些对象 变为全局可访问。
+   变量名 上下文 说明     current_app 程序上下文 当前激活程序的程序实例   g 程序上下文 处理请求时用作临时存储的对象。每次请求都会重设这个变量   request 请求上下文 请求对象，封装了客户端发出的   session 请求上下文 用户会话，用于存储请求之间需要“记住”的值的词典    2.5.2　请求调度 程序收到客户端发来的请求时，要找到处理该请求的视图函数。为了完成这个任务，Flask 会在程序的 URL 映射中查找请求的 URL。URL 映射是 URL 和视图函数之间的对应关系。 Flask 使用 app.</p>
+      
+      <a href="/posts/flask_note/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/android_interface_definition_language/" title="AIDL 官方使用介绍">AIDL 官方使用介绍</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:09:13&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/%E7%AE%97%E6%B3%95">#算法</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。
+ 当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；
+ 设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口
+ 如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可 提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全 The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous.</p>
+      
+      <a href="/posts/android_interface_definition_language/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/okhttp_analyse/" title="Okhttp 源码解析">Okhttp 源码解析</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:09:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>总体思想 分析源码，首先要熟悉用例，由上到下一层一层剥开源码，初步了解项目的框架，然后再细看代码的实现细节。现在试着分析 OKhttp 的源码，下面代码是来至 OKhttp官网。
+GET A URL
+OkHttpClient client = new OkHttpClient(); //(1) String run(String url) throws IOException { Request request = new Request.Builder() .url(url) .build(); //(2) Response response = client.newCall(request).execute(); //(3) return response.body().string(); //(4) }  创建一个 OkHttpClient 对象。 创建一个 Request 对象，可以设置 URL 等网络配置。 调用 OkHttpClient 的 newCall() 方法，并把自定义配置的Request对象作为参数传进去。到处为止程序成功的将需要的请求放在了队列中，执行 execute() 方法开始向服务器发起请求，服务器返回的信息转化为 Response 对象。 返回 response 对象的 body 主体信息。  一张来至piasy的流程图: 细节分析 创建 OkHttpClient 对象 OkHttpClient client = new OkHttpClient(); OkHttpClient.</p>
+      
+      <a href="/posts/okhttp_analyse/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="http://example.org/posts/javaclone/" title="Java 的拷贝">Java 的拷贝</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:05:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>6 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>深度拷贝一个对象 java.lang.Object 根类已经定义了 clone() 方法。子类只需要事项 java.lang.Cloneable 接口，就可以返回一个拷贝的对象。实现接口的同时要实现 clone() 方法里面的实现。这是拷贝方式就是浅拷贝(shallow copy of object)，这代表着原有对象的值复制一份存储在一个新的对象里面。
+浅拷贝并不是完全复制原对象的所有内容，除了基本类型(int,float&hellip;)，引用类型只是复制一份引用对象的引用，那么原有的对象和拷贝的对象就指共同指向同一个引用对象。这样使用浅拷贝就会导致一些不可预测的错误。看看项目 Exampl1的例子。
+public class Example1 { public static void main(String[] args) { // Make a Vector Vector original = new Vector(); // Make a StringBuffer and add it to the Vector StringBuffer text = new StringBuffer(&quot;The quick brown fox&quot;); original.addElement(text); // Clone the vector and print out the contents Vector clone = (Vector) original.clone(); System.out.println(&quot;A. After cloning&quot;); printVectorContents(original, &quot;original&quot;); printVectorContents(clone, &quot;clone&quot;); System.</p>
+      
+      <a href="/posts/javaclone/">Read more…</a>
+      
+    </li>
+    
+  </ul>
+</section>
+
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+
