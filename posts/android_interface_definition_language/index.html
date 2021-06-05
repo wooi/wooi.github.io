@@ -1,0 +1,505 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>AIDL 官方使用介绍 - 同文館</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="AIDL 官方使用介绍" />
+<meta property="og:description" content="Android Interface Definition Language (AIDL) AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。
+ 当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；
+ 设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口
+ 如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可 提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全 The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wooi.github.io/posts/android_interface_definition_language/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-11-21T16:51:24&#43;08:00" />
+<meta property="article:modified_time" content="2016-11-21T16:51:24&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AIDL 官方使用介绍"/>
+<meta name="twitter:description" content="Android Interface Definition Language (AIDL) AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。
+ 当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；
+ 设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口
+ 如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可 提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全 The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://wooi.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文館</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>AIDL 官方使用介绍</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T16:51:24&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/%E7%AE%97%E6%B3%95">#算法</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h1 id="android-interface-definition-language-aidl">Android Interface Definition Language (AIDL)</h1>
+<p>AIDL是允许你完成自定义接口，用于不同进程中服务器和客户端之间的通讯。主要是因为Android不允许你直接跨进程间传递消息，所以需要通过AIDL把传递的对象分解包装为操作系统可以接受的对象。</p>
+<blockquote>
+<p>当你的Service提供跨进程通讯，而且在服务中做多线程处理时你可以使用AIDL。如果当前的Service不准备提供给其他进程服务端做访问你只需要在服务中实现自定义的binder即可。或者你想实现IPC（进程间通讯），Service内又不需要做多线程管理，这种情况下你只要使用Messager。当然要合理选择哪一种方式的前提是你清楚了解如何绑定一Service；</p>
+</blockquote>
+<p>设计AIDL接口时，要知道你在什么情景下才需要调用你这个接口</p>
+<ul>
+<li>如果只是本地进程中调用这个接口，完全没必要使用AIDL,这时候只要在服务中实现binder即可</li>
+<li>提供接口给远程进程，这时候可能接受远程中不同的线程访问你的接口，换句话说，你要在你的接口中保证线程的安全</li>
+<li>The oneway keyword modifies the behavior of remote calls. When used, a remote call does not block; it simply sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the Binder thread pool as a normal remote call. If oneway is used with a local call, there is no impact and the call is still synchronous.</li>
+</ul>
+<h2 id="定义aidl接口">定义AIDL接口</h2>
+<p>使用java语法在源码目录中创建你的 <em>.aidl</em> 文件</p>
+<p>当你在应用中创建了 <em>.aidl</em> 文件，Android SDK tools 会基于这个文件自动为我们在 <em>gen/</em> 目录中生成IBinder对象。这样客户端就可以通过IBinder实现IPC通讯</p>
+<p>通过AIDL绑定服务的如下步骤：</p>
+<ol>
+<li>
+<p>创建 <em>.aidl</em> 文件</p>
+</li>
+<li>
+<p>实现接口</p>
+<p>文件自动创建接口文件，内部Stub类必须继承Binder，实现Stubd方法内的行为</p>
+</li>
+<li>
+<p>对客户端暴露接口</p>
+<p>实现的Service重写 onBind()方法 返回你实现的stub类</p>
+</li>
+</ol>
+<blockquote>
+<p>aidl文件的做了任何的改变，切记修改使用你服务的客户端</p>
+</blockquote>
+<h3 id="1创建-aidl-文件">1.创建 <em>.aidl</em> 文件</h3>
+<p><strong>IRemoteService.aidl</strong></p>
+<pre><code>// IRemoteService.aidl
+package com.example.administrator.aidl.AIDL;
+
+import com.example.administrator.aidl.AIDL.IRemoteServiceCallback;
+
+// Declare any non-default types here with import statements
+
+interface IRemoteService {
+    /**
+     * Demonstrates some basic types that you can use as parameters
+     * and return values in AIDL.
+     */
+    void registerCallback(IRemoteServiceCallback cb);
+    void unregisterCallback(IRemoteServiceCallback cb);
+}
+
+</code></pre><p><strong>ISecondary.aidl</strong></p>
+<pre><code>// ISecondary.aidl
+package com.example.administrator.aidl.AIDL;
+
+// Declare any non-default types here with import statements
+
+interface ISecondary {
+    /**
+     * Demonstrates some basic types that you can use as parameters
+     * and return values in AIDL.
+     */
+
+    int getPid();
+}
+
+</code></pre><p><strong>IRemoteServiceCallback.aidl</strong></p>
+<pre><code>// IRemoteServiceCallback.aidl
+package com.example.administrator.aidl.AIDL;
+
+// Declare any non-default types here with import statements
+
+interface IRemoteServiceCallback {
+    /**
+     * Demonstrates some basic types that you can use as parameters
+     * and return values in AIDL.
+     */
+    void valueChanged(int value);
+}
+
+</code></pre><h3 id="实现-aidl-文件中的接口如实现-iremoteserviceaidl-和-isecondaryaidl-接口">实现 <em>.aidl</em> 文件中的接口,如实现 <em>IRemoteService.aidl</em> 和 <em>ISecondary.aidl</em> 接口</h3>
+<p>创建 <em>.aidl</em> 文件时，Android skd Tool 会自动对应的java文件，其中会生成一个继承Binder抽象内部类 <em>Stub</em> 。所以在服务中继承Stub，实现自己的内部方法，例如下面RemoteService中 mBinder和mSecondaryBinder中的实现</p>
+<h3 id="暴露你的接口例如在例如下面remoteservice中onbind的方法中把实现的对象返回给客户端程序">暴露你的接口，例如在例如下面RemoteService中OnBind的方法中，把实现的对象返回给客户端程序</h3>
+<p><strong>RemoteService</strong></p>
+<pre><code>public class RemoteService extends Service {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        if (IRemoteService.class.getName().equals(intent.getAction())) {
+            return mBinder;
+        }
+        if (ISecondary.class.getName().equals(intent.getAction())) {
+            return mSecondaryBinder;
+        }
+        return null;
+    }
+
+    private final IRemoteService.Stub mBinder = new IRemoteService.Stub() {
+
+        @Override
+        public void registerCallback(IRemoteServiceCallback cb) throws RemoteException {
+                cb.valueChanged(mSecondaryBinder.getPid());
+        }
+
+        @Override
+        public void unregisterCallback(IRemoteServiceCallback cb) throws RemoteException {
+
+        }
+    };
+
+    private final ISecondary.Stub mSecondaryBinder = new ISecondary.Stub() {
+        @Override
+        public int getPid() throws RemoteException {
+            return Process.myPid();
+        }
+    };
+
+}
+</code></pre><h3 id="绑定方法如同bind方法一样bindserviceintent-mconnection-contextbind_auto_create">绑定方法如同bind方法一样，bindService(intent, mConnection, Context.BIND_AUTO_CREATE);</h3>
+<pre><code>public class Binding extends Activity {
+    private static final int BUMP_MSG = 1;
+    TextView mCallbackText;
+    IRemoteService mService;
+    Button mKillButton;
+    Boolean mIsBound;
+    ISecondary mSecondaryService;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.aidl_layout);
+
+        Button bindbutton = (Button) findViewById(R.id.bind);
+
+        bindbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Binding.this, RemoteService.class);
+                intent.setAction(IRemoteService.class.getName());
+                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+
+                intent.setAction(ISecondary.class.getName());
+                bindService(intent, mSecondaryConnection, Context.BIND_AUTO_CREATE);
+                mCallbackText.setText(&quot;Binding.&quot;);
+                mIsBound = true;
+            }
+        });
+
+        Button unbindbutton = (Button) findViewById(R.id.unbind);
+        unbindbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mIsBound) {
+                    if (mService != null) {
+                        try {
+                            mService.unregisterCallback(mCallback);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                        unbindService(mConnection);
+                        mKillButton.setEnabled(false);
+                        mIsBound = false;
+                        mCallbackText.setText(&quot;Unbinding&quot;);
+                    }
+                }
+            }
+        });
+        mKillButton = (Button) findViewById(R.id.kill);
+        mKillButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSecondaryService != null) {
+                    try {
+                        int pid = mSecondaryService.getPid();
+                        Process.killProcess(pid);
+                        mCallbackText.setText(&quot;Killed service process.&quot;);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                        Toast.makeText(Binding.this,
+                                R.string.remote_call_failed,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        mKillButton.setEnabled(false);
+
+        mCallbackText = (TextView) findViewById(R.id.callback);
+        mCallbackText.setText(&quot;Not attached.&quot;);
+    }
+
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Log.e(&quot;TAG&quot;,&quot;connected&quot;);
+            mService = IRemoteService.Stub.asInterface(iBinder);
+            mKillButton.setEnabled(true);
+            mCallbackText.setText(&quot;Attached&quot;);
+            try {
+                mService.registerCallback(mCallback);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            Toast.makeText(Binding.this, R.string.remote_service_connected,
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            mService = null;
+            mKillButton.setEnabled(false);
+            mCallbackText.setText(&quot;Disconnected.&quot;);
+
+        }
+    };
+
+    private ServiceConnection mSecondaryConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            mSecondaryService = ISecondary.Stub.asInterface(iBinder);
+            mKillButton.setEnabled(true);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            mSecondaryService = null;
+            mKillButton.setEnabled(false);
+        }
+    };
+
+
+    private IRemoteServiceCallback mCallback = new IRemoteServiceCallback.Stub() {
+        @Override
+        public void valueChanged(int value) throws RemoteException {
+            mHandler.sendMessage(mHandler.obtainMessage(BUMP_MSG, value, 0));
+        }
+    };
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case BUMP_MSG:
+                    mCallbackText.setText(&quot;Received from service: &quot; + msg.arg1);
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mService!=null){
+            unbindService(mConnection);
+        }
+    }
+}
+</code></pre><h3 id="ipc传递对象">IPC传递对象</h3>
+<ol>
+<li>传递的对象实现Parcelable接口</li>
+<li>在对象的类中实现 writeToParcel方法</li>
+<li>添加一个静态变量CREATOR并且实现Parcelable.Creator 的接口</li>
+<li>在目录中添加一个.aidl文件声明上面所创建的parcelable 类,列如如下</li>
+</ol>
+<p>Rect.aidl</p>
+<pre><code>package android.graphics;
+parcelable Rect;
+</code></pre><p>这里创建我们的Rect类，并实现现Parcelable接口，类中再实现writeToParcel方法，静态变量CREATOR</p>
+<p>Rect.java</p>
+<pre><code>public class Rect implements Parcelable {
+    public int left;
+    public int top;
+    public int right;
+    public int bottom;
+
+    public static final Parcelable.Creator&lt;Rect&gt; CREATOR = new Creator&lt;Rect&gt;() {
+        @Override
+        public Rect createFromParcel(Parcel parcel) {
+            return new Rect(parcel);
+        }
+
+        @Override
+        public Rect[] newArray(int i) {
+            return new Rect[i];
+        }
+    };
+
+    public Rect() {
+    }
+
+    private Rect(Parcel in) {
+        readFromParcel(in);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(left);
+        parcel.writeInt(top);
+        parcel.writeInt(right);
+        parcel.writeInt(bottom);
+    }
+
+    public void readFromParcel(Parcel in) {
+        left = in.readInt();
+        top = in.readInt();
+        right = in.readInt();
+        bottom = in.readInt();
+    }
+
+}
+</code></pre><p>在 IRemoteService.aidl添加下面的接口</p>
+<pre><code>Rect getRect();
+</code></pre><p>在RemoteService.java中的mBinder对象中实现以下方法，这里我们对服务返回的对象进行赋值</p>
+<pre><code> @Override
+        public Rect getRect() throws RemoteException {
+            Rect rect = new Rect();
+            rect.bottom = 10;
+            rect.top = 10;
+            rect.left = 5;
+            rect.right = 6;
+            return rect;
+        }
+</code></pre><p>这样我们便可以在客户端中先服务获取我的对象，具体在Bindnd.java中的mConnection得到Rect对象，如下</p>
+<pre><code>   private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Log.e(&quot;TAG&quot;, &quot;connected&quot;);
+            mService = IRemoteService.Stub.asInterface(iBinder);
+            mKillButton.setEnabled(true);
+            mCallbackText.setText(&quot;Attached&quot;);
+            try {
+                //获取到服务端中的Rect对象
+                android.graphics.Rect rectFromService = mService.getRect();
+                Log.e(&quot;TAG&quot;,&quot;bottom = &quot;+rectFromService.bottom+&quot;,top = &quot;+rectFromService.top+&quot;,left = &quot;+rectFromService.left+&quot;,right =&quot;+rectFromService.right);
+                mService.registerCallback(mCallback);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            Toast.makeText(Binding.this, R.string.remote_service_connected,
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            mService = null;
+            mKillButton.setEnabled(false);
+            mCallbackText.setText(&quot;Disconnected.&quot;);
+
+        }
+    };
+</code></pre>
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://wooi.github.io/posts/annotation/"><i class="fa fa-chevron-circle-left"></i> Java注解解释</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://wooi.github.io/posts/memory_leak/">Android 内存泄露的几中场景 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://wooi.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

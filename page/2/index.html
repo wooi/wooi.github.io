@@ -1,0 +1,374 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>同文館</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><link rel="alternate" type="application/rss+xml" href="https://wooi.github.io/index.xml" title="同文館" /><meta property="og:title" content="同文館" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wooi.github.io/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="同文館"/>
+<meta name="twitter:description" content=""/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://wooi.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文館</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<section id="home">
+  <ul>
+    
+    
+    
+
+    <li class="first" >
+      <h1><a href="https://wooi.github.io/posts/okhttp_analyse/" title="Okhttp 源码解析">Okhttp 源码解析</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:09:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>Okhttp解析 总体思想 分析源码，首先要熟悉用例，由上到下一层一层剥开源码，初步了解项目的框架，然后再细看代码的实现细节。现在试着分析 OKhttp 的源码，下面代码是来至 OKhttp官网。
+GET A URL
+OkHttpClient client = new OkHttpClient(); //(1) String run(String url) throws IOException { Request request = new Request.Builder() .url(url) .build(); //(2) Response response = client.newCall(request).execute(); //(3) return response.body().string(); //(4) }  创建一个 OkHttpClient 对象。 创建一个 Request 对象，可以设置 URL 等网络配置。 调用 OkHttpClient 的 newCall() 方法，并把自定义配置的Request对象作为参数传进去。到处为止程序成功的将需要的请求放在了队列中，执行 execute() 方法开始向服务器发起请求，服务器返回的信息转化为 Response 对象。 返回 response 对象的 body 主体信息。  一张来至piasy的流程图: 细节分析 创建 OkHttpClient 对象 OkHttpClient client = new OkHttpClient(); OkHttpClient.</p>
+      
+      <a href="/posts/okhttp_analyse/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/javaclone/" title="Java 的拷贝">Java 的拷贝</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:05:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>6 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>对象的拷贝 深度拷贝一个对象 java.lang.Object 根类已经定义了 clone() 方法。子类只需要事项 java.lang.Cloneable 接口，就可以返回一个拷贝的对象。实现接口的同时要实现 clone() 方法里面的实现。这是拷贝方式就是浅拷贝(shallow copy of object)，这代表着原有对象的值复制一份存储在一个新的对象里面。
+浅拷贝并不是完全复制原对象的所有内容，除了基本类型(int,float&hellip;)，引用类型只是复制一份引用对象的引用，那么原有的对象和拷贝的对象就指共同指向同一个引用对象。这样使用浅拷贝就会导致一些不可预测的错误。看看项目 Exampl1的例子。
+public class Example1 { public static void main(String[] args) { // Make a Vector Vector original = new Vector(); // Make a StringBuffer and add it to the Vector StringBuffer text = new StringBuffer(&quot;The quick brown fox&quot;); original.addElement(text); // Clone the vector and print out the contents Vector clone = (Vector) original.clone(); System.out.println(&quot;A. After cloning&quot;); printVectorContents(original, &quot;original&quot;); printVectorContents(clone, &quot;clone&quot;); System.</p>
+      
+      <a href="/posts/javaclone/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/java-list/" title="List简介">List简介</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:05:00&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>List简介 List 四种实现类  ArrayList LinkeList Vector Stack  四种List的数据结构   ArrayList 动态数组，初始化分配一定长度的数组
+  LinkeList 双向链表
+  Vector 与 ArrayList 一样使用动态数组作为存储结构
+  Stack Stack 继承 Vector ，不同的点是 Stack 是栈而不是队列，实现先进后出
+  四种List的不同使用场景的效率 四种 List 实现其实根据数据结构可以分为两类，ArrayList，Vector，Stack 都是动态数组划分为一类，后面一ArrayList作为代表作比较分析。另一类就用是双向链表(包含当前的值和前节点和后节点e)实现 LinkedList。
+根据链表和数组的比较，链表在插入，删除操作效率更高，但是随机读取效率相比数组就比较低。 相反的，插入或删除一个数据就需要更长的时间，因为被修改位置后续的坐标全都要后移一位，所以耗时较长。
+源码中可以看出，LinkedList 寻找的 index 大于List 长度的一半时，则会从后面开始读取数据 而数组的 List 直接根据下标返回所需的元素
+ArrayList 与 Vector 关于现场安全的比较 ArrayList 非现成安全，Vector 线程安全，所以在对单线程中使用 ArrayList 的效率要高于 Vector
+ArrayList 的遍历速度比较 随机范围的效率最高 随机访问 &gt; for循环 &gt; 遍历器</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/alogrithm/" title="算法学习笔记 - Alogrithm Fourth Edition">算法学习笔记 - Alogrithm Fourth Edition</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T14:04:24&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/%E7%AE%97%E6%B3%95">#算法</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>算法学习笔记 - Alogrithm Fourth Edition 排序算法 选择排序(Selection) 如果有N个数组，从第一个元素开始往后选择，与后面的每一个元素做对比，挑出最小的元素，如果后面元素中有一个最小的值，则把这个值放到第一位。然后从第二位数开始，继续往后面的元素做对比，挑出最小元素，如果后面元素中有一个最小的值，则把这个值放到第二位。以此重复操作到第N位，排序就完成了。
+public class Selection { Selection() { } public static void main(String[] args) { int[] a = new int[] { 1, 2, 5, 7, 9, 12, 93, 5, 4, 6, 88 }; show(a); Selection.sort(a); show(a); } public static void sort(int[] a) { for (int i = 0; i &lt; a.length; i++) { int mini = i; for (int j = i + 1; j &lt; a.</p>
+      
+      <a href="/posts/alogrithm/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/generics/" title="泛型">泛型</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T11:55:54&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>泛型 泛型程序设计是程序设计语言的一种风格或范式。在强类型程序设计语言中必须要指定变量的类型，否则就过不了编译器那一关，而泛型的用途就是让程序员可以写出程序运行过程中确定变量的类型，简单来说泛型就是用一个特殊的符号代表变量的类型。
+泛型的定义及目的 泛型的定义主要有以下两种：
+  在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）
+  在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（现在人们大多把这称作模板） 不论使用那个定义，泛型的参数在真正使用泛型时都必须作出指明。
+  一些强类型程序语言支持泛型，其主要目的是加强类型安全及减少类转换的次数，但一些支持泛型的程序语言只能达到部分目的。
+伪代码例子 類例泛類&lt;T&gt; { 值 : T 設置值(新值 : T) { 值 := 新值 } 獲取值() : T { 返回　值 } } 例方法1() { 例物件 : 例泛類&lt;整數型&gt; 例物件 := 新　例泛類&lt;整數型&gt;() 例物件.設置值(5) 输出整数(例对象.获取值()) } 例方法2() { 例物件 : 例泛-{}-類&lt;浮點數型&gt; 例物件 := 新　例泛類&lt;浮點數型&gt;() 例物件.設置值(5.5) 输出浮点数(例对象.获取值()) } this article from wikipedia</p>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/bindsevice/" title="BindSevice的几种使用方法">BindSevice的几种使用方法</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-10-11T22:00:07&#43;08:00">Oct 11, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/android">#Android</a>
+                
+                    , 
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/binder">#Binder</a>
+                
+            </em>
+        </li>
+        
+
+        <li>3 minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>绑定服务 绑定服务是客户端-服务器接口中的服务器。绑定服务可让组件（例如 Activity）绑定到服务、发送请求、接收响应，甚至执行进程间通信 (IPC)。 绑定服务通常只在为其他应用组件服务时处于活动状态，不会无限期在后台运行。
+Sevice 以下这个服务可让客户端通过 Binder 实现访问服务中的方法
+	public class LocalService extends Service { IBinder mBinder = new LocalBinder(); private final Random mGenerator = new Random(); public class LocalBinder extends Binder { LocalService getService() { return LocalService.this; } } @Nullable @Override public IBinder onBind(Intent intent) { return mBinder; } public int getRandomNumber() { return mGenerator.nextInt(100); } } Client 	public class MainActivity extends Activity { LocalService mService; Button button; Boolean mBound; @Override protected void onCreate(Bundle savedInstanceState) { super.</p>
+      
+      <a href="/posts/bindsevice/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
+      <h1><a href="https://wooi.github.io/posts/badstory1/" title="爛的故事">爛的故事</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-10-11T16:51:24&#43;08:00">Oct 11, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E8%83%A1%E8%AA%AA%E5%85%AB%E9%81%93">#胡說八道</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>爛的故事 一夜之間整個世界的女性全部消失了。有一個人，他擁有完美女性的樣貌和身材，但實際上他是一個徹頭徹尾的男人。面對外面其他男性的追求他很是煩惱，所以他決定就不出門了。
+劇終</p>
+      
+    </li>
+    
+  </ul>
+</section>
+
+
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://wooi.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

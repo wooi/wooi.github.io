@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Java注解解释 - 同文館</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Java注解解释" />
+<meta property="og:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。 Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+ // @Twizzle标注toggle()方法。 @Twizzle public void toggle() { } // 声明Twizzle标注 public @interface Twizzle { } 标注可以包含一个关键字和值的对所构成的列表：
+ //等同于 @Edible(value = true) @Edible(true) Item item = new Carrot(); public @interface Edible { boolean value() default false; } @Author(first = &quot;Oompah&quot;, last = &quot;Loompah&quot;) Book book = new Book(); public @interface Author { String first(); String last(); } " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wooi.github.io/posts/annotation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-11-21T16:51:24&#43;08:00" />
+<meta property="article:modified_time" content="2016-11-21T16:51:24&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java注解解释"/>
+<meta name="twitter:description" content="Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。 Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。
+ // @Twizzle标注toggle()方法。 @Twizzle public void toggle() { } // 声明Twizzle标注 public @interface Twizzle { } 标注可以包含一个关键字和值的对所构成的列表：
+ //等同于 @Edible(value = true) @Edible(true) Item item = new Carrot(); public @interface Edible { boolean value() default false; } @Author(first = &quot;Oompah&quot;, last = &quot;Loompah&quot;) Book book = new Book(); public @interface Author { String first(); String last(); } "/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://wooi.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文館</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Java注解解释</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-11-21T16:51:24&#43;08:00">Nov 21, 2016</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/java">#Java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Java注解又称Java标注，是Java语言5.0版本开始支持加入源代码的特殊语法元数据[1]。
+Java语言中的类、方法、变量、参数和包等都可以被标注。Java标注和Javadoc不同，标注有自反性。在编译器生成类文件时，标注可以被嵌入到字节码中，由Java虚拟机执行时获取到标注[2]。</p>
+<pre><code> // @Twizzle标注toggle()方法。
+  @Twizzle
+  public void toggle() {
+  }
+
+  // 声明Twizzle标注
+  public @interface Twizzle {
+  }
+</code></pre><p>标注可以包含一个关键字和值的对所构成的列表：</p>
+<pre><code> //等同于 @Edible(value = true)
+  @Edible(true)
+  Item item = new Carrot();
+
+  public @interface Edible {
+    boolean value() default false;
+  }
+
+  @Author(first = &quot;Oompah&quot;, last = &quot;Loompah&quot;)
+  Book book = new Book();
+
+  public @interface Author {
+    String first();
+    String last();
+  }
+</code></pre>
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://wooi.github.io/posts/flask_note/"><i class="fa fa-chevron-circle-left"></i> Flask Web开发笔记</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://wooi.github.io/posts/android_interface_definition_language/">AIDL 官方使用介绍 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://wooi.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

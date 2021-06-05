@@ -1,0 +1,313 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Kotlin的函数式编程思维 - 同文館</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Kotlin的函数式编程思维" />
+<meta property="og:description" content="Kotlin的函数式编程思维 定义 学习编程之前，我们对函数的理解更多是数学上的定义例如 f=(x) ,学习了编程之后我们对函数的定义编程了一种方法（Method）,方法更多的是它能做什么，而函数表示的则是输入到输出的映射。所以函数式编程更靠近与数学上函数的概念，输入到输出之间的一个映射关系。 显而易见的好处是输入固定，输出也是固定的。往函数里面输入一个值，用于有一个值以此对应。 函数式编程的特点
+ 函数是一种值 不变性 没有副作用  不变型和没有副作用，对于单一方法的调试，排查更加简单，加入线上出现某个Bug，开发者定位到了相关的函数，根据出现的结果推到出对应的输入值，在某个方法中的问题分析少去了其他无用的上下文理解。
+####Lambda表达式的演进
+public fun printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) } blockOfCode = fun printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) } blockOfCode = printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) }	blockOfCode = printUserName(name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name) -&gt;	print(&#34;User:&#34;&#43;name) blockOfCode 函数的使用
+val blockOfCode = (name) -&gt; print(&quot;User:&quot;&#43;name) blockOfCode(&quot;Tim&quot;) ####非纯函数与纯函数
+//非纯函数 var preValue : Int = 2 fun addNotPure(currentValue : Int):Int { preValue = preValue &#43; currentValue return preValue } //纯函数 fun addPure(cur : Int , pre : Int): Int { return cur &#43; pre } 高级函数 高阶函数是将函数用作参数或返回值的函数。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wooi.github.io/posts/funtional_programing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-28T20:45:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-28T20:45:00&#43;08:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kotlin的函数式编程思维"/>
+<meta name="twitter:description" content="Kotlin的函数式编程思维 定义 学习编程之前，我们对函数的理解更多是数学上的定义例如 f=(x) ,学习了编程之后我们对函数的定义编程了一种方法（Method）,方法更多的是它能做什么，而函数表示的则是输入到输出的映射。所以函数式编程更靠近与数学上函数的概念，输入到输出之间的一个映射关系。 显而易见的好处是输入固定，输出也是固定的。往函数里面输入一个值，用于有一个值以此对应。 函数式编程的特点
+ 函数是一种值 不变性 没有副作用  不变型和没有副作用，对于单一方法的调试，排查更加简单，加入线上出现某个Bug，开发者定位到了相关的函数，根据出现的结果推到出对应的输入值，在某个方法中的问题分析少去了其他无用的上下文理解。
+####Lambda表达式的演进
+public fun printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) } blockOfCode = fun printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) } blockOfCode = printUserName(name:String):Unit{ print(&#34;User:&#34;&#43;name) }	blockOfCode = printUserName(name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name:String){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name){ print(&#34;User:&#34;&#43;name) }	blockOfCode = (name) -&gt;	print(&#34;User:&#34;&#43;name) blockOfCode 函数的使用
+val blockOfCode = (name) -&gt; print(&quot;User:&quot;&#43;name) blockOfCode(&quot;Tim&quot;) ####非纯函数与纯函数
+//非纯函数 var preValue : Int = 2 fun addNotPure(currentValue : Int):Int { preValue = preValue &#43; currentValue return preValue } //纯函数 fun addPure(cur : Int , pre : Int): Int { return cur &#43; pre } 高级函数 高阶函数是将函数用作参数或返回值的函数。"/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://wooi.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">同文館</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Kotlin的函数式编程思维</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2021-04-28T20:45:00&#43;08:00">Apr 28, 2021</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF">#技术</a>
+                
+                    , 
+                    <a href="/tags/kotlin">#Kotlin</a>
+                
+                    , 
+                    <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">#函数式编程</a>
+                
+            </em>
+        </li>
+        
+
+        <li>2 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h2 id="kotlin的函数式编程思维">Kotlin的函数式编程思维</h2>
+<h4 id="定义">定义</h4>
+<p>学习编程之前，我们对函数的理解更多是数学上的定义例如 f=(x) ,学习了编程之后我们对函数的定义编程了一种方法（Method）,方法更多的是它能做什么，而函数表示的则是输入到输出的映射。所以函数式编程更靠近与数学上函数的概念，输入到输出之间的一个映射关系。
+显而易见的好处是输入固定，输出也是固定的。往函数里面输入一个值，用于有一个值以此对应。
+函数式编程的特点</p>
+<ul>
+<li>函数是一种值</li>
+<li>不变性</li>
+<li>没有副作用</li>
+</ul>
+<p>不变型和没有副作用，对于单一方法的调试，排查更加简单，加入线上出现某个Bug，开发者定位到了相关的函数，根据出现的结果推到出对应的输入值，在某个方法中的问题分析少去了其他无用的上下文理解。</p>
+<p>####Lambda表达式的演进</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">printUserName</span>(name:String):Unit{
+	print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+}
+
+blockOfCode = <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">printUserName</span>(name:String):Unit{
+							print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}
+				
+				
+blockOfCode = printUserName(name:String):Unit{
+						print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}				
+				
+blockOfCode = printUserName(name:String){
+						print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}				
+				
+				
+blockOfCode = (name:String){
+						print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}	
+				
+
+blockOfCode = (name:String){
+						print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}	
+				
+				
+blockOfCode = (name){
+						print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+				}	
+				
+					
+blockOfCode = (name) <span style="color:#f92672">-&gt;</span>	 print(<span style="color:#e6db74">&#34;User:&#34;</span>+name)
+												
+</code></pre></div><p>blockOfCode 函数的使用</p>
+<pre><code>val blockOfCode = (name) -&gt; print(&quot;User:&quot;+name)
+blockOfCode(&quot;Tim&quot;)
+
+</code></pre><p>####非纯函数与纯函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">//非纯函数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> preValue : Int = <span style="color:#ae81ff">2</span>
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">addNotPure</span>(currentValue : Int):Int {
+    preValue = preValue + currentValue
+    <span style="color:#66d9ef">return</span> preValue
+}
+
+<span style="color:#75715e">//纯函数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">addPure</span>(cur : Int , pre : Int): Int {
+    <span style="color:#66d9ef">return</span> cur + pre
+}
+
+
+</code></pre></div><h4 id="高级函数">高级函数</h4>
+<p>高阶函数是将函数用作参数或返回值的函数。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(x, y, f):
+    <span style="color:#66d9ef">return</span> f(x) <span style="color:#f92672">+</span> f(y)
+</code></pre></div><h4 id="从java-到kotlin的实例应用">从Java 到Kotlin的实例应用</h4>
+<p>无限长的 if else，通过高级函数的特性可以对这钟场景做代码的拆解和重构</p>
+<pre><code>fun get(type:Int) {
+	if(type  == TYPE_A) {
+		return A()
+	}else if (type  == TYPE_B) {
+		return B()
+	}else if (type  == TYPE_C) {
+		return C()
+	}else if (...) {
+		return D()
+	}else if (...) {
+		return E()
+	}else if (...) {
+		return F()
+	}
+}
+
+//函数式的写法
+
+var fa = () -&gt; A
+fun fb = () -&gt; B
+fun fc = () -&gt; C
+
+fmap = mapOf(
+	TYPE_A to fa,
+	TYPE_B to fb,
+	TYPE_C to fc,
+)
+
+fun get(type:Int) {
+	return fmap(type)
+}
+
+</code></pre><h4 id="库里化">库里化</h4>
+<p>curry：把一个函数的多个参数分解成多个函数， 然后把函数多层封装起来，每层函数都返回一个函数去接收下一个参数这样，可以简化函数的多个参数.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">//普通
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(x: Int, y: Int): Int {
+    <span style="color:#66d9ef">return</span> x + y
+}
+
+
+<span style="color:#75715e">//柯理化
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(x: Int): (Int) <span style="color:#f92672">-&gt;</span> Int {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">fun</span>(y: Int): Int {
+        <span style="color:#66d9ef">return</span> x + y
+    }
+}
+</code></pre></div><h4 id="惰性求值">惰性求值</h4>
+<p>惰性求值时函数式编程语言常见的一种特性，就是不需要立刻运行，等待有需要时再执行“复杂”的运算。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">makePowerFn</span>(power: Double): (Double) <span style="color:#f92672">-&gt;</span> Double {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">fun</span>(base: Double): Double {
+        <span style="color:#66d9ef">return</span> pow(base, power)
+    }
+}
+</code></pre></div><h4 id="记忆功能">记忆功能</h4>
+<p>面对一些反复调用的函数，提高处理的性能，通过内存换取时间时一个常用的方法，遇到同样的参数无需重复运行即可直接返回计算结果。当然这是在纯函数的前提下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">isEvenNumber</span>(number: Int): Boolean {
+   println(<span style="color:#e6db74">&#34;isEvenNumber&#34;</span>)
+   <span style="color:#66d9ef">return</span> number % <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+}
+
+<span style="color:#66d9ef">fun</span> &lt;<span style="color:#a6e22e">X</span>, <span style="color:#a6e22e">R</span>&gt; <span style="color:#a6e22e">memoizeFun</span>(fn: (X) <span style="color:#f92672">-&gt;</span> R): (X) <span style="color:#f92672">-&gt;</span> R {
+   <span style="color:#66d9ef">val</span> cache: MutableMap&lt;X, R&gt; = HashMap()
+   <span style="color:#66d9ef">return</span> {
+       cache.getOrPut(<span style="color:#66d9ef">it</span>, { fn(<span style="color:#66d9ef">it</span>) })
+   }
+}
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+   <span style="color:#66d9ef">val</span> m2 = memoizeFun { x: Int <span style="color:#f92672">-&gt;</span> isEvenNumber(x) }
+
+   <span style="color:#66d9ef">val</span> rm21 = m2(<span style="color:#ae81ff">3</span>)
+   <span style="color:#66d9ef">val</span> rm22 = m2(<span style="color:#ae81ff">3</span>)
+   <span style="color:#66d9ef">val</span> rm23 = m2(<span style="color:#ae81ff">3</span>)
+
+   println(rm21)
+   println(rm22)
+   println(rm23)
+}
+</code></pre></div><h4 id="语言库实现最佳体现">语言库实现最佳体现</h4>
+<pre><code>val ints = listOf(1, 2, 3, 4, 5, 6)
+val strings = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)
+</code></pre><p>1.筛选</p>
+<pre><code>
+val list1 = ints.filter { it != 2 } println(&quot;filter:$list1&quot;)
+  val list2 = ints.filterNot { it != 2 } println(&quot;filterNot:$list2&quot;)
+
+</code></pre><p>2.映射</p>
+<pre><code>val mlist = strings.map { s -&gt; &quot;hello $s&quot; }
+println(&quot;map:$mlist&quot;)
+</code></pre><p>3.折叠</p>
+<pre><code>var sum = ints.reduce { acc, i -&gt; acc + i } println(&quot;Sum:$sum&quot;)
+</code></pre><h4 id="函数式编程应用于ui的发展">函数式编程应用于UI的发展</h4>
+<p>不同平台相同的趋势，由命令式转向声明式，甚至不同平台之间的视图函数和函数中参数的设置都极其相似。
+1.React</p>
+<p>2.Flutter</p>
+<p>3.SwiftUI</p>
+<p>4.Android Compose</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://wooi.github.io/posts/reborn/"><i class="fa fa-chevron-circle-left"></i> 找回旧时玩代码的感觉</a>
+        </li>
+        
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://wooi.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+
